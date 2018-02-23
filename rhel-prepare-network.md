@@ -21,8 +21,7 @@ lastupdated: "2018-02-21"
 
 If you are planning to install a three-tier setup, the network needs to be set up correctly. In the example, a 256 GB database server (named `e2e2690`) and a 32 GB application server (named `e2e1270`) have been deployed. The database server also hosts the (A)SCS instance. Adding the IP addresses on the private network to your `/etc/hosts` helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-## INSERT DIAGRAM
-{: caption="Figure 1. Sample of three-tier setup" caption-side"top"}
+![Figure 1. Sample of three-tier setup](/images/network-01.png "Sample of three-tier setup")
 
 Use the following steps to establish your network.
 
