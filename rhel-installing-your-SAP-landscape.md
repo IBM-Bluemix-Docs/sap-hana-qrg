@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-02-22"
 
 
 ---
@@ -35,11 +35,13 @@ An SAP installation requires certain prerequisites for the packages that are ins
 [root@e2e2690 ~]# chkconfig uuidd on
 [root@e2e2690 ~]# service uuidd start
 ```
-2. Follow [SAP Note 2195019](https://launchpad.support.sap.com/#/notes/2195019) and install package compat-sap-c++ and create a specific soft-link, which is required by the SAP binaries.
+
+### Installing package compat-sap-c++
+
+1. Follow [SAP Note 2195019](https://launchpad.support.sap.com/#/notes/2195019) and install package compat-sap-c++ and create a specific soft-link, which is required by the SAP binaries.
 ```
 [root@e2e2690 ~]# yum install compat-sap-c++
 ....
-
 [root@e2e2690 ~]# mkdir -p /usr/sap/lib
 [root@e2e2690 ~]# ln -s /opt/rh/SAP/lib64/compat-sap-c++.so /usr/sap/lib/libstdc++.so.6
 ```
