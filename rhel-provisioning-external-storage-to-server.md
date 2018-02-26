@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-02-26"
 
 
 ---
@@ -27,7 +27,7 @@ External storage can be added to your provisioned server or servers if you want 
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com/) with your unique credentials.
 2. Select **Storage > Block Storage.**
-3. Click **Order Block Storage** on the Block Storage page.
+3. Click **Order Block Storage** in the upper right corner of the Block Storage page.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 4 IOPS/GB for a typical database workload.
 
 |              Field               |      Value                                        |
