@@ -25,7 +25,7 @@ lastupdated: "2018-01-26"
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com) with your unique credentials.
 2. Click **Devices** on the Account Summary page.
 3. Click **Monthly** under {{site.data.keyword.baremetal_short}} on the Devices page. The Server List dialog box appears.
-4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S1.NW32.**
+4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S1.NW32 (OS Options).**
 
 ## Selecting your server options
 {: #options_32GB}
