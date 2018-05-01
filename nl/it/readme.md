@@ -1,0 +1,1 @@
+Initial Italian translation file.
