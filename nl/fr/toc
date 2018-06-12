@@ -1,0 +1,42 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+SAP NetWeaver on IBM Cloud - Guide de référence rapide pour Red Hat Enterprise Linux
+
+    {: .navgroup id="learn"}
+    rhel-index.md
+    [SAP NetWeaver on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)
+    {: .navgroup-end}
+
+    {: .navgroup id="howto"}
+    {: .topicgroup}
+    Mise à disposition
+        rhel-installing-32-GB-single-server-node.md
+        rhel-set-up-infrastructure-32GB.md
+        rhel-prepare-server-32GB.md
+        rhel-partition-32GB.md
+        rhel-installing-256-GB-32-GB-server-three-tier-setup.md
+        rhel-set-up-infrastructure-three-tier.md
+        rhel-prepare-server-256GB.md
+        rhel-partition-256GB.md
+        rhel-prepare-network.md
+
+    {: .topicgroup}
+    Configuration
+        rhel-provisioning-external-storage-to-server.md
+        rhel-installing-your-SAP-landscape.md
+    {: .navgroup-end}
+
+    {: .navgroup id="reference"}
+    rhel-sample.md
+    {: .navgroup-end}
+
+    {: .navgroup id="help"}
+    [Support](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-support.html)
+
+    {: .topicgroup}
+    Foires aux questions
+        [FAQs: SAP on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-faqs.html#faqs)
+        
+{: .navgroup-end}
