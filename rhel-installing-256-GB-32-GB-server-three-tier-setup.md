@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-01-29"
+lastupdated: "2018-06-18"
 
 
 ---
@@ -31,4 +31,4 @@ A three-tier environment is a more complex scenario using a 256 GB server as the
 
 ## Next Steps
 
-Click appropriate step in Table 1 to begin configuring your {{site.data.keyword.cloud_notm}} {{site.data.keyword.baremetal_short}} three-tier environment for SAP NetWeaver.
+Click appropriate step in Table 1 to begin configuring your {{site.data.keyword.cloud_notm}} SAP-certified infrastructure for a three-tier environment.
