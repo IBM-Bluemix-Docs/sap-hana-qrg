@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-22"
+lastupdated: "2018-06-27"
 
 
 ---
@@ -54,7 +54,7 @@ Log in to the [SAP Service Marketplace](https://websmp201.sap-ag.de/) and downlo
 ## Preparing for SAP's SWPM GUI
 {: #prepare_for_GUI}
 
-Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Consult the [SWPM documentation](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0) if you decide to run the GUI locally. 
+Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Consult the [SWPM documentation](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0) if you decide to run the GUI locally. 
 
 The following steps outline running the SWPM GUI remotely in a VNC session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation](http://searchnetworking.techtarget.com/definition/virtual-network-computing) to get an overview on its functions, if you are not familiar with it.
 
