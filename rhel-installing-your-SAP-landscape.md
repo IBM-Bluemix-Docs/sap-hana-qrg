@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-27"
+lastupdated: "2018-07-06"
 
 
 ---
@@ -49,7 +49,7 @@ An SAP installation requires certain prerequisites for the packages that are ins
 ## Downloading your SAP software
 {: download_software}
 
-Log in to the [SAP Service Marketplace](https://websmp201.sap-ag.de/) and download the required DVDs to a local share drive. Transfer the files to your provisioned server. Another option is to download the [SAP Software Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677), install it on your target server and directly download the DVD images to the server. 
+Log in to the [SAP Support Portal](https://support.sap.com/en/index.html), click **Download Software**, and download the required DVDs to a local share drive. Transfer the files to your provisioned server. Another option is to download the [SAP Software Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677), install it on your target server and directly download the DVD images to the server. 
 
 ## Preparing for SAP's SWPM GUI
 {: #prepare_for_GUI}
