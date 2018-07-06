@@ -51,13 +51,13 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 
 1. Select **500 GB** for **Public Bandwidth.**
 2. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server) for detailed descriptions of the options.
+3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options) for detailed descriptions of the options.
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server) guidelines.
+1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
 
 |              Field               |      Value                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
