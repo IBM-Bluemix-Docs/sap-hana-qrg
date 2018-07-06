@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-18"
+lastupdated: "2018-07-06"
 
 
 ---
@@ -24,7 +24,7 @@ lastupdated: "2018-06-18"
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com) with your unique credentials.
 2. Click **Devices** on the Account Summary page.
-3. Click **Monthly** under {{site.data.keyword.baremetal_short}} on the Devices page. The Server List dialog box appears.
+3. Click **Monthly** under {{site.data.keyword.baremetal_short}} on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list..
 4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S1.NW32 (OS Options).**
 
 ## Configuring your server
@@ -41,12 +41,12 @@ lastupdated: "2018-06-18"
 9. Leave **LVM** unchecked and accept the default **Partition Template**, **Linux Basic**.
 10. Click **Done**.
 
-## Selecting your server options
+## Selecting your additional server options
 {: #options_32GB}
 
 1. Select **500 GB** for **Public Bandwidth.**
 2.	Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. Leave the default values for all other fields. For detailed option descriptions, see [Setting Up a Bare Metal Server](https://console.bluemix.net/docs/bare-metal/set-bare-metal-server-2.html#customerportal_setupbaremetal).
+3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server).
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
@@ -74,7 +74,7 @@ Use the values in Table 1 for the fields under Advanced System Configuration. Mo
 1. Confirm your selections on the Checkout page, and click **Cloud Service terms** and **3rd Party Software Agreement** on the right-hand side of the page.
 2. Click **Submit Order** on the right-hand side of the form. You are redirected to a page with your order number; you can print the page because it's also your order receipt. In addition, you receive a confirmation email with the subject *Your IBM Cloud Order ## has been approved* with ## being your order number.
 
-After the order is submitted, your server is, depending on your order, available for use within one to four hours. You can check the Device Details screen on the main Customer Portal page (**Devices > Device List**) for a status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+After the order is submitted, your server is, depending on your order, available for use within one to four hours. You can check the Device Details screen on the main inftrastructure customer portal page (**Devices > Device List**) for a status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
 ## Next Steps
  
