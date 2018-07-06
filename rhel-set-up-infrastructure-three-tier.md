@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-07-06"
 
 
 ---
@@ -24,29 +24,40 @@ lastupdated: "2018-02-26"
 
 Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) to order the SAP NetWeaver application server. The following steps guide you through ordering the database server.
 
+## Ordering your database server
+{: #order-db-server}
+
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com) with your unique credentials.
 2. Click the **Devices** icon on the Account Summary page.
-3. Click **Monthly** under **{{site.data.keyword.baremetal_long}}** on the Devices page. The Server List dialog box appears.
+3. Click **Monthly** under **{{site.data.keyword.baremetal_long}}** on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
 4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S1.NW256 (OS Options).**
 
-## Selecting your server options
+## Configuring your database server
 {: #options_32GB}
 
 1. Leave **1** in the **Quantity** field.
 2. Select **TOR01** for **Data Center.**
 3. **Server** defaults to a predefined value based on your server selection and cannot be change changed.
 4. Click **32 GB RAM** even though the **RAM** selection defaults to a predefined value based on your sever selection and cannot be changed.
-5. Select **Red Hat Enterprise Linux for SAP Business Application 6.X** as your Operating System.
-6. Under **Hard Drives,** select a second 2 TB SATA disk, create an RAID storage group of RAID1 from both disks that covers the total amount of storage, and choose **Linux Basic** as the **Partition Template.** Leave **LVM** unchecked.
-7. Select **500 GB** for **Public Bandwidth.**
-8. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-9. For this example, leave the default values for all other fields. You can consult [Setting up your bare metal servers](https://console.bluemix.net/docs/bare-metal/configuring.html#setting-up-your-bare-metal-servers) for detailed descriptions of the options.
-10.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
+5. Click **Redhat** and select **Red Hat Enterprise Linux for SAP Business Application 6.X (64 bit)** as your **Operating System**.
+6. Add a second 2 TB STAT drive by clicking the **Disk Controller 1** drop-down ment, and selecting **2 TB SATA**. Click **Add Disk**.
+7. Click **Select All Disks** and click **Create RAID Storage Groups**.
+8. Click **Type** and select **RAID 1**. Enter a **Size** that covers the total amount of storage you need.
+9. Leave **LVM** unchecked and accept the default **Partition Template.**, **Linux Basic**.
+10. Click **Done**.
+
+## Selecting your additional database server options
+{: #addl-server-options}
+
+1. Select **500 GB** for **Public Bandwidth.**
+2. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
+3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server) for detailed descriptions of the options.
+4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](https://console.bluemix.net/docs/bare-metal/configuring.html#advanced-system-configuration) guidelines.
+1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server) guidelines.
 
 |              Field               |      Value                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
