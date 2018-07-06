@@ -46,13 +46,13 @@ lastupdated: "2018-07-06"
 
 1. Select **500 GB** for **Public Bandwidth.**
 2.	Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#building-a-custom-bare-metal-server).
+3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options).
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in [Advanced server configuration options](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#advanced-server-configuration-options) guidelines.
+Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in [Advanced server configuration options](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
 
 1. Scroll down and enter the values in Table 1 under **Advanced System Configuration.**
 
