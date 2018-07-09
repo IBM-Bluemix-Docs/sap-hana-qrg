@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-06"
+lastupdated: "2018-07-09"
 
 
 ---
@@ -40,7 +40,7 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 3. **Server** defaults to a predefined value based on your server selection and cannot be change changed.
 4. Click **32 GB RAM** even though the **RAM** selection defaults to a predefined value based on your sever selection and cannot be changed.
 5. Click **Redhat** and select **Red Hat Enterprise Linux for SAP Business Application 6.X (64 bit)** as your **Operating System**.
-6. Add a second 2 TB STAT drive by clicking the **Disk Controller 1** drop-down ment, and selecting **2 TB SATA**. Click **Add Disk**.
+6. Add a second 2 TB SATA drive by clicking the **Disk Controller 1** drop-down menu, and selecting **2 TB SATA**. Click **Add Disk**.
 7. Click **Select All Disks** and click **Create RAID Storage Groups**.
 8. Click **Type** and select **RAID 1**. Enter a **Size** that covers the total amount of storage you need.
 9. Leave **LVM** unchecked and accept the default **Partition Template.**, **Linux Basic**.
