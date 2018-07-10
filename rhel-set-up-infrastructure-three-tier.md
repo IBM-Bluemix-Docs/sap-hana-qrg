@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-09"
+lastupdated: "2018-07-10"
 
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2018-07-09"
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-# 1. Ordering  256 GB and 3 2GB servers for a three-tier setup
+# 1. Ordering  256 GB and 32 GB servers for a three-tier setup
 {: #install_three_tier}
 
 ## Ordering your servers
