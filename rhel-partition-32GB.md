@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,9 +19,9 @@ lastupdated: "2018-02-21"
 # 3. Partitioning and file systems
 {: #partition_32GB}
 
-For the single-node example, you ordered a server with one logical disk (on RAID1). There is one mirrored disk appearing in the operating system (OS)—with one large root file system equal to the total size of the disk (with some space used for `/boot`). The following file system layout is just one possible approach. For production use, you might want to follow the sizing information for your system as other layouts might better meet your needs or SAP requirements. 
+For the single-node example, you ordered a server with one logical disk (on RAID 1). There is one mirrored disk appearing in the operating system (OS)—with one large root file system equal to the total size of the disk (with some space used for `/boot`). The following file system layout is just one possible approach. For production use, you might want to follow the sizing information for your system as other layouts might better meet your needs or SAP requirements.
 
-The three directories required for the SAP installation, `/usr/sap`, `/sapmnt`, and `/db2` have been created:
+1. Create the three directories required for the SAP installation, `/sapmnt`, `usr\sap`, and `/db2`.
 ```
 [root@e2e1270 ~]# mkdir /sapmnt
 [root@e2e1270 ~]# mkdir /usr/sap

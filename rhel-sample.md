@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # Sample multipath.conf
 {: #sample}
 
-The following sample multipath.conf is for Red Hat 6.X and NetApp-based iSCSI LUNs.
+The following sample multipath.conf is for Red Hat 7.X and NetApp-based iSCSI LUNs.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ The following sample multipath.conf is for Red Hat 6.X and NetApp-based iSCSI LU
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 All data under blacklist must be specific to your system.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ All data under blacklist must be specific to your system.
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 Sample multipath.conf multipaths extension for ‘human readable’ device paths:
 ```
