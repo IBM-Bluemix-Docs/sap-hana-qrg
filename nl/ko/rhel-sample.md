@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # 샘플 multipath.conf
 {: #sample}
 
-Red Hat 6.X 및 NetApp 기반 iSCSI LUN의 샘플 multipath.conf는 다음과 같습니다.
+Red Hat 7.X 및 NetApp 기반 iSCSI LUN의 샘플 multipath.conf는 다음과 같습니다.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ Red Hat 6.X 및 NetApp 기반 iSCSI LUN의 샘플 multipath.conf는 다음과 �
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 블랙리스트의 모든 데이터는 사용자 시스템에 한정되어야 합니다.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ Red Hat 6.X 및 NetApp 기반 iSCSI LUN의 샘플 multipath.conf는 다음과 �
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 ‘사람이 읽을 수 있는’ 디바이스 경로의 샘플 multipath.conf 다중 경로 확장:
 ```
