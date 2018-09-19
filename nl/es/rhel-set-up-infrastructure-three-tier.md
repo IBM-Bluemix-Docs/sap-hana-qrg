@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-08-14"
 
 
 ---
@@ -16,62 +16,78 @@ lastupdated: "2018-02-26"
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-# 1. Realización del pedido de servidores de 256 GB y 32 GB para una configuración de tres capas
+# 1. Realización del pedido de servidores de 192 GB y 32 GB para una configuración de tres capas
 {: #install_three_tier}
 
 ## Realización del pedido de servidores
 {: #order_servers}
 
-Siga los pasos descritos en [Realización del pedido del servidor de 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) para realizar el pedido de un servidor de aplicaciones SAP NetWeaver. Los siguientes pasos le guiarán para realizar el pedido del servidor de base de datos. 
+Siga los pasos descritos en [Realización del pedido del servidor de 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) para realizar el pedido de un servidor de aplicaciones SAP NetWeaver. Los siguientes pasos le guiarán para realizar el pedido del servidor de base de datos.
 
-1. Inicie sesión en el [portal del cliente de la infraestructura de {{site.data.keyword.cloud_notm}}](https://control.softlayer.com) con sus credenciales exclusivas.
-2. Pulse el icono **Dispositivos** en la página Resumen de la cuenta.
-3. Pulse **Mensual** en **{{site.data.keyword.baremetal_long}}** en la página Dispositivos. Se abre el recuadro de diálogo Lista de servidores.
-4. Pulse el hiperenlace en **Precio inicial al mes** para seleccionar el servidor **BI.S1.NW256 (Opciones de sistema operativo).**
+## Realización del pedido de servidor de base de datos
+{: #order-db-server}
 
-## Selección de las opciones de servidor
-{: #options_32GB}
+1. Inicie sesión en el [portal de clientes de la infraestructura de {{site.data.keyword.cloud_notm}}](https://control.softlayer.com) con sus credenciales exclusivas.
+2. Pulse **Cuenta** > **Realizar un pedido** en la página Resumen de la cuenta.
+3. Pulse **Mensual** en **{{site.data.keyword.baremetal_long}}** en la página Dispositivos. Aparecerá la Lista de servidores; los servidores certificados para SAP están en la parte superior de la lista.
+4. Pulse el hiperenlace en **Precio inicial al mes** para seleccionar el servidor **BI.S3.NW192 (Opciones de sistema operativo).**
+
+## Configuración del servidor de base de datos
+{: #options_192GB}
 
 1. Deje **1** en el campo **Cantidad**.
-2. Seleccione **TOR01** para **Centro de datos.** 
-3. **Servidor** se establece de forma predeterminada en un valor predefinido sobre la base de la selección de servidor y no se puede cambiar. 
-4. Pulse **32 GB RAM** aunque **RAM** se establece de forma predeterminada en un valor predefinido sobre la base de la selección de servidor y no se puede cambiar.
-5. Seleccione **Red Hat Enterprise Linux for SAP Business Application 6.X** como sistema operativo.
-6. En **Discos duros**, seleccione un segundo disco SATA de 2 TB, cree un grupo de almacenamiento RAID de RAID1 desde ambos discos que cubra la cantidad total de almacenamiento, y seleccione **Linux Basic** como **Plantilla de partición.** Deje **LVM** sin marcar.
-7. Seleccione **500 GB** para el **Ancho de banda público.**
-8. Seleccione **1 Gbps de enlaces ascendentes de red pública y privada redundantes** para **Velocidad de puerto de enlace ascendente.**
-9. Para este ejemplo, deje los valores predeterminados para todos los demás campos. Puede consultar [Configuración de los servidores nativos](https://console.bluemix.net/docs/bare-metal/configuring.html#setting-up-your-bare-metal-servers) para obtener descripciones detalladas de las opciones.
-10.	Pulse **Añadir a pedido** en la parte inferior de la página. Se le redirigirá a la página de pago una vez verificado su pedido.
+2. Seleccione **TOR01** para **Centro de datos.**
+3. **Servidor** se establece de forma predeterminada en un valor predefinido sobre la base de la selección de servidor y no se puede cambiar.
+4. Pulse **192 GB RAM** aunque **RAM** se establece de forma predeterminada en un valor predefinido sobre la base de la selección de servidor y no se puede cambiar.
+5. Pulse **Redhat** y seleccione **Red Hat Enterprise Linux for SAP Business Application 7.X (64 bits)** como **Sistema operativo**. **Nota**: Si trae su propia licencia (BYOL) para el sistema operativo, seleccione **Otro** > **Sin sistema operativo**. Para obtener más información, consulte [Traiga su propia licencia](#byol).
+6. Añada una segunda unidad SATA de 2 TB pulsando el menú desplegable **Controlador de disco 1** y seleccionando **SATA de 2 TB**. Pulse **Añadir disco**.
+7. Pulse **Seleccionar todos los discos** y pulse **Crear depósito de almacenamiento RAID**.
+8. Pulse **Tipo** y seleccione **RAID 1**. Indique un **Tamaño** que cubra la cantidad total de almacenamiento que necesite.
+9. Deje **LVM** sin seleccionar y acepte la **Plantilla de partición** predeterminada, **Linux Basic**.
+10. Pulse **Listo**.
+
+## Selección de las opciones adicionales de servidor de base de datos
+{: #addl-server-options}
+
+1. Seleccione **500 GB** para el **Ancho de banda público.**
+2. Seleccione **1 Gbps de enlaces ascendentes de red pública y privada redundantes** para **Velocidad de puerto de enlace ascendente.**
+3. Para este ejemplo, deje los valores predeterminados para todos los demás campos. Puede consultar [Creación de un servidor nativo personalizado](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options) para obtener descripciones detalladas de las opciones.
+4.	Pulse **Añadir a pedido** en la parte inferior de la página. Se le redirigirá a la página de pago una vez verificado su pedido.
 
 ## Ajuste de las configuraciones avanzadas del sistema
 {: #adv_config}
 
-1. Utilice los valores de la Tabla 1 para los campos de la Configuración avanzada del sistema. Encontrará más información disponible en las directrices de [Configuración avanzada del sistema](https://console.bluemix.net/docs/bare-metal/configuring.html#advanced-system-configuration).
+1. Utilice los valores de la Tabla 1 para los campos de la Configuración avanzada del sistema. Encontrará más información disponible en las directrices de [Configuración avanzada del sistema](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
 
-|              Campo               |      Valor                                        |
+|              Campo               |      Valor                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
-|VLAN de fondo                     | Seleccione de la lista desplegable, por ejemplo `tor01.bcr01a.1241`  |
-|Subred                            | Seleccione de la lista desplegable, por ejemplo `10.114.63.64/26`    |
-|VLAN frontal                      | Seleccione de la lista desplegable, por ejemplo `tor01.fcr01a.1199`  |
-|Subred                            | Seleccione de la lista desplegable, por ejemplo `169.55.137.160/27`  |
-|Scripts de suministro             | El valor predeterminado es Ninguno                                                    |
-|Claves SSH                        | El valor predeterminado es Ninguno                                                    |
-|Nombre de host                    | Por ejemplo, `e2e2690`                                               |
-|Dominio                           | Por ejemplo, `saptest.com`                                           |
-{: caption="Tabla 1. Valores de la configuración avanzada" caption-side="top"}  
+|VLAN de fondo                      | Seleccione de la lista desplegable, por ejemplo `tor01.bcr01a.1241`     |
+|Subred                            | Seleccione de la lista desplegable, por ejemplo `10.114.63.64/26`       |
+|VLAN frontal                     | Seleccione de la lista desplegable, por ejemplo `tor01.fcr01a.851`      |
+|Subred                            | Seleccione de la lista desplegable, por ejemplo `158.85.65.224/28`      |
+|Scripts de suministro                 | Déjelo en blanco                                                          |
+|Claves SSH                          | El valor predeterminado es `Añadir`, lo que significa que no hay clave SSH                            |
+|Nombre de host                          | Por ejemplo, `sdb192`                                                |
+|Dominio                            | Por ejemplo, `saptest.com`                                           |
+{: caption="Tabla 1. Valores de la configuración avanzada de 192 GB" caption-side="top"}  
 
 ## Confirmación de las selecciones
 {: #confirm_selections}
 
 1. Confirme las selecciones en la página de pago, y pulse **Términos de los servicios en la nube** y **Acuerdo de software de terceros** en la parte derecha de la página.
-2. Pulse **Enviar pedido**. Se le redirigirá a una página con el número de pedido. Puede imprimir la página, ya que también es su recibo del pedido. 
+2. Pulse **Enviar pedido**. Se le redirigirá a una página con el número de pedido. Puede imprimir la página, ya que también es su recibo del pedido.
 
 Una vez enviado el pedido, el servidor estará disponible, dependiendo de su pedido, para su uso en un plazo de una a cuatro horas. Puede comprobar el estado de los distintos pasos del suministro en la pantalla Detalles del dispositivo en la página principal del {{site.data.keyword.slportal}} (**Dispositivos > Lista de dispositivos**). Pulse el **Nombre de dispositivo** que coincida con el nombre de host y dominio para ver su estado.
+
+## Traiga su propia licencia
+{: #byol}
+
+Cuando tenga su propia licencia de sistema operativo, instálela en el {{site.data.keyword.baremetal_short}}, de acuerdo con las instrucciones del proveedor. Para obtener más información, consulte [La opción sin SO](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Siguientes pasos
 
   [2. Preparación del servidor para la instalación de SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
-  
+
   [3. Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
-  
+
   [4. Preparación de la red](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)

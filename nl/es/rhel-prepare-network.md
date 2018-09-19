@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,15 +19,15 @@ lastupdated: "2018-02-21"
 # 4. Preparación de la red para una configuración de tres capas
 {: #network}
 
-Si tiene previsto instalar una configuración de tres capas, deberá configurar la red correctamente. En el ejemplo, se ha desplegado un servidor de base de datos de 256 GB (denominado `e2e2690`) y un servidor de aplicaciones de 32 GB (denominado `e2e1270`). El servidor de base de datos también aloja la instancia de (A)SCS. Añadir las direcciones IP de la red privada a `/etc/hosts` ayuda en los pasos siguientes y garantiza que el tráfico de red interno de SAP pase a través de la red correcta.
+Si tiene previsto instalar una configuración de tres capas, deberá configurar la red correctamente. En el ejemplo, se ha desplegado un servidor de base de datos de 192 GB (denominado `sdb192`) y un servidor de aplicaciones de 32 GB (denominado `e2e1270`). El servidor de base de datos también aloja la instancia de (A)SCS. Añadir las direcciones IP de la red privada a `/etc/hosts` ayuda en los pasos siguientes y garantiza que el tráfico de red interno de SAP pase a través de la red correcta.
 
 ![Figura 1. Ejemplo de configuración de tres capas](/images/network-01.png "Ejemplo de configuración de tres capas")
 
-Utilice los siguientes pasos para establecer su red. 
+Utilice los siguientes pasos para establecer su red.
 
 1. Inicie sesión en los servidores y busque su configuración de red privada.
 
-        [root@e2e2690 ~]# ifconfig bond0
+        [root@sdb192 ~]# ifconfig bond0
             bond0	  Link encap:Ethernet  HWaddr 0C:C4:7A:66:2D:A8
                     inet addr:10.17.139.35  Bcast:10.17.139.63 Mask:255.255.255.192
                     inet6 addr: fe80::ec4:7aff:fe66:2da8/64 Scope:Link
@@ -37,7 +37,7 @@ Utilice los siguientes pasos para establecer su red.
                     collisions:0 txqueuelen:0
                     RX bytes:19137850 (18.2 MiB)  TX bytes:3426015 (3.2 MiB)
 
-        [root@e2e2690 ~]# ifconfig bond1
+        [root@sdb192 ~]# ifconfig bond1
             bond1	  Link encap:Ethernet  HWaddr 0C:C4:7A:66:2D:A9
                     inet addr:208.43.211.118  Bcast:208.43.211.127 Mask:255.255.255.224
                     inet6 addr: fe80::ec4:7aff:fe66:2da9/64 Scope:Link
@@ -49,11 +49,11 @@ Utilice los siguientes pasos para establecer su red.
 
 En el ejemplo de tres capas, 10.17.139.35 es la dirección IP privada del servidor de base de datos; es de uno de los rangos de direcciones IP desde RFC 1597. También puede determinar la dirección IP del servidor de aplicaciones y añadir ambas direcciones IP a los `/etc/hosts` de ambos servidores.
 
-        [root@e2e2690 ~]# cat /etc/hosts
+        [root@sdb192 ~]# cat /etc/hosts
         127.0.0.1 localhost.localdomain localhost
         208.43.211.118 e2e2690.saptest.com e2e2690
-        
-        10.17.139.35    e2e2690-priv
+
+        10.17.139.35    sdb192-priv
         10.17.139.46    e2e1270-priv
 
 Añada también las dos últimas líneas `e2e1270`.
@@ -62,13 +62,13 @@ Añada también las dos últimas líneas `e2e1270`.
 
 1. Instale el software NFS `nfs-utils` **en ambos servidores**.
 
-      `[root@e2e2690a ~]# yum install nfs-utils`
+      `[root@sdb192 ~]# yum install nfs-utils`
 
 Asegúrese de iniciar y registrar `rpcbind` y el servicio NFS en el servidor de base de datos.
 
-        [root@e2e2690 ~]# service rpcbind start
-        [root@e2e2690 ~]# chkconfig nfs on
-        [root@e2e2690 ~]# service nfs start
+        [root@sdb192 ~]# service rpcbind start
+        [root@sdb192 ~]# chkconfig nfs on
+        [root@sdb192 ~]# service nfs start
 
 ## Utilización de NFS para exportar
 
@@ -79,16 +79,16 @@ Asegúrese de iniciar y registrar `rpcbind` y el servicio NFS en el servidor de 
 
 El valor de ejemplo `C10` debe sustituirse por el ID del sistema SAP para su sistema SAP. Debe crear el directorio antes de exportarlo. Ejecute los siguientes mandatos desde la línea de mandatos del servidor de base de datos:
 
-        [root@e2e2690 ~]# mkdir /sapmnt/C10
-        [root@e2e2690 ~]# mkdir -p /usr/sap/trans
-        [root@e2e2690 ~]# exportfs -a
+        [root@sdb192 ~]# mkdir /sapmnt/C10
+        [root@sdb192 ~]# mkdir -p /usr/sap/trans
+        [root@sdb192 ~]# exportfs -a
 
 ## Montaje del recurso compartido NFS
 
 1. Monte el recurso compartido NFS en el servidor de aplicaciones añadiendo la siguiente entrada a `/etc/fstab` y montándolo desde la línea de mandatos.
 
-        e2e2690-priv:/sapmnt/C10 /sapmnt/C10 nfs defaults 0 0
-        e2e2690-priv:/usr/sap/trans /usr/sap/trans nfs defaults 0 0
+        sdb192-priv:/sapmnt/C10 /sapmnt/C10 nfs defaults 0 0
+        sdb192-priv:/usr/sap/trans /usr/sap/trans nfs defaults 0 0
 
 2. Cree los directorios de destino en el servidor de aplicaciones y móntelos.
 
@@ -97,7 +97,7 @@ El valor de ejemplo `C10` debe sustituirse por el ID del sistema SAP para su sis
         [root@e2e1270 ~]# mount /sapmnt/C10
         [root@e2e1270 ~]# mount /usr/sap/trans
 
-Sus servidores ahora están preparados para alojar los componentes de una instalación SAP distribuida. 
+Sus servidores ahora están preparados para alojar los componentes de una instalación SAP distribuida.
 
 ## Siguientes pasos
 
