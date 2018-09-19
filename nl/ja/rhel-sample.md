@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # サンプルの multipath.conf
 {: #sample}
 
-次のサンプルの multipath.conf は、Red Hat 6.X および NetApp ベースの iSCSI LUN 用です。
+以下に示したサンプルの multipath.conf は Red Hat 7.X および NetApp-based iSCSI LUN 用です。
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ lastupdated: "2018-02-21"
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 blacklist の下にあるすべてのデータは、ご使用のシステムに固有のものであることが必要です。
 ```
 	blacklist {
@@ -53,7 +53,7 @@ blacklist の下にあるすべてのデータは、ご使用のシステムに�
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 「人間が読める」デバイス・パスの multipath.conf での multipaths エクステンションのサンプル:
 ```
