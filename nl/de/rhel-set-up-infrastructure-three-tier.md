@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-08-14"
 
 
 ---
@@ -16,7 +16,7 @@ lastupdated: "2018-02-26"
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-# 1. 256 GB- und 32 GB-Server für ein dreischichtiges Setup bestellen
+# 1. 192 GB- und 32 GB-Server für eine Konfiguration mit drei Ebenen bestellen
 {: #install_three_tier}
 
 ## Server bestellen
@@ -24,41 +24,52 @@ lastupdated: "2018-02-26"
 
 Führen Sie zum Bestellen des SAP NetWeaver-Anwendungsservers die Schritte unter [32 GB-Server bestellen](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) aus. Die folgenden Schritte führen Sie durch den Bestellprozess für den Datenbankserver.
 
-1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur](https://control.softlayer.com) mit Ihren eindeutigen Berechtigungsnachweisen an.
-2. Klicken Sie auf der Seite mit der Kontozusammenfassung auf das Symbol **Geräte**.
-3. Klicken Sie auf der Seite 'Geräte' unter **{{site.data.keyword.baremetal_long}}** auf den Link **Monatlich**. Das Dialogfeld 'Serverliste' wird angezeigt.
-4. Klicken Sie unter **Startpreis pro Monat** auf den Hyperlink, um den Server **BI.S1.NW256 (OS Options)** auszuwählen.
+## Datenbankserver bestellen
+{: #order-db-server}
 
-## Serveroptionen auswählen
-{: #options_32GB}
+1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur](https://control.softlayer.com) mit Ihren eindeutigen Berechtigungsnachweisen an.
+2. Klicken Sie auf **Konto** > **Bestellen** auf der Kontozusammenfassungsseite.
+3. Klicken Sie auf der Seite 'Geräte' unter **{{site.data.keyword.baremetal_long}}** auf den Link **Monatlich**. Die Liste der Server wird angezeigt; die von SAP zertifizierten Server stehen am Listenanfang.
+4. Klicken Sie auf den Hyperlink unter **Startpreis pro Monat**, um den Server **BI.S3.NW192 (Betriebssystemoptionen)** auszuwählen.
+
+## Datenbankserver konfigurieren
+{: #options_192GB}
 
 1. Belassen Sie den Wert **1** im Feld **Menge**.
 2. Wählen Sie **TOR01** als **Rechenzentrum** aus.
 3. Das Feld **Server** nimmt basierend auf der Serverauswahl standardmäßig einen Wert ein, der nicht geändert werden kann.
-4. Klicken Sie auf **32 GB RAM**, obwohl die Auswahl für **RAM** basierend auf der Serverauswahl standardmäßig einen Wert einnimmt, der nicht geändert werden kann.
-5. Wählen Sie **Red Hat Enterprise Linux for SAP Business Application 6.X** als Ihr Betriebssystem aus.
-6. Wählen Sie unter **Festplatten** eine zweite 2 TB-SATA-Platte aus, erstellen Sie die RAID-Speichergruppe 'RAID1' von beiden Platten, die den gesamten Speicherplatz abdeckt, und wählen Sie **Linux Basic** als **Partitionsvorlage** aus. Belassen Sie die Einstellung des Kontrollkästchens **LVM** (inaktiviert).
-7. Wählen Sie **500 GB** als **Öffentliche Bandbreite** aus.
-8. Wählen Sie **1 Gb/s redundante öffentliche & private Netzuplinks** für **Uplink-Port-Geschwindigkeit** aus.
-9. Belassen Sie für dieses Beispiel die Standardwerte für alle anderen Felder. Eine detaillierte Beschreibung der Optionen finden Sie unter [Bare-Metal-Server einrichten](https://console.bluemix.net/docs/bare-metal/configuring.html#setting-up-your-bare-metal-servers).
-10.	Klicken Sie unten auf der Seite auf **Zur Bestellung hinzufügen**. Nachdem Ihre Bestellung geprüft wurde, werden Sie an die Kassenseite weitergeleitet.
+4. Klicken Sie auf **192 GB RAM**, obwohl die Auswahl für **RAM** basierend auf der Serverauswahl standardmäßig einen Wert einnimmt, der nicht geändert werden kann.
+5. Klicken Sie auf **Red Hat** und wählen Sie **Red Hat Enterprise Linux for SAP Business Application 7.X (64-Bit)** als **Betriebssystem** aus. **Hinweis**: Wenn Sie eine eigene Lizenz für Ihr Betriebssystem verwenden (BYOL, Bring Your Own License), wählen Sie **Sonstige** > **Kein Betriebssystem** aus. Weitere Informationen finden Sie in [BYOL (Bring Your Own License)](#byol).
+6. Fügen Sie ein zweites SATA-Laufwerk mit 2 TB hinzu, indem Sie auf das Dropdown-Menü **Plattencontroller 1** klicken und **SATA (2 TB)** auswählen. Klicken Sie auf **Platte hinzufügen**.
+7. Klicken Sie auf **Alle Platten auswählen** und dann auf **RAID-Speichergruppe erstellen**.
+8. Klicken Sie auf **Typ** und wählen Sie **RAID 1** aus. Geben Sie einen Wert für die **Größe** ein, der die gesamte benötigte Speichermenge abdeckt.
+9. Wählen Sie **LVM** nicht aus und akzeptieren Sie den Standardwert für die **Partitionsvorlage**: **Linux (Basis)**.
+10. Klicken Sie auf **Fertig**.
+
+## Zusätzliche Datenbankserveroptionen auswählen
+{: #addl-server-options}
+
+1. Wählen Sie **500 GB** als **Öffentliche Bandbreite** aus.
+2. Wählen Sie **1 Gb/s redundante öffentliche & private Netzuplinks** für **Uplink-Port-Geschwindigkeit** aus.
+3. Belassen Sie für dieses Beispiel die Standardwerte für alle anderen Felder. Detaillierte Beschreibungen der Optionen finden Sie in [Angepassten Bare-Metal-Server erstellen](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options).
+4.	Klicken Sie unten auf der Seite auf **Zur Bestellung hinzufügen**. Nachdem Ihre Bestellung geprüft wurde, werden Sie an die Kassenseite weitergeleitet.
 
 ## Erweitere Systemkonfigurationen einrichten
 {: #adv_config}
 
-1. Verwenden Sie die Werte in Tabelle 1 für die Felder für die erweiterte Systemkonfiguration. Weitere Informationen finden Sie in den Richtlinien zur [erweiterten Systemkonfiguration](https://console.bluemix.net/docs/bare-metal/configuring.html#advanced-system-configuration).
+1. Verwenden Sie die Werte in Tabelle 1 für die Felder für die erweiterte Systemkonfiguration. Weitere Informationen finden Sie in den Richtlinien zur [erweiterten Systemkonfiguration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
 
-|              Feld               |      Wert                                                           |
+|              Feld                |      Wert                                                            |
 | -------------------------------- | -------------------------------------------------------------------- |
-|Back-End-VLAN                     | Auswahl aus der Dropdown-Liste, beispielsweise `tor01.bcr01a.1241`     |
-|Teilnetz                          | Auswahl aus der Dropdown-Liste, beispielsweise `10.114.63.64/26`       |
-|Front-End-VLAN                    | Auswahl aus der Dropdown-Liste, beispielsweise `tor01.fcr01a.1199`     |
-|Teilnetz                          | Auswahl aus der Dropdown-Liste, beispielsweise `169.55.137.160/27`     |
-|Bereitstellungsscripts            | Nimmt standardmäßig den Wert 'Keine' an                                                     |
-|SSH-Schlüssel                     | Nimmt standardmäßig den Wert 'Keine' an                                                     |
-|Hostname                          | Beispiel: `e2e2690`                                               |
-|Domäne                            | Beispiel: `saptest.com`                                           |
-{: caption="Tabelle 1. Erweiterte Konfigurationswerte" caption-side="top"}  
+|Back-End-VLAN                     | Auswahl in Dropdown-Liste, z. B. `tor01.bcr01a.1241`|
+|Teilnetz                          | Auswahl in Dropdown-Liste, z. B. `10.114.63.64/26`  |
+|Front-End-VLAN                    | Auswahl in Dropdown-Liste, z. B. `tor01.fcr01a.851` |
+|Teilnetz                          | Auswahl in Dropdown-Liste, z. B. `158.85.65.224/28` |
+|Bereitstellungsscripts            | Keine Angabe machen                                                  |
+|SSH-Schlüssel                     | Standardwert `Add`, d. h. kein SSH-Schlüssel        |
+|Hostname                          | Beispiel: `sdb192`                                  |
+|Domäne                            | Beispiel: `saptest.com`                             |
+{: caption="Tabelle 1. Werte für erweiterte 192 GB-Konfiguration" caption-side="top"}  
 
 ## Auswahl bestätigen
 {: #confirm_selections}
@@ -68,10 +79,15 @@ Führen Sie zum Bestellen des SAP NetWeaver-Anwendungsservers die Schritte unter
 
 Nachdem die Bestellung zur Verarbeitung übergeben wurde, kann der Server je nach Ihrer Bestellung in einer bis vier Stunden verwendet werden. Den Status der Bereitstellungsschritte finden Sie in der Anzeige mit den Gerätedetails auf der Hauptseite des {{site.data.keyword.slportal}}s (**Geräte > Geräteliste**). Klicken Sie auf den **Gerätenamen**, der dem angegebenen Hostnamen und der Domäne entspricht, um den Status des Geräts anzuzeigen.
 
+## BYOL (Bring Your Own License)
+{: #byol}
+
+Wenn Sie über eine eigene Betriebssystemlizenz verfügen, installieren Sie sie auf dem {{site.data.keyword.baremetal_short}} anhand der Herstelleranweisungen. Weitere Informationen finden Sie in [Option 'Kein Betriebssystem'](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+
 ## Nächste Schritte
 
   [2. Server für die SAP-Installation vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
-  
+
   [3. Partitionierung und Dateisysteme](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
-  
+
   [4. Netz vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)

@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # Beispieldatei 'multipath.conf'
 {: #sample}
 
-Die folgende Beispieldatei 'multipath.conf' ist für Red Hat 6.X und NetApp-basierte iSCSI-LUNs.
+Die folgende Beispieldatei 'multipath.conf' bezieht sich auf Red Hat 7.X und NetApp-basierte iSCSI-LUNs.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ Die folgende Beispieldatei 'multipath.conf' ist für Red Hat 6.X und NetApp-basi
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 Alle Daten unter 'blacklist' müssen systemspezifische Daten sein.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ Alle Daten unter 'blacklist' müssen systemspezifische Daten sein.
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 'multipaths'-Erweiterung für die Beispieldatei 'multipath.conf' für Gerätepfade in einem lesbaren Format:
 ```
