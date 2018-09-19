@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -22,33 +22,36 @@ lastupdated: "2018-02-26"
 ## 設定外部儲存空間
 {: #set_up_storage}
 
-如果您想要使用外部儲存空間作為備份裝置，或想要在測試環境中使用 Snapshot 快速還原您的資料庫，您可以將外部儲存空間新增至您佈建的伺服器。以三層範例而言，區塊儲存空間可同時用來保存資料庫的日誌檔，以及資料庫的線上和離線備份。已選取最快速區塊儲存空間（每 GB 4 IOPS）來幫助確保最短備份時間。慢速區塊儲存空間可能足夠滿足您的需求。如需 {{site.data.keyword.blockstoragefull}} 的相關資訊，請參閱[開始使用區塊儲存空間](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage)。
+如果您想要使用外部儲存空間作為備份裝置，或想要在測試環境中使用 Snapshot 快速還原您的資料庫，您可以將外部儲存空間新增至您佈建的伺服器。以三層範例而言，區塊儲存空間可同時用來保存資料庫的日誌檔，以及資料庫的線上和離線備份。已選取最快速區塊儲存空間（每 GB 4 IOPS）來幫助確保最短備份時間。慢速區塊儲存空間可能足夠滿足您的需求。如需 {{site.data.keyword.blockstoragefull}} 的相關資訊，請參閱[開始使用 Block Storage](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage)。
 
 
 1. 使用您的唯一認證登入 [{{site.data.keyword.cloud_notm}} 基礎架構客戶入口網站](https://control.softlayer.com/)。
-2. 選取**儲存空間 > 區塊儲存空間**。
-3. 按一下「區塊儲存空間」頁面右上角的**訂購區塊儲存空間**。
+2. 選取**儲存空間** > **Block Storage**。
+3. 按一下 Block Storage 頁面右上角的**訂購 Block Storage**。
 4. 選取儲存空間需求的特性。「表格 1」包含建議值，包括用於一般資料庫工作負載的 4 IOPS/GB。
 
-|              欄位                |      值                                           |
+|欄位                |值                                                              |
 | -------------------------------- | ------------------------------------------------- |
-|選取儲存空間類型                  | Endurance（預設值）                               |
-|位置                              | TOR01                                             |
-|計費方法                          | 每月（預設值）                                    |
-|選取儲存空間套件                  | 4 IOPS/GB                                         |
-|選取儲存空間大小                  | 1000 GB                                           |
-|指定 Snapshot 空間大小            | 0 GB                                              |
-|選取 OS 類型                      | Linux（預設值）                                   |
-{: caption="表格 1。區塊儲存空間的建議值" caption-side="top"}
+|位置                              |TOR01                                             |
+|計費方法                          |每月（預設值）                                    |
+|新的儲存空間大小                  |1000 GB                                           |
+|儲存空間 IOPS 選項              | 耐久性（分層 IOPS）（預設值）|
+|耐久性分層 IOPS             | 10 GB                                             |
+|Snapshot 空間大小|0 GB                                              |
+|OS 類型                           |預設為 Linux|
+{: caption="表 1. 區塊儲存空間的建議值" caption-side="top"}
 
-5. 按一下**繼續**。
-6. 選取**我已閱讀主要服務合約**，並按一下**下訂單**。
-7. 按一下 LUN 右邊的**動作**，並選取**授權主機**以存取佈建的儲存空間。
-8. 選取**裝置**；**裝置類型**預設為「裸機伺服器」。按一下**硬體**，並選取裝置的主機名稱。
-9. 按一下**送出**按鈕。
-10. 檢查**裝置** >（選取裝置）> **「儲存空間」標籤**下您佈建的儲存空間的狀態。
-11. 請記下**目標位址**及您伺服器（iSCSI 起始器）的 iSCSI 完整名稱 (**IQN**)，以及用於 iSCSI 伺服器之授權的**使用者名稱**和**密碼**。在下列步驟中您會需要此資訊。
-12. 請遵循[連接至 Linux 上的 MPIO iSCSI LUN](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) 中的步驟，讓您的儲存空間能夠從您佈建的伺服器進行存取。
+5. 按一下兩個勾選框，然後按一下**下訂單**。
+
+## 授權主機
+{: authorize-host}
+
+1. 按一下 LUN 右邊的**動作**，並選取**授權主機**以存取佈建的儲存空間。
+2. 選取**裝置**；**裝置類型**預設為「裸機伺服器」。按一下**硬體**，並選取裝置的主機名稱。
+3. 按一下**送出**按鈕。
+4. 在**裝置** >（選取裝置）> **儲存空間**標籤下，檢查已佈建儲存空間的狀態。
+5. 請記下**目標位址**及您伺服器（iSCSI 起始器）的 iSCSI 完整名稱 (**IQN**)，以及用於 iSCSI 伺服器之授權的**使用者名稱**和**密碼**。在下列步驟中您會需要此資訊。
+6. 請遵循[連接至 Linux 上的 MPIO iSCSI LUN](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) 中的步驟，讓您的儲存空間能夠從您佈建的伺服器進行存取。
 
 ## 使儲存空間成為多路徑
 {: #multipath}
@@ -61,14 +64,14 @@ lastupdated: "2018-02-26"
 
 1. 根據所擷取的資訊輸入下列資訊：
 ```
-[root@e2e2690 ~]# cat /etc/iscsi/initiatorname.iscsi
+[root@sdb192 ~]# cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2005-05.come.softlayer:SL01SU276540-H986345
-``` 
+```
    可能必須在 `/etc/iscsi/initiatorname.iscsi` 中取代現有的項目。
 
 2. 將下列幾行新增至 `/etc/iscsi/iscsid.conf` 底端：
 ```
-[root@e2e2690 ~]# tail /etc/iscsi/iscsid.conf
+[root@sdb192 ~]# tail /etc/iscsi/iscsid.conf
 # it continue to respond to R2Ts. To enable this, uncomment this line
 # node.session.iscsi.FastAbort = No
 node.session.auth.authmethod = CHAP
@@ -79,30 +82,30 @@ discovery.sendtargets.auth.username = SL01SU276540-H896345
 discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 ```
 
-3. 將步驟 2 的 `username` 及 `password` 值取代為您在「設定外部儲存空間」的步驟 11 期間記下的那些資訊。
+3. 將步驟 2 的 `username` 及 `password` 值取代為您在*授權主機* 的步驟 5 期間記下的那些資訊。
 
 4. 輸入下列幾行以探索 iSCSI 目標。
 ```
-[root@e2e2690 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
+[root@sdb192 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
 10.2.62.78:3260,1031 iqn.1992-08.com.netapp:tor0101
 10.2.62.87:3260,1032 iqn.1992-08.com.netapp:tor0101
 ```
 
 5. 設定主機以自動登入 iSCSI 陣列。
 
-      `[root@e2e2690 ~]# iscsiadm -m node -L automatic`
+      `[root@sdb192 ~]# iscsiadm -m node -L automatic`
 
 6. 安裝及啟動多路徑常駐程式。
 ```
-[root@e2e2690 ~]# yum install device-mapper-multipath
+[root@sdb192 ~]# yum install device-mapper-multipath
 …
-[root@e2e2690 ~]# chkconfig multipathd on
-[root@e2e2690 ~]# service multipathd start
+[root@sdb192 ~]# chkconfig multipathd on
+[root@sdb192 ~]# service multipathd start
 ```
 
 7. 完成[在 Linux 上裝載區塊儲存空間磁區](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes)中的所有指令，使另一個 LUN 出現在多路徑輸出中。
 ```
-[root@e2e2690 ~]# multipath -ll
+[root@sdb192 ~]# multipath -ll
 …
 3600a098038303452543f464142755a42 dm-9 NETAPP,LUN C-Mode
 size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
@@ -127,10 +130,10 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
      }
 
 8. 重新啟動 `multipathd`。您現在可以建立 `/backup filesystem`，並將它裝載於區塊裝置。
-        
-      [root@e2e2690 ~]# service multipathd restart
-      [root@e2e2690 ~]# mkfs.ext4 /dev/mapper/mpath1
-      [root@e2e2690 ~]# mkdir  /backup
+
+      [root@sdb192 ~]# service multipathd restart
+      [root@sdb192 ~]# mkfs.ext4 /dev/mapper/mpath1
+      [root@sdb192 ~]# mkdir  /backup
 
 9. 檢查兩個伺服器上的檔案系統。您的輸出應類似下列輸出。
 
@@ -140,12 +143,12 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
         tmpfs                  16G     0   16G   0% /dev/shm
         /dev/sda1             248M   63M  173M  27% /boot
         /dev/sdb2             849G  201M  805G   1% /usr/sap
-        db2690-priv:/usr/sap/trans
+        db192-priv:/usr/sap/trans
                       165G   59M  157G   1% /usr/sap/trans
-                      db2690-priv:/sapmnt/C10
+                      db192-priv:/sapmnt/C10
                       165G   59M  157G   1% /sapmnt/C10
 
-        [root@e2e2690 ~]# df -h
+        [root@sdb192 ~]# df -h
         Filesystem      	    Size  Used Avail Use% Mounted on
         /dev/sda3             549G  2,3G  519G   1% /
         tmpfs                 127G     0  127G   0% /dev/shm

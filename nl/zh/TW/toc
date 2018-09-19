@@ -1,8 +1,8 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
-SAP NetWeaver on IBM Cloud - 適用於 Red Hat Enterprise Linux 的快速參照
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" arm="2437231" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+SAP NetWeaver on IBM Cloud - 適用於 Red Hat Enterprise Linux 的快速參考手冊
 
     {: .navgroup id="learn"}
     rhel-index.md

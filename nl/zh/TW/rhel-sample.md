@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # 範例 multipath.conf
 {: #sample}
 
-下列範例 multipath.conf 用於 Red Hat 6.X 和以 NetApp 為基礎的 iSCSI LUN。
+下列範例 multipath.conf 用於 Red Hat 7.X 和以 NetApp 為基礎的 iSCSI LUN。
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ lastupdated: "2018-02-21"
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 黑名單上的所有資料都必須是您系統特有的。
 ```
 	blacklist {
@@ -53,7 +53,7 @@ lastupdated: "2018-02-21"
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 「人類可讀」裝置路徑的範例 multipath.conf 多路徑延伸：
 ```
