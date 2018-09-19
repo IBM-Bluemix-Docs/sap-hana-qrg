@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # Multipath.conf de amostra
 {: #sample}
 
-O multipath.conf de amostra a seguir destina-se a LUNs do Red Hat 6.X e do iSCSI baseado em NetApp.
+O multipath.conf de amostra a seguir é para LUNs iSCSI baseados em Red Hat 7.X e NetApp.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ O multipath.conf de amostra a seguir destina-se a LUNs do Red Hat 6.X e do iSCSI
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 Todos os dados na lista de bloqueio devem ser específicos para seu sistema.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ Todos os dados na lista de bloqueio devem ser específicos para seu sistema.
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 Extensão de caminhos múltiplos multipath.conf de amostra para caminhos de dispositivo 'legíveis por humanos':
 ```

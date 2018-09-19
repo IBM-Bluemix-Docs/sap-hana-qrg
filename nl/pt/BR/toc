@@ -1,12 +1,13 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" arm="2437231" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
 SAP NetWeaver no IBM Cloud - Guia de consulta rápida para o Red Hat Enterprise Linux
 
     {: .navgroup id="learn"}
     rhel-index.md
-    [SAP NetWeaver on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)
+    [SAP NetWeaver no IBM
+Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
