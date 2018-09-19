@@ -4,7 +4,7 @@
 
 copyright:
   years: 20187, 2018
-lastupdated: "2018-02-08"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -23,4 +23,4 @@ Per l'accesso remoto viene utilizzato un IP pubblico, il che significa che puoi 
 
 ## Passi successivi
 
- [3. Partizionamento e filesystem](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+ [3. Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)

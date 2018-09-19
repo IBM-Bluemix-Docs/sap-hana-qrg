@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # multipath.conf di esempio
 {: #sample}
 
-Il seguente multipath.conf di esempio è per le LUN iSCSI basate su NetApp e Red Hat 6.X.
+Il seguente multipath.conf di esempio è per le LUN iSCSI basate su NetApp e Red Hat 7.X.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ Il seguente multipath.conf di esempio è per le LUN iSCSI basate su NetApp e Red
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 Tutti i dati sotto blacklist devono essere specifici per il tuo sistema.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ Tutti i dati sotto blacklist devono essere specifici per il tuo sistema.
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 Estensioni a percorsi multipli multipath.conf di esempio per percorsi dispositivo 'leggibili':
 ```

@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -26,29 +26,32 @@ L'archiviazione esterna può essere aggiunta al tuo server o ai tuoi server di c
 
 
 1. Accedi al [Portale del cliente dell'infrastruttura {{site.data.keyword.cloud_notm}}](https://control.softlayer.com/) con le tue credenziali univoche.
-2. Seleziona **Storage > Block Storage**.
+2. Seleziona **Storage** > **Block Storage.**
 3. Fai clic su **Order Block Storage** nell'angolo superiore destro della pagina Block Storage.
 4. Seleziona le specifiche per le tue esigenze di archiviazione. La Tabella 1 contiene i valori consigliati, tra cui 4 IOPS/GB per un tipico carico di lavoro del database.
 
-|              Campo                                                  |      Valore                                       |
+|              Campo               |      Valore                                        |
 | -------------------------------- | ------------------------------------------------- |
-|Select Storage Type               | Endurance (valore predefinito)                    |
 |Location                          | TOR01                                             |
-|Billing Method                    | Monthly (valore predefinito)                      |
-|Select Storage Package            | 4 IOPS/GB                                         |
-|Select Storage Size               | 1000 GB                                           |
-|Specify Snapshot Space Size       | 0 GB                                              |
-|Select OS Type                    | Linux (valore predefinito)                        |
+|Billing Method                    | Monthly (valore predefinito)                                 |
+|New Storage Size                  | 1000 GB                                           |
+|Storage IOPS Options              | Endurance (Tiered IOPS) (default)                 |
+|Endurance Tiered IOPS             | 10 GB                                             |
+|Snapshot Space Size               | 0 GB                                              |
+|OS Type                           | Defaults to Linux                                 |
 {: caption="Tabella 1. Valori consigliati per l'archiviazione a blocchi" caption-side="top"}
 
-5. Fai clic su **Continue**.
-6. Seleziona **I have read the Master Service Agreement** e fai clic su **Place Order**.
-7. Fai clic su **Actions** a destra della tua LUN e seleziona **Authorize Host** per accedere all'archiviazione di cui è stato eseguito il provisioning.
-8. Seleziona **Devices**; il **Device Type** assume il valore predefinito di Bare Metal Server. Fai clic su **Hardware** e seleziona i nomi host dei tuoi dispositivi.
-9. Fai clic sul pulsante **Submit**.
-10. Controlla lo stato della tua archiviazione di cui è stato eseguito il provisioning nella scheda **Devices** > (seleziona il tuo dispositivo) > **Storage**.
-11. Annota il **Target Address** e il nome completo iSCSI (**IQN**) per il tuo server (iniziatore iSCSI) e **nomeutente** e **password** per l'autorizzazione presso il server iSCS. Hai bisogno di queste informazioni nei passi successivi.
-12. Attieniti alla procedura indicata in [Connessione alle LUN MPIO iSCSI su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) per rendere la tua archiviazione accessibile dal tuo server di cui è stato eseguito il provisioning.
+5. Fai clic sulle due caselle di spunta e su **Place Order**.
+
+## Autorizzazione host
+{: authorize-host}
+
+1. Fai clic su **Actions** a destra della tua LUN e seleziona **Authorize Host** per accedere all'archiviazione di cui è stato eseguito il provisioning.
+2. Seleziona **Devices**; il **Device Type** assume il valore predefinito di Bare Metal Server. Fai clic su **Hardware** e seleziona i nomi host dei tuoi dispositivi.
+3. Fai clic sul pulsante **Submit**.
+4. Controlla lo stato della tua archiviazione di cui è stato eseguito il provisioning nella scheda **Devices** > (seleziona il tuo dispositivo) > **Storage**.
+5. Annota il **Target Address** e il nome completo iSCSI (**IQN**) per il tuo server (iniziatore iSCSI) e **username** e **password** per l'autorizzazione presso il server iSCS. Hai bisogno di queste informazioni nei passi successivi.
+6. Attieniti alla procedura indicata in [Connessione alle LUN MPIO iSCSI su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) per rendere la tua archiviazione accessibile dal tuo server di cui è stato eseguito il provisioning.
 
 ## Come rendere a più percorsi l'archiviazione
 {: #multipath}
@@ -61,14 +64,14 @@ Nella distribuzione di esempio, hai richiamato i seguenti dati dalla scheda **St
 
 1. Immetti quanto segue, sulla base delle informazioni richiamate:
 ```
-[root@e2e2690 ~]# cat /etc/iscsi/initiatorname.iscsi
+[root@sdb192 ~]# cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2005-05.come.softlayer:SL01SU276540-H986345
-``` 
+```
    Potrebbe essere necessario sostituire una voce esistente in `/etc/iscsi/initiatorname.iscsi`.
 
 2. Aggiungi le seguenti righe in fondo a `/etc/iscsi/iscsid.conf`:
 ```
-[root@e2e2690 ~]# tail /etc/iscsi/iscsid.conf
+[root@sdb192 ~]# tail /etc/iscsi/iscsid.conf
 # it continue to respond to R2Ts. To enable this, uncomment this line
 # node.session.iscsi.FastAbort = No
 node.session.auth.authmethod = CHAP
@@ -79,30 +82,30 @@ discovery.sendtargets.auth.username = SL01SU276540-H896345
 discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 ```
 
-3. Sostituisci i valori `username` e `password` nel passo 2 con quelli che hai annotato durante il passo 11 di Configurazione dell'archiviazione esterna.
+3. Sostituisci i valori `username` e `password` nel passo 2 con quelli che hai annotato durante il passo 5 di *Autorizzazione host*.
 
 4. Rileva la destinazione iSCSI immettendo le seguenti righe.
 ```
-[root@e2e2690 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
+[root@sdb192 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
 10.2.62.78:3260,1031 iqn.1992-08.com.netapp:tor0101
 10.2.62.87:3260,1032 iqn.1992-08.com.netapp:tor0101
 ```
 
 5. Imposta l'host per eseguire automaticamente l'accesso all'array iSCSI.
 
-      `[root@e2e2690 ~]# iscsiadm -m node -L automatic`
+      `[root@sdb192 ~]# iscsiadm -m node -L automatic`
 
 6. Installa e avvia il daemon a più percorsi.
 ```
-[root@e2e2690 ~]# yum install device-mapper-multipath
+[root@sdb192 ~]# yum install device-mapper-multipath
 …
-[root@e2e2690 ~]# chkconfig multipathd on
-[root@e2e2690 ~]# service multipathd start
+[root@sdb192 ~]# chkconfig multipathd on
+[root@sdb192 ~]# service multipathd start
 ```
 
-7. Completa tutti i comandi nel documento relativo al [montaggio dei volumi di archiviazione a blocchi su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) in modo che nell'output a più percorsi sia presente un'altra LUN.
+7. Completa tutti i comandi nel documento relativo al [montaggio dei volumi di Block Storage su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) in modo che nell'output a più percorsi sia presente un'altra LUN.
 ```
-[root@e2e2690 ~]# multipath -ll
+[root@sdb192 ~]# multipath -ll
 …
 3600a098038303452543f464142755a42 dm-9 NETAPP,LUN C-Mode
 size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
@@ -127,12 +130,12 @@ Adatta il blocco a più percorsi da `/etc/multipath.conf` per creare un alias de
      }
 
 8. Riavvia `multipathd`. Puoi ora creare `/backup filesystem` ed eseguire il montaggio sul dispositivo a blocchi.
-        
-      [root@e2e2690 ~]# service multipathd restart
-      [root@e2e2690 ~]# mkfs.ext4 /dev/mapper/mpath1
-      [root@e2e2690 ~]# mkdir  /backup
 
-9. Controlla i filesystem su entrambi i server. Il tuo output dovrebbe essere simile a quello di seguito riportato.
+      [root@sdb192 ~]# service multipathd restart
+      [root@sdb192 ~]# mkfs.ext4 /dev/mapper/mpath1
+      [root@sdb192 ~]# mkdir  /backup
+
+9. Controlla i file system su entrambi i server. Il tuo output dovrebbe essere simile a quello di seguito riportato.
 
         [root@e2e1270 ~]# df -h
         Filesystem		    Size  Used Avail Use% Mounted on
@@ -140,12 +143,12 @@ Adatta il blocco a più percorsi da `/etc/multipath.conf` per creare un alias de
         tmpfs                  16G     0   16G   0% /dev/shm
         /dev/sda1             248M   63M  173M  27% /boot
         /dev/sdb2             849G  201M  805G   1% /usr/sap
-        db2690-priv:/usr/sap/trans
+        db192-priv:/usr/sap/trans
                       165G   59M  157G   1% /usr/sap/trans
-                      db2690-priv:/sapmnt/C10
+                      db192-priv:/sapmnt/C10
                       165G   59M  157G   1% /sapmnt/C10
 
-        [root@e2e2690 ~]# df -h
+        [root@sdb192 ~]# df -h
         Filesystem      	    Size  Used Avail Use% Mounted on
         /dev/sda3             549G  2,3G  519G   1% /
         tmpfs                 127G     0  127G   0% /dev/shm
