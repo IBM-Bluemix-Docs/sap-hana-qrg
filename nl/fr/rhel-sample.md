@@ -4,7 +4,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,7 +19,7 @@ lastupdated: "2018-02-21"
 # Exemple de fichier multipath.conf
 {: #sample}
 
-L'exemple de fichier multipath.conf suivant est pour Red Hat 6.X et les numéros d'unités logiques iSCSI basées sur NetApp.
+L'exemple de fichier multipath.conf suivant est pour Red Hat 7.X et les numéros d'unités logiques iSCSI basées sur NetApp.
 ```
 	defaults {
 	        user_friendly_names no
@@ -29,7 +29,7 @@ L'exemple de fichier multipath.conf suivant est pour Red Hat 6.X et les numéros
 	        dev_loss_tmo infinity
 	        fast_io_fail_tmo 5
 	}
-```	
+```
 Toutes les données affichées sous blacklist doivent être spécifiques à votre système.
 ```
 	blacklist {
@@ -53,7 +53,7 @@ Toutes les données affichées sous blacklist doivent être spécifiques à votr
 	                rr_min_io 128
 	        }
 	}
-```	
+```
 
 Exemple d'extension multipaths du fichier multipath.conf pour chemins d'accès d'unités ‘lisibles par l'homme’ :
 ```

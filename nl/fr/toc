@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" arm="2437231" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
 SAP NetWeaver on IBM Cloud - Guide de référence rapide pour Red Hat Enterprise Linux
 
     {: .navgroup id="learn"}

@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-21"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -19,9 +19,9 @@ lastupdated: "2018-02-21"
 # 3. Partitionnement et systèmes de fichiers
 {: #partition_32GB}
 
-Dans l'exemple de configuration à noeud unique, vous avez commandé un serveur avec un disque logique (sur RAID1). Un disque en miroir apparaît dans le système d'exploitation avec un grand système de fichiers racine qui est égal à la taille totale du disque (avec un espace utilisé pour `/boot`). L'agencement du système de fichiers décrit ci-dessous est seulement une approche possible. Pour une utilisation dans un environnement de production, vous pouvez suivre les informations de dimensionnement de votre système, car d'autres structures risquent de mieux répondre à vos besoins ou aux conditions requises par SAP. 
+Dans l'exemple de configuration à noeud unique, vous avez commandé un serveur avec un disque logique (sur RAID 1). Un disque en miroir apparaît dans le système d'exploitation avec un grand système de fichiers racine qui est égal à la taille totale du disque (avec un espace utilisé pour `/boot`). L'agencement du système de fichiers décrit ci-dessous est seulement une approche possible. Pour une utilisation dans un environnement de production, vous pouvez suivre les informations de dimensionnement de votre système, car d'autres structures risquent de mieux répondre à vos besoins ou aux conditions requises par SAP.
 
-Les trois répertoires requis pour l'installation SAP, `/usr/sap`, `/sapmnt` et `/db2` ont été créés :
+1. Créez les trois répertoires requis pour l'installation SAP, `/sapmnt`, `usr\sap` et `/db2`.
 ```
 [root@e2e1270 ~]# mkdir /sapmnt
 [root@e2e1270 ~]# mkdir /usr/sap

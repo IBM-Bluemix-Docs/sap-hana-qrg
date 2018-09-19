@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-08-13"
 
 
 ---
@@ -26,29 +26,32 @@ Une mémoire externe peut être ajoutée aux serveurs mis à disposition si vous
 
 
 1. Connectez-vous au portail [{{site.data.keyword.cloud_notm}} Infrastructure Customer Portal](https://control.softlayer.com/) avec vos données d'identification uniques.
-2. Sélectionnez **Stockage > Stockage par blocs.**
+2. Sélectionnez **Stockage** > **Stockage par blocs.**
 3. Cliquez sur **Commander du stockage par blocs** dans le coin supérieur droit de la page Stockage par blocs.
 4. Sélectionnez vos besoins de stockage spécifiques. Le tableau 1 contient les valeurs recommandées, notamment 4 IOPS/Go pour une charge de travail de base de données typique.
 
-|              Zone               |      Valeur                                        |
+|              Zone                |      Valeur                                       |
 | -------------------------------- | ------------------------------------------------- |
-|Sélectionner le type de stockage               | Endurance (valeur par défaut)                               |
-|Emplacement                          | TOR01                                             |
-|Facturation                    | Au mois (valeur par défaut)                                 |
-|Sélectionner un package de stockage            | 4 IOPS/Go                                         |
-|Sélectionner la taille du stockage               | 1000 Go                                           |
-|Indiquer la taille de l'espace d'instantané       | 0 Go                                              |
-|Sélectionner le type de système d'exploitation                    | Linux (valeur par défaut)                                   |
+|Emplacement                       | TOR01                                             |
+|Facturation                       | Au mois (valeur par défaut)                       |
+|Nouvelle taille de stockage       | 1000 Go                                           |
+|Options d'E-S/s de stockage       | Endurance (E-S/s échelonnées) (par défaut)        |
+|E-S/s échelonnées d'endurance     | 10 Go                                             |
+|Taille de l'espace d'instantané   | 0 Go                                              |
+|Type de système d'exploitation    | Linux par défaut                                  |
 {: caption="Tableau 1. Valeurs recommandées pour le stockage par blocs" caption-side="top"}
 
-5. Cliquez sur **Continuer**.
-6. Sélectionnez **J'ai lu et j'accepte les Conditions de Service Master** et cliquez sur **Valider la commande**.
-7. Cliquez sur **Actions** à la droite de votre numéro d'unité logique et sélectionnez **Hôte autorisé** pour accéder au stockage mis à disposition.
-8. Sélectionnez **Unités**. Le **Type d'unité** prend la valeur par défaut Serveur physique. Cliquez sur **Matériel** et sélectionnez les noms d'hôte de vos unités.
-9. Cliquez sur le bouton **Soumettre**.
-10. Vérifiez l'état de la mémoire mise à disposition sous **Unités** > (sélectionnez votre unité) > **onglet Stockage.**
-11. Notez l'**adresse cible** et le nom qualifié iSCSI (**IQN**) de votre serveur (initiateur iSCSI) ainsi que le **nom d'utilisateur** et le **mot de passe** pour l'accès au serveur iSCSI. Vous aurez besoin de ces informations au cours des prochaines étapes.
-12. Suivez les instructions décrites dans la section [Connecting to MPIO iSCSI LUNs on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) pour que rendre votre mémoire accessible depuis votre serveur mis à disposition.
+5. Cochez les deux cases et cliquez sur **Valider la commande**.
+
+## Autorisation d'hôtes
+{: authorize-host}
+
+1. Cliquez sur **Actions** à la droite de votre numéro d'unité logique et sélectionnez **Hôte autorisé** pour accéder au stockage mis à disposition.
+2. Sélectionnez **Unités**. Le **Type d'unité** prend la valeur par défaut Serveur physique. Cliquez sur **Matériel** et sélectionnez les noms d'hôte de vos unités.
+3. Cliquez sur le bouton **Soumettre**.
+4. Vérifiez l'état de la mémoire mise à disposition sous **Unités** > (sélectionnez votre unité) > onglet **Stockage**.
+5. Notez l'**adresse cible** et le nom qualifié iSCSI (**IQN**) de votre serveur (initiateur iSCSI) ainsi que le **nom d'utilisateur** et le **mot de passe** pour l'accès au serveur iSCSI. Vous aurez besoin de ces informations au cours des prochaines étapes.
+6. Suivez les instructions décrites dans la section [Connecting to MPIO iSCSI LUNs on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) pour que rendre votre mémoire accessible depuis votre serveur mis à disposition.
 
 ## Accès multiple à la mémoire
 {: #multipath}
@@ -61,14 +64,14 @@ Dans l'exemple de déploiement, vous avez extrait les données suivantes de l'on
 
 1. Entrez les données suivantes sur la base des informations extraites :
 ```
-[root@e2e2690 ~]# cat /etc/iscsi/initiatorname.iscsi
+[root@sdb192 ~]# cat /etc/iscsi/initiatorname.iscsi
 InitiatorName=iqn.2005-05.come.softlayer:SL01SU276540-H986345
-``` 
+```
    Il est possible qu'une entrée existante ait besoin d'être remplacée dans `/etc/iscsi/initiatorname.iscsi`.
 
 2. Ajoutez les lignes suivantes au bas de `/etc/iscsi/iscsid.conf` :
 ```
-[root@e2e2690 ~]# tail /etc/iscsi/iscsid.conf
+[root@sdb192 ~]# tail /etc/iscsi/iscsid.conf
 # it continue to respond to R2Ts. To enable this, uncomment this line
 # node.session.iscsi.FastAbort = No
 node.session.auth.authmethod = CHAP
@@ -79,30 +82,30 @@ discovery.sendtargets.auth.username = SL01SU276540-H896345
 discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 ```
 
-3. Remplacez les valeurs `username` et `password` de l'étape 2 par les valeurs annotées à l'étape 11 de la section Configuration de la mémoire externe.
+3. Remplacez les valeurs `username` et `password` de l'étape 2 par les valeurs annotées à l'étape 5 de la section *Autorisation d'hôtes*.
 
 4. Découvrez la cible iSCSI en entrant les lignes suivantes.
 ```
-[root@e2e2690 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
+[root@sdb192 ~]# iscsiadm -m discovery -t sendtargets -p "10.2.62.78"
 10.2.62.78:3260,1031 iqn.1992-08.com.netapp:tor0101
 10.2.62.87:3260,1032 iqn.1992-08.com.netapp:tor0101
 ```
 
 5. Définissez l'hôte pour qu'il se connecte automatiquement à la grappe iSCSI.
 
-      `[root@e2e2690 ~]# iscsiadm -m node -L automatic`
+      `[root@sdb192 ~]# iscsiadm -m node -L automatic`
 
 6. Installez et démarrez le démon multi-accès.
 ```
-[root@e2e2690 ~]# yum install device-mapper-multipath
+[root@sdb192 ~]# yum install device-mapper-multipath
 …
-[root@e2e2690 ~]# chkconfig multipathd on
-[root@e2e2690 ~]# service multipathd start
+[root@sdb192 ~]# chkconfig multipathd on
+[root@sdb192 ~]# service multipathd start
 ```
 
 7. Exécutez toutes les commandes décrites dans [Mounting Block Storage volumes on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) pour qu'un autre numéro d'unité logique apparaisse dans la sortie multi-accès.
 ```
-[root@e2e2690 ~]# multipath -ll
+[root@sdb192 ~]# multipath -ll
 …
 3600a098038303452543f464142755a42 dm-9 NETAPP,LUN C-Mode
 size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp=rw
@@ -127,10 +130,10 @@ Adaptez le bloc 'multipath' de `/etc/multipath.conf` pour créer un alias du che
      }
 
 8. Redémarrez `multipathd`. Vous pouvez maintenant créer le répertoire `/backup filesystem` et procéder au montage sur l'unité par blocs.
-        
-      [root@e2e2690 ~]# service multipathd restart
-      [root@e2e2690 ~]# mkfs.ext4 /dev/mapper/mpath1
-      [root@e2e2690 ~]# mkdir  /backup
+
+      [root@sdb192 ~]# service multipathd restart
+      [root@sdb192 ~]# mkfs.ext4 /dev/mapper/mpath1
+      [root@sdb192 ~]# mkdir  /backup
 
 9. Vérifiez les systèmes de fichiers sur les deux serveurs. Vous devez obtenir un résultat similaire à la sortie ci-dessous.
 
@@ -140,12 +143,12 @@ Adaptez le bloc 'multipath' de `/etc/multipath.conf` pour créer un alias du che
         tmpfs                  16G     0   16G   0% /dev/shm
         /dev/sda1             248M   63M  173M  27% /boot
         /dev/sdb2             849G  201M  805G   1% /usr/sap
-        db2690-priv:/usr/sap/trans
+        db192-priv:/usr/sap/trans
                       165G   59M  157G   1% /usr/sap/trans
-                      db2690-priv:/sapmnt/C10
+                      db192-priv:/sapmnt/C10
                       165G   59M  157G   1% /sapmnt/C10
 
-        [root@e2e2690 ~]# df -h
+        [root@sdb192 ~]# df -h
         Filesystem      	    Size  Used Avail Use% Mounted on
         /dev/sda3             549G  2,3G  519G   1% /
         tmpfs                 127G     0  127G   0% /dev/shm
