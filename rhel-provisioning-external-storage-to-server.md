@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-13"
+lastupdated: "2018-11-14"
 
 
 ---
@@ -22,10 +22,10 @@ lastupdated: "2018-08-13"
 ## Setting up external storage
 {: #set_up_storage}
 
-External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
 
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com/) with your unique credentials.
+1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){: new_window} with your unique credentials.
 2. Select **Storage** > **Block Storage.**
 3. Click **Order Block Storage** in the upper right corner of the Block Storage page.
 4. Select the specifics for your storage needs. Table 1 contains recommended values, including 4 IOPS/GB for a typical database workload.
@@ -51,7 +51,7 @@ External storage can be added to your provisioned server or servers if you want 
 3. Click the **Submit** button.
 4. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
 5. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
-6. Follow the steps in [Connecting to MPIO iSCSI LUNs on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) to make your storage accessible from your provisioned server.
+6. Follow the steps in [Connecting to MPIO iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) to make your storage accessible from your provisioned server.
 
 ## Making storage multipath
 {: #multipath}
@@ -103,7 +103,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Complete all the commands in [Mounting Block Storage volumes on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) so another LUN appears in the multipath output.
+7. Complete all the commands in [Mounting Block Storage volumes on Linux](/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) so another LUN appears in the multipath output.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -161,4 +161,4 @@ Adapt the multipath block from `/etc/multipath.conf` to create an alias of the p
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-If you install an SAP NetWeaver-based SAP application on {{site.data.keyword.Db2_on_Cloud_long}}, you must create subdirectories under `/backup` owned by the database admin user (`db2SID`) for full backups and archived log files. For automatic archiving of the log files, you should set `LOGMETH1` in your {{site.data.keyword.Db2_on_Cloud_short}} database. Refer to the [{{site.data.keyword.Db2_on_Cloud_short}} documentation](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html) for details.
+If you install an SAP NetWeaver-based SAP application on {{site.data.keyword.Db2_on_Cloud_long}}, you must create subdirectories under `/backup` owned by the database admin user (`db2SID`) for full backups and archived log files. For automatic archiving of the log files, you should set `LOGMETH1` in your {{site.data.keyword.Db2_on_Cloud_short}} database. Refer to the [{{site.data.keyword.Db2_on_Cloud_short}} documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} for details.

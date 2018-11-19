@@ -4,7 +4,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-11-14"
 
 
 ---
@@ -27,7 +27,7 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 ## Ordering your database server
 {: #order-db-server}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal](https://control.softlayer.com) with your unique credentials.
+1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com){: new_window} with your unique credentials.
 2. Click  **Account** > **Place an Order** on the Account Summary page.
 3. Click **Monthly** under **{{site.data.keyword.baremetal_long}}** on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
 4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S3.NW192 (OS Options).**
@@ -51,13 +51,13 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 
 1. Select **500 GB** for **Public Bandwidth.**
 2. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options) for detailed descriptions of the options.
+3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](/docs/bare-metal/baremetal-provision.html#addl-server-options) for detailed descriptions of the options.
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
+1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
 
 |              Field               |      Value                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
@@ -82,7 +82,7 @@ After the order is submitted, the server is, depending on your order, available 
 ## Bring your own license
 {: #byol}
 
-When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Next Steps
 
