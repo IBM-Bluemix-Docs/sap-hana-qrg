@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2018
-lastupdated: "2018-11-14"
+  years: 2018, 2019
+lastupdated: "2019-02-14"
 
 
 ---
@@ -22,7 +22,7 @@ lastupdated: "2018-11-14"
 ## Ordering your server
 {: #order_32GB}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com){: new_window} with your unique credentials.
+1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com){: new_window} with your unique credentials.
 2. Click **Account** > **Place an Order** on the Account Summary page.
 3. Click **Monthly** under {{site.data.keyword.baremetal_short}} on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
 4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S3.NW32 (OS Options).**
@@ -46,13 +46,13 @@ lastupdated: "2018-11-14"
 
 1. Select **500 GB** for **Public Bandwidth.**
 2.	Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](/docs/bare-metal/baremetal-provision.html#addl-server-options).
+3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options).
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in [Advanced server configuration options](/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
+Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in [Advanced server configuration options](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config) guidelines.
 
 1. Scroll down and enter the values in Table 1 under **Advanced System Configuration.**
 
@@ -79,10 +79,10 @@ After the order is submitted, your server is, depending on your order, available
 ## Bring your own license
 {: #byol}
 
-When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Next Steps
 
-  [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
+  [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
 
-  [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+  [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)

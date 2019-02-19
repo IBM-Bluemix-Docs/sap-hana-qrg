@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2018, 2019
+lastupdated: "2019-02-14"
 
 
 ---
@@ -22,7 +22,7 @@ lastupdated: "2018-11-14"
 ## Installing RPM packages (prerequisite)
 {: #RPM}
 
-An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/software/installations.html)}: new_window (requires an [SAP S-user ID](/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)) and [support notes ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/notes){: new_window} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites. There are two more packages that need to be installed:
+An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/software/installations.html)}: new_window (requires an [SAP S-user ID](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started) and [support notes ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/notes){: new_window} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites. There are two more packages that need to be installed:
 * compat-sap-c++: Generally achieves compatibility of the C++ runtime with the compilers that are used by SAP. Because Red Hat Enterprise Linux for SAP Business Application 7.X was seelected as the OS for both the  32 GB application server and the 192 GB database server, you will use `compat-sap-c++-7`.
 * uuidd: Maintains OS support for the creation of UUIDs.
 

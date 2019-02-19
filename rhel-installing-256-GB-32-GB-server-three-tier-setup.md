@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2018
-lastupdated: "2018-11-14"
+  years: 2018, 2019
+lastupdated: "2019-02-14"
 
 
 ---
@@ -23,10 +23,10 @@ A three-tier environment is a more complex scenario using a 192 GB server as the
 
 | Step | Task |
 | --- | --- |
-| 1 | [Ordering your 192 GB and 32 GB servers for a three-tier setup](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-three-tier.html) |
-| 2 | [Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html) |
-| 3 | [Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html) |
-| 4 | [Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network) |
+| 1 | [Ordering your 192 GB and 32 GB servers for a three-tier setup](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+| 2 | [Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+| 3 | [Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+| 4 | [Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="Table 1. Provisioning overview" caption-side="top"}
 
 ## Next Steps

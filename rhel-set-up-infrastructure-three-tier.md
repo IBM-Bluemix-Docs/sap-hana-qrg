@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2018, 2019
+lastupdated: "2019-02-14"
 
 
 ---
@@ -22,7 +22,7 @@ lastupdated: "2018-11-14"
 ## Ordering your servers
 {: #order_servers}
 
-Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) to order the SAP NetWeaver application server. The following steps guide you through ordering the database server.
+Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) to order the SAP NetWeaver application server. The following steps guide you through ordering the database server.
 
 ## Ordering your database server
 {: #order-db-server}
@@ -51,13 +51,13 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 
 1. Select **500 GB** for **Public Bandwidth.**
 2. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](/docs/bare-metal/baremetal-provision.html#addl-server-options) for detailed descriptions of the options.
+3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options) for detailed descriptions of the options.
 4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
 
 ## Setting up Advanced System Configurations
 {: #adv_config}
 
-1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](/docs/bare-metal/baremetal-provision.html#adv-system-config) guidelines.
+1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config) guidelines.
 
 |              Field               |      Value                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
@@ -82,12 +82,12 @@ After the order is submitted, the server is, depending on your order, available 
 ## Bring your own license
 {: #byol}
 
-When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Next Steps
 
-  [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
+  [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
+  [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+  [4. Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

@@ -3,8 +3,8 @@
 
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-11-14"
+  years: 2017, 2018, 2019
+lastupdated: "2019-02-14"
 
 
 ---
@@ -22,7 +22,7 @@ lastupdated: "2018-11-14"
 ## Setting up external storage
 {: #set_up_storage}
 
-External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){: new_window} with your unique credentials.
@@ -51,7 +51,7 @@ External storage can be added to your provisioned server or servers if you want 
 3. Click the **Submit** button.
 4. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
 5. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
-6. Follow the steps in [Connecting to MPIO iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) to make your storage accessible from your provisioned server.
+6. Follow the steps in [Connecting to iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) to make your storage accessible from your provisioned server.
 
 ## Making storage multipath
 {: #multipath}
@@ -103,7 +103,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Complete all the commands in [Mounting Block Storage volumes on Linux](/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) so another LUN appears in the multipath output.
+7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) so another LUN appears in the multipath output.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +118,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 You can now use the multipath device as you would use any disk device. A device path appears under `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Take the sample `/etc/multipath.conf` from the [example `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) and create it on your server. Be aware that any copied special characters, DOS-like carriage returns, line-feed entries might lead to unexpected behavior. Make sure that you have an ASCII Unix file after you copy the contents.
+Take the sample `/etc/multipath.conf` from the [example `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) and create it on your server. Be aware that any copied special characters, DOS-like carriage returns, line-feed entries might lead to unexpected behavior. Make sure that you have an ASCII Unix file after you copy the contents.
 
 Adapt the multipath block from `/etc/multipath.conf` to create an alias of the path to access the device under `1/dev/mapper/mpath1`.
 
