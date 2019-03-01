@@ -1,42 +1,54 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-getting-started-tutorial" path="infrastructure/sap-netweaver-rhel-qrg"}
-SAP NetWeaver on IBM Cloud - Quick Reference Guide for Red Hat Enterprise Linux
+{: .toc subcollection="sap-netweaver" audience="compute" href="docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started" path="infrastructure/sap-netweaver"}
+SAP NetWeaver on IBM Cloud
 
     {: .navgroup id="learn"}
-    rhel-index.md
-    [SAP NetWeaver on IBM Cloud](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
+    sap-index.md
+    sap-about.md
+    sap-general-iaas-concepts.md
+    sap-byol.md
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
     {: .topicgroup}
-    Provisioning
-        rhel-installing-32-GB-single-server-node.md
-        rhel-set-up-infrastructure-32GB.md
-        rhel-prepare-server-32GB.md
-        rhel-partition-32GB.md
-        rhel-installing-256-GB-32-GB-server-three-tier-setup.md
-        rhel-set-up-infrastructure-three-tier.md
-        rhel-prepare-server-256GB.md
-        rhel-partition-256GB.md
-        rhel-prepare-network.md
+    Planning
+        sap-planning-your-system-landscape.md
+        sap-considerations.md
+        sap-get-credentials.md
+        sap-review-doc.md
+        sap-determine-apps.md
+        sap-size-server.md
+        sap-determine-configuration.md
 
     {: .topicgroup}
-    Configuration
-        rhel-provisioning-external-storage-to-server.md
-        rhel-installing-your-SAP-landscape.md
+    Provisioning
+        sap-provision-environment.md
+        sap-requesting-setting-up-VPN.md
+        sap-setting-up-infrastructure.md
+
+    {: .topicgroup}
+    Managing
+        sap-manage-environment.md
+        sap-order-storage.md
+        sap-secure-environment.md
+        sap-installing-guest-operating-system-VMware-deployments.md
+        sap-installing-SAP-landscape.md
+        sap-ha.md
+        sap-content-server.md
     {: .navgroup-end}
 
     {: .navgroup id="reference"}
-    rhel-sample.md
+
     {: .navgroup-end}
 
     {: .navgroup id="help"}
     [Getting help and support](/bare-metal/bare-metal-gettinghelp#gettinghelp)
+    sap-support.md
 
     {: .topicgroup}
     FAQs
-        [FAQs: SAP on IBM Cloud](/infrastructure/sap-netweaver/sap-netweaver-faqs#faqs)
+        sap-faqs.md
 
-{: .navgroup-end}
+    {: .navgroup-end}
