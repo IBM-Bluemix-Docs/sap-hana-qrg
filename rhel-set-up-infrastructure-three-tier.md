@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018, 2019
-lastupdated: "2019-02-14"
+  years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords:
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -31,6 +32,9 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 2. Click  **Account** > **Place an Order** on the Account Summary page.
 3. Click **Monthly** under **{{site.data.keyword.baremetal_long}}** on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
 4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S3.NW192 (OS Options).**
+
+The BI.S3.NW32 (OS Options) server is also available for **Hourly** billing.
+{: note}
 
 ## Configuring your database server
 {: #options_192GB}
