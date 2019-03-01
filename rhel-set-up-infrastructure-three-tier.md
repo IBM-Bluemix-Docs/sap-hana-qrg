@@ -4,7 +4,7 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-03-01"
 
-keywords:
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
 
 subcollection: sap-netweaver-rhel-qrg
 

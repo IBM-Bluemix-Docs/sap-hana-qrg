@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 20187, 2018
-lastupdated: "2019-02-14"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 

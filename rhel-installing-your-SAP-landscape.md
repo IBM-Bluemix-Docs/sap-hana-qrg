@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018, 2019
-lastupdated: "2019-02-14"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 

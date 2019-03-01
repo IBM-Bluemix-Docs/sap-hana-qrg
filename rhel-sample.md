@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, multipath.conf
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
