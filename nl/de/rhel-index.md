@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -24,10 +25,10 @@ Bei dem ersten Konfigurationsbeispiel handelt es sich um das kompakteste Setup, 
 
 Verwenden Sie die folgenden Links, um mit der Implementierung von SAP NetWeaver on {{site.data.keyword.cloud_notm}} zu beginnen.
 
-  * [32 GB-Server mit einem Knoten installieren](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-32-GB-single-server-node.html#install_32GB)
-  * [192 GB- und 32 GB-Server in einer Konfiguration mit drei Ebenen installieren](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-256-GB-32-GB-server-three-tier-setup.html#install_256GB)
-  * [Externen Speicher hinzufügen](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-provisioning-external-storage-to-server.html#storage)
-  * [SAP-Anwendungen und -Software installieren](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-your-SAP-landscape.html#install_landscape)
+  * [32 GB-Server mit einem Knoten bereitstellen](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-provisioning-a-32-gb-single-node-server#install_32GB)
+  * [192 GB- und 32 GB-Server in einer Konfiguration mit drei Ebenen bereitstellen](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install-256GB#install-256GB)
+  * [Externen Speicher hinzufügen](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage#storage)
+  * [SAP-Anwendungen und -Software installieren](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape#install_landscape)
 
 ## Nächste Schritte
 

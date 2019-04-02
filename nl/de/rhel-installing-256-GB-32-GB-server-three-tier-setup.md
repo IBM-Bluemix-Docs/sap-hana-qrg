@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-13"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,10 +24,10 @@ Bei einer Umgebung mit drei Ebenen handelt es sich um eine komplexeres Szenario 
 
 | Schritt | Task |
 | --- | --- |
-| 1 | [192 GB- und 32 GB-Server für eine Konfiguration mit drei Ebenen bestellen](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-three-tier.html) |
-| 2 | [Server für die SAP-Installation vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html) |
-| 3 | [Partitionierung und Dateisysteme](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html) |
-| 4 | [Netz vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network) |
+| 1 | [192 GB- und 32 GB-Server für eine Konfiguration mit drei Ebenen bestellen](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+| 2 | [Server für die SAP-Installation vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+| 3 | [Partitionierung und Dateisysteme](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+| 4 | [Netz vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="Tabelle 1. Bereitstellung - Übersicht" caption-side="top"}
 
 ## Nächste Schritte

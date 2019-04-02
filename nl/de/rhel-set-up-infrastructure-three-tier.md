@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+  years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,15 +23,18 @@ lastupdated: "2018-08-14"
 ## Server bestellen
 {: #order_servers}
 
-Führen Sie zum Bestellen des SAP NetWeaver-Anwendungsservers die Schritte unter [32 GB-Server bestellen](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) aus. Die folgenden Schritte führen Sie durch den Bestellprozess für den Datenbankserver.
+Führen Sie zum Bestellen des SAP NetWeaver-Anwendungsservers die Schritte unter [32 GB-Server bestellen](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) aus. Die folgenden Schritte führen Sie durch den Bestellprozess für den Datenbankserver.
 
 ## Datenbankserver bestellen
 {: #order-db-server}
 
-1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur](https://control.softlayer.com) mit Ihren eindeutigen Berechtigungsnachweisen an.
+1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com){: new_window} mit Ihren eindeutigen Berechtigungsnachweisen an.
 2. Klicken Sie auf **Konto** > **Bestellen** auf der Kontozusammenfassungsseite.
 3. Klicken Sie auf der Seite 'Geräte' unter **{{site.data.keyword.baremetal_long}}** auf den Link **Monatlich**. Die Liste der Server wird angezeigt; die von SAP zertifizierten Server stehen am Listenanfang.
 4. Klicken Sie auf den Hyperlink unter **Startpreis pro Monat**, um den Server **BI.S3.NW192 (Betriebssystemoptionen)** auszuwählen.
+
+Der BI.S3.NW32-Server (Betriebssystemoptionen) ist ebenfalls für die Abrechnung auf **Stundenbasis** verfügbar.
+{: note}
 
 ## Datenbankserver konfigurieren
 {: #options_192GB}
@@ -51,24 +55,24 @@ Führen Sie zum Bestellen des SAP NetWeaver-Anwendungsservers die Schritte unter
 
 1. Wählen Sie **500 GB** als **Öffentliche Bandbreite** aus.
 2. Wählen Sie **1 Gb/s redundante öffentliche & private Netzuplinks** für **Uplink-Port-Geschwindigkeit** aus.
-3. Belassen Sie für dieses Beispiel die Standardwerte für alle anderen Felder. Detaillierte Beschreibungen der Optionen finden Sie in [Angepassten Bare-Metal-Server erstellen](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options).
+3. Belassen Sie für dieses Beispiel die Standardwerte für alle anderen Felder. Detaillierte Beschreibungen der Optionen finden Sie in [Angepassten Bare-Metal-Server erstellen](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options).
 4.	Klicken Sie unten auf der Seite auf **Zur Bestellung hinzufügen**. Nachdem Ihre Bestellung geprüft wurde, werden Sie an die Kassenseite weitergeleitet.
 
 ## Erweitere Systemkonfigurationen einrichten
 {: #adv_config}
 
-1. Verwenden Sie die Werte in Tabelle 1 für die Felder für die erweiterte Systemkonfiguration. Weitere Informationen finden Sie in den Richtlinien zur [erweiterten Systemkonfiguration](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
+1. Verwenden Sie die Werte in Tabelle 1 für die Felder für die erweiterte Systemkonfiguration. Weitere Informationen finden Sie in den Richtlinien zur [erweiterten Systemkonfiguration](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config).
 
-|              Feld                |      Wert                                                            |
+|              Feld               |      Wert                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
-|Back-End-VLAN                     | Auswahl in Dropdown-Liste, z. B. `tor01.bcr01a.1241`|
-|Teilnetz                          | Auswahl in Dropdown-Liste, z. B. `10.114.63.64/26`  |
-|Front-End-VLAN                    | Auswahl in Dropdown-Liste, z. B. `tor01.fcr01a.851` |
-|Teilnetz                          | Auswahl in Dropdown-Liste, z. B. `158.85.65.224/28` |
-|Bereitstellungsscripts            | Keine Angabe machen                                                  |
-|SSH-Schlüssel                     | Standardwert `Add`, d. h. kein SSH-Schlüssel        |
-|Hostname                          | Beispiel: `sdb192`                                  |
-|Domäne                            | Beispiel: `saptest.com`                             |
+|Back-End-VLAN                      | Auswahl in Dropdown-Liste, z. B. `tor01.bcr01a.1241`     |
+|Teilnetz                            | Auswahl in Dropdown-Liste, z. B. `10.114.63.64/26`       |
+|Front-End-VLAN                     | Auswahl in Dropdown-Liste, z. B. `tor01.fcr01a.851`      |
+|Teilnetz                            | Auswahl in Dropdown-Liste, z. B. `158.85.65.224/28`      |
+|Bereitstellungsscripts                 | Keine Angabe machen                                                          |
+|SSH-Schlüssel                          | Standardwert `Add`, d. h. kein SSH-Schlüssel                            |
+|Hostname                          | Beispiel: `sdb192`                                                |
+|Domäne                            | Beispiel: `saptest.com`                                           |
 {: caption="Tabelle 1. Werte für erweiterte 192 GB-Konfiguration" caption-side="top"}  
 
 ## Auswahl bestätigen
@@ -82,12 +86,12 @@ Nachdem die Bestellung zur Verarbeitung übergeben wurde, kann der Server je nac
 ## BYOL (Bring Your Own License)
 {: #byol}
 
-Wenn Sie über eine eigene Betriebssystemlizenz verfügen, installieren Sie sie auf dem {{site.data.keyword.baremetal_short}} anhand der Herstelleranweisungen. Weitere Informationen finden Sie in [Option 'Kein Betriebssystem'](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+Wenn Sie über eine eigene Betriebssystemlizenz verfügen, installieren Sie sie auf dem {{site.data.keyword.baremetal_short}} anhand der Herstelleranweisungen. Weitere Informationen finden Sie in [Option 'Kein Betriebssystem'](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Nächste Schritte
 
-  [2. Server für die SAP-Installation vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
+  [2. Server für die SAP-Installation vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. Partitionierung und Dateisysteme](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
+  [3. Partitionierung und Dateisysteme](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. Netz vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+  [4. Netz vorbereiten](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

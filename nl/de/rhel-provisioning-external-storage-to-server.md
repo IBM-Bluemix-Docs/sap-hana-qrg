@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,23 +23,23 @@ lastupdated: "2018-08-13"
 ## Externen Speicher einrichten
 {: #set_up_storage}
 
-Sie können externen Speicher zu den bereitgestellten Servern hinzufügen, wenn Sie diesen als Backup-Einheit verwenden oder die Datenbank anhand einer Momentaufnahme schnell in einer Testumgebung wiederherstellen möchten. Bei dem Beispiel mit drei Ebenen wird Blockspeicher sowohl für das Archivieren von Protokolldateien der Datenbank als auch für Online- und Offline-Backups für die Datenbank verwendet. Es wurde der schnellste Blockspeicher (4 IOPS pro GB) ausgewählt, um eine schnelle Backupzeit zu gewährleisten. Ein langsamerer Blockspeicher könnte für Ihre Anforderungen nicht ausreichend sein. Weitere Informationen zu {{site.data.keyword.blockstoragefull}} finden Sie unter [Einführung in Blockspeicher](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+Sie können externen Speicher zu den bereitgestellten Servern hinzufügen, wenn Sie diesen als Backup-Einheit verwenden oder die Datenbank anhand einer Momentaufnahme schnell in einer Testumgebung wiederherstellen möchten. Bei dem Beispiel mit drei Ebenen wird Blockspeicher sowohl für das Archivieren von Protokolldateien der Datenbank als auch für Online- und Offline-Backups für die Datenbank verwendet. Es wurde der schnellste Blockspeicher (4 IOPS pro GB) ausgewählt, um eine schnelle Backupzeit zu gewährleisten. Ein langsamerer Blockspeicher könnte für Ihre Anforderungen nicht ausreichend sein. Weitere Informationen zu {{site.data.keyword.blockstoragefull}} finden Sie unter [Einführung in Blockspeicher](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
-1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur](https://control.softlayer.com/) mit Ihren eindeutigen Berechtigungsnachweisen an.
-2. Wählen Sie **Speicher** > **Blockspeicher** aus. 
+1. Melden Sie sich beim [Kundenportal der {{site.data.keyword.cloud_notm}}-Infrastruktur ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](https://control.softlayer.com/){: new_window} mit Ihren eindeutigen Berechtigungsnachweisen an.
+2. Wählen Sie **Speicher** > **Blockspeicher** aus.
 3. Klicken Sie oben rechts auf der Seite für den Blockspeicher auf **Blockspeicher bestellen**.
 4. Wählen Sie die Spezifikationen für Ihre Speicheranforderungen aus. Tabelle 1 enthält empfohlene Werte, einschließlich 4 IOPS/GB für eine typische Auslastung für Datenbanken.
 
-|            Feld                  |      Wert                                        |
+|              Feld               |      Wert                                        |
 | -------------------------------- | ------------------------------------------------- |
 |Position                          | TOR01                                             |
-|Zahlungsmethode                   | Monatlich (Standard)                              |
-|Neue Speichergröße                | 1000 GB                                           |
-|IOPS-Speicheroptionen             | Belastbarkeit (gestaffelte IOPS) (Standard)       |
-|Belastbarkeit (gestaffelte IOPS)  | 10 GB                                             |
-|Speicherbereich f. Momentaufnahme | 0 GB                                              |
-|Betriebssystemtyp                 | Standardmäßig Linux                               |
+|Zahlungsmethode                    | Monatlich (Standard)                                 |
+|Neue Speichergröße                  | 1000 GB                                           |
+|IOPS-Speicheroptionen              | Belastbarkeit (gestaffelte IOPS) (Standard)                 |
+|Belastbarkeit (gestaffelte IOPS)             | 10 GB                                             |
+|Speicherbereich f. Momentaufnahme               | 0 GB                                              |
+|Betriebssystemtyp                           | Standardmäßig Linux                                 |
 {: caption="Tabelle 1. Empfohlene Werte für Blockspeicher" caption-side="top"}
 
 5. Klicken Sie auf die beiden Kontrollkästchen und anschließend auf **Bestellen**.
@@ -46,12 +47,12 @@ Sie können externen Speicher zu den bereitgestellten Servern hinzufügen, wenn 
 ## Hosts autorisieren
 {: authorize-host}
 
-1. Klicken Sie rechts neben der LUN auf **Aktionen** und wählen Sie **Host autorisieren** aus, um auf den bereitgestellten Speicher zuzugreifen.
+1. Klicken Sie rechts neben der LUN auf **Aktionen** und wählen Sie **Host authorisieren** aus, um auf den bereitgestellten Speicher zuzugreifen.
 2. Wählen Sie **Geräte** aus; der Wert für **Gerätetyp** nimmt standardmäßig den Wert 'Bare-Metal-Server' ein. Klicken Sie auf **Hardware**, und wählen Sie die Hostnamen der Geräte aus.
 3. Klicken Sie auf **Abschicken**.
 4. Überprüfen Sie den Status des bereitgestellten Speichers auf der Registerkarte **Geräte** > (wählen Sie Ihr Gerät aus) > **Speicher**.
 5. Notieren Sie sich die **Zieladresse** und den qualifizierten iSCSI-Namen (**IQN**) für Ihren Server (iSCSI-Initiator) sowie den **Benutzernamen** und das **Kennwort** für die Autorisierung beim iSCSI-Server. Sie benötigen diese Informationen für die folgenden Schritte.
-6. Führen Sie die Schritte unter [Verbindung zu MPIO iSCSI-LUNs unter Linux herstellen](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) aus, damit der Speicher über die bereitstellten Server zugänglich sit.
+6. Führen Sie die Schritte unter [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) aus, damit der Speicher über den bereitstellten Server zugänglich ist.
 
 ## Speicher als Multipath angeben
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Führen Sie alle Befehle unter [Blockspeicherdatenträger unter Linux anhängen](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) aus, damit in der Multipath-Ausgabe eine weitere LUN angezeigt wird.
+7. Führen Sie alle Befehle in [Verbindung zu iSCSI-LUNs unter Linux herstellen](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) aus, damit in der Multipath-Ausgabe eine weitere LUN angezeigt wird.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 Sie können das Multipath-Gerät nun wie alle anderen Platteneinheiten verwenden. Unter `/dev/mapper/3600a098038303452543f464142755a42` wird ein Gerätepfad angezeigt.
 
-Nehmen Sie die Beispieldatei `/etc/multipath.conf` aus dem [Beispiel für `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) und erstellen Sie sie auf dem Server. Beachten Sie, dass alle kopierten Sonderzeichen, DOS-ähnlichen Wagenrückläufe und Zeilenvorschübe zu unerwartetem Verhalten führen kann. Stellen Sie sicher, dass Sie nach dem Kopieren des Inhalts über eine ASCII-UNIX-Datei verfügen.
+Nehmen Sie die Beispieldatei `/etc/multipath.conf` aus dem [Beispiel für `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) und erstellen Sie sie auf dem Server. Beachten Sie, dass alle kopierten Sonderzeichen, DOS-ähnlichen Wagenrückläufe und Zeilenvorschübe zu unerwartetem Verhalten führen kann. Stellen Sie sicher, dass Sie nach dem Kopieren des Inhalts über eine ASCII-UNIX-Datei verfügen.
 
 Passen Sie den Multipath-Block aus `/etc/multipath.conf` so an, um einen Alias des Pfades für den Zugriff auf das Gerät unter `1/dev/mapper/mpath1` zu erstellen.
 
@@ -161,4 +162,4 @@ Passen Sie den Multipath-Block aus `/etc/multipath.conf` so an, um einen Alias d
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-Wenn Sie eine SAP NetWeaver-basierte SAP-Anwendung für {{site.data.keyword.Db2_on_Cloud_long}} installiert haben, müssen Sie unter `/backup` Unterverzeichnisse, die dem Datenbankbenutzer mit Administratorberechtigung (`db2SID`) gehören, für umfassende Backups und archivierte Protokolldateien erstellen. Für eine automatische Archivierung der Protokolldateien sollten Sie `LOGMETH1` in der {{site.data.keyword.Db2_on_Cloud_short}}-Datenbank angeben. Weitere Informationen finden Sie in der [{{site.data.keyword.Db2_on_Cloud_short}}-Dokumentation](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html).
+Wenn Sie eine SAP NetWeaver-basierte SAP-Anwendung für {{site.data.keyword.Db2_on_Cloud_long}} installiert haben, müssen Sie unter `/backup` Unterverzeichnisse, die dem Datenbankbenutzer mit Administratorberechtigung (`db2SID`) gehören, für umfassende Backups und archivierte Protokolldateien erstellen. Für eine automatische Archivierung der Protokolldateien sollten Sie `LOGMETH1` in der {{site.data.keyword.Db2_on_Cloud_short}}-Datenbank angeben. Details finden Sie in der [{{site.data.keyword.Db2_on_Cloud_short}}-Dokumentation ![Symbol für externen Link](../icons/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window}.
