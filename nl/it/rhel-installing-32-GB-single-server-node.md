@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,9 +23,9 @@ Utilizza la procedura indicata nella Tabella 1 per eseguire il provisioning del 
 
 | Passo | Attività |
 | --- | --- |
-| 1 | [Ordinazione del tuo server da 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-| 2 | [Preparazione del tuo server per la tua installazione SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
-| 3 | [Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+| 1 | [Ordine del tuo server di 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+| 2 | [Preparazione del tuo server per la tua installazione SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
+| 3 | [Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="Tabella 1. Panoramica del provisioning" caption-side="top"}
 
 ## Passi successivi

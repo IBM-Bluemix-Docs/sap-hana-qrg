@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,7 +23,7 @@ lastupdated: "2018-08-14"
 ## Installazione di pacchetti RPM (prerequisito)
 {: #RPM}
 
-Un'istallazione SAP richiede specifici prerequisiti per i pacchetti installati sul sistema operativo e i daemon del sistema operativo in esecuzione. Fai riferimento alle [guide all'installazione](https://support.sap.com/software/installations.html) (è necessario un [ID S-user SAP](/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)) e le [note di supporto](https://support.sap.com/notes) più recenti (richiede un ID S-user SAP) da SAP per un elenco aggiornato di questi prerequisiti. Ci sono altri due pacchetti che devono essere installati:
+Un'istallazione SAP richiede specifici prerequisiti per i pacchetti installati sul sistema operativo e i daemon del sistema operativo in esecuzione. Fai riferimento alle più recenti [guide all'installazione ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://support.sap.com/software/installations.html)}: new_window (è necessario un [ID S-user SAP](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started) e le [note di supporto ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://support.sap.com/notes){: new_window} (richiede un ID S-user SAP) da SAP per un elenco aggiornato di questi prerequisiti. Ci sono altri due pacchetti che devono essere installati:
 * compat-sap-c++: normalmente ottiene la compatibilità del runtime C++ con i compilatori utilizzati da SAP. Poiché è stato selezionato Red Hat Enterprise Linux per SAP Business Application 7.X come sistema operativo per il server delle applicazioni da 32 GB e il server di database da 192 GB, utilizzerai `compat-sap-c++-7`.
 * uuidd: mantiene il supporto del sistema operativo per la creazione di UUID.
 
@@ -38,7 +39,7 @@ Un'istallazione SAP richiede specifici prerequisiti per i pacchetti installati s
 
 ### Installazione del pacchetto compat-sap-c++-7
 
-1. Attieniti alla [Nota SAP 2195019](https://launchpad.support.sap.com/#/notes/2195019), installa il pacchetto compat-sap-c++-7 e crea un soft-link specifico, che è richiesto dai file binari SAP. Controlla le note SAP specifiche della release per il prodotto che stai installando per determinare se la libreria è obbligatoria o meno.
+1. Attieniti alla [nota SAP 2195019 ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://launchpad.support.sap.com/#/notes/2195019){: new_window}, installa il pacchetto compat-sap-c++-7 e crea un soft-link specifico, che è richiesto dai file binari SAP. Controlla le note SAP specifiche della release per il prodotto che stai installando per determinare se la libreria è obbligatoria o meno.
 ```
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....
@@ -49,14 +50,14 @@ Un'istallazione SAP richiede specifici prerequisiti per i pacchetti installati s
 ## Download del tuo software SAP
 {: download_software}
 
-Accedi a [SAP Support Portal](https://support.sap.com/en/index.html), fai clic su **Download Software** e scarica i DVD richiesti su un'unità condivisa locale. Trasferisci i file al tuo server di cui è stato eseguito il provisioning. Un'altra opzione consiste nello scaricare [SAP Software Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677), installarlo sul tuo server di destinazione e scaricare direttamente le immagini DVD sul server.
+Accedi a [SAP Support Portal ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://support.sap.com/en/index.html){: new_window}, fai clic su **Download Software** e scarica i DVD richiesti su un'unità condivisa locale. Trasferisci i file al tuo server di cui è stato eseguito il provisioning. Un'altra opzione consiste nello scaricare [SAP Software Download Manager ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: new_window}, installarlo sul tuo server di destinazione e scaricare direttamente le immagini DVD sul server.
 
 ## Preparazione della GUI SWPM di SAP
 {: #prepare_for_GUI}
 
-A seconda della tua larghezza di banda di rete e della latenza, puoi eseguire la GUI (graphical user interface) SWPM (SAP Software Provisioning Manager) in remoto in una sessione VNC (virtual network computing). Un'altra opzione consiste nell'eseguire la GUI in locale e nello stabilire una connessione a SWPM sulla macchina di destinazione. Consulta la [documentazione di SWPM](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0) se decidi di eseguire la GUI in locale.
+A seconda della tua larghezza di banda di rete e della latenza, puoi eseguire la GUI (graphical user interface) SWPM (SAP Software Provisioning Manager) in remoto in una sessione VNC (virtual network computing). Un'altra opzione consiste nell'eseguire la GUI in locale e nello stabilire una connessione a SWPM sulla macchina di destinazione. Consulta la [documentazione di SWPM ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: new_window} se decidi di eseguire la GUI in locale.
 
-La seguente procedura descrive l'esecuzione della GUI SWPM in remoto in una sessione VNC. Questa opzione installa un server VNC, che potrebbe non essere conforme con la protezione avanzata del tuo sistema operativo; assicurati che stai rispettando le tue misure di sicurezza. Fai riferimento alla [documentazione di VNC](http://searchnetworking.techtarget.com/definition/virtual-network-computing) per ottenere una panoramica delle sue funzioni, se non hai dimestichezza con esso.
+La seguente procedura descrive l'esecuzione della GUI SWPM in remoto in una sessione VNC. Questa opzione installa un server VNC, che potrebbe non essere conforme con la protezione avanzata del tuo sistema operativo; assicurati che stai rispettando le tue misure di sicurezza. Fai riferimento alla [documentazione di VNC ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: new_window} per ottenere una panoramica delle sue funzioni, se non hai dimestichezza con esso.
 
 1. Utilizza i seguenti comandi per installare un server VNC.
 ```

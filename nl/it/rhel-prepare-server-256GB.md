@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,6 +24,6 @@ Per l'accesso remoto viene utilizzato un IP pubblico, il che significa che puoi 
 
 ## Passi successivi
 
- [3. Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html#partition-256GB)
+ [3. Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems#partition-256GB)
 
- [4. Preparazione della tua rete](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+ [4. Preparazione della tua rete](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

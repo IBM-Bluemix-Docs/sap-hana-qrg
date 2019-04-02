@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+  years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,15 +23,18 @@ lastupdated: "2018-08-14"
 ## Ordinazione dei tuoi server
 {: #order_servers}
 
-Attieniti alla procedura indicata in [Ordinazione del tuo server da 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) per ordinare il tuo server delle applicazioni SAP NetWeaver. La seguente procedura ti assiste nell'ordinazione del server di database
+Attieniti alla procedura indicata in [Ordinazione del tuo server da 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) per ordinare il tuo server delle applicazioni SAP NetWeaver. La seguente procedura ti assiste nell'ordinazione del server di database
 
 ## Ordinazione del tuo server database
 {: #order-db-server}
 
-1. Accedi al [Portale del client dell'infrastruttura {{site.data.keyword.cloud_notm}}](https://control.softlayer.com) con le tue credenziali univoche.
+1. Accedi al [Portale del client dell'infrastruttura {{site.data.keyword.cloud_notm}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com){: new_window} con le tue credenziali univoche.
 2. Fai clic su **Account** > **Place an Order** nella pagina Account Summary.
 3. Fai clic su **Monthly** in **{{site.data.keyword.baremetal_long}}** nella pagina Devices. Viene visualizzato l'elenco dei server; i server certificati SAP sono all'inizio dell'elenco.
 4. Fai clic sul collegamento ipertestuale sotto **STARTING PRICE PER MONTH** per selezionare il server **BI.S3.NW192 (OS Options)**
+
+Il server BI.S3.NW32 (OS Options) è disponibile anche per la fatturazione **Hourly**.
+{: note}
 
 ## Configurazione del tuo server database
 {: #options_192GB}
@@ -51,13 +55,13 @@ Attieniti alla procedura indicata in [Ordinazione del tuo server da 32 GB](/docs
 
 1. Seleziona **500 GB** per **Public Bandwidth**.
 2. Seleziona **1 Gbps Redundant Public & Private Network Uplinks** per **Uplink Port Speed**.
-3. Per questo esempio, lascia i valori predefiniti per tutti gli altri campi. Puoi consultare [Creazione di un server bare metal personalizzato](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options) per delle descrizioni dettagliate delle opzioni.
+3. Per questo esempio, lascia i valori predefiniti per tutti gli altri campi. Puoi consultare [Creazione di un server bare metal personalizzato](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options) per delle descrizioni dettagliate delle opzioni.
 4.	Fai clic su **Add to Order** in fondo alla pagina. Dopo che il tuo ordine è stato verificato, vieni reindirizzato alla pagina Checkout.
 
 ## Impostazione di configurazioni di sistema avanzate
 {: #adv_config}
 
-1. Utilizza i valori nella Tabella 1 per i campi in Advanced System Configuration. Ulteriori informazioni sono disponibili nelle linee guida [Configurazione di sistema avanzata](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
+1. Utilizza i valori nella Tabella 1 per i campi in Advanced System Configuration. Ulteriori informazioni sono disponibili nelle linee guida [Configurazione di sistema avanzata](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config).
 
 |              Campo               |      Valore                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
@@ -82,12 +86,12 @@ Una volta inoltrato l'ordine, il server, a seconda del tuo ordine, è disponibil
 ## BYOL (Bring your own license)
 {: #byol}
 
-Quando hai la tua licenza del sistema operativo, installala sul tuo {{site.data.keyword.baremetal_short}} in base alle istruzioni del fornitore. Per ulteriori informazioni, vedi [L'opzione no SO](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+Quando hai la tua licenza del sistema operativo, installala sul tuo {{site.data.keyword.baremetal_short}} in base alle istruzioni del fornitore. Per ulteriori informazioni, vedi [L'opzione no SO](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Passi successivi
 
-  [2. Preparazione del tuo server per la tua installazione SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
+  [2. Preparazione del tuo server per la tua installazione SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
+  [3. Partizionamento e file system](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. Preparazione della tua rete](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+  [4. Preparazione della tua rete](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

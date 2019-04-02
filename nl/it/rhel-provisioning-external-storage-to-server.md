@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,10 +23,10 @@ lastupdated: "2018-08-13"
 ## Configurazione dell'archiviazione esterna
 {: #set_up_storage}
 
-L'archiviazione esterna può essere aggiunta al tuo server o ai tuoi server di cui è stato eseguito il provisioning se vuoi farne uso come un dispositivo di backup oppure utilizzare un'istantanea per ripristinare rapidamente il tuo database in un ambiente di test. Per l'esempio a tre livelli, l'archiviazione a blocchi viene utilizzata sia per archiviare i file di log del database che per i backup online e offline per il database. È stata selezionata l'archiviazione a blocchi più veloce (4 IOPS per GB) per contribuire a garantire un tempo di backup minimo. Un'archiviazione a blocchi più lenta potrebbe essere sufficiente per le tue esigenze. Per ulteriori informazioni su {{site.data.keyword.blockstoragefull}}, consulta [Introduzione all'archiviazione a blocchi](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+L'archiviazione esterna può essere aggiunta al tuo server o ai tuoi server di cui è stato eseguito il provisioning se vuoi farne uso come un dispositivo di backup oppure utilizzare un'istantanea per ripristinare rapidamente il tuo database in un ambiente di test. Per l'esempio a tre livelli, l'archiviazione a blocchi viene utilizzata sia per archiviare i file di log del database che per i backup online e offline per il database. È stata selezionata l'archiviazione a blocchi più veloce (4 IOPS per GB) per contribuire a garantire un tempo di backup minimo. Un'archiviazione a blocchi più lenta potrebbe essere sufficiente per le tue esigenze. Per ulteriori informazioni su {{site.data.keyword.blockstoragefull}}, consulta [Introduzione all'archiviazione a blocchi](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
-1. Accedi al [Portale del cliente dell'infrastruttura {{site.data.keyword.cloud_notm}}](https://control.softlayer.com/) con le tue credenziali univoche.
+1. Accedi al [Portale del cliente dell'infrastruttura {{site.data.keyword.cloud_notm}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](https://control.softlayer.com/){: new_window} con le tue credenziali univoche.
 2. Seleziona **Storage** > **Block Storage.**
 3. Fai clic su **Order Block Storage** nell'angolo superiore destro della pagina Block Storage.
 4. Seleziona le specifiche per le tue esigenze di archiviazione. La Tabella 1 contiene i valori consigliati, tra cui 4 IOPS/GB per un tipico carico di lavoro del database.
@@ -51,7 +52,7 @@ L'archiviazione esterna può essere aggiunta al tuo server o ai tuoi server di c
 3. Fai clic sul pulsante **Submit**.
 4. Controlla lo stato della tua archiviazione di cui è stato eseguito il provisioning nella scheda **Devices** > (seleziona il tuo dispositivo) > **Storage**.
 5. Annota il **Target Address** e il nome completo iSCSI (**IQN**) per il tuo server (iniziatore iSCSI) e **username** e **password** per l'autorizzazione presso il server iSCS. Hai bisogno di queste informazioni nei passi successivi.
-6. Attieniti alla procedura indicata in [Connessione alle LUN MPIO iSCSI su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) per rendere la tua archiviazione accessibile dal tuo server di cui è stato eseguito il provisioning.
+6. Attieniti alla procedura indicata in [Connessione alle LUN iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) per rendere la tua archiviazione accessibile dal tuo server di cui è stato eseguito il provisioning.
 
 ## Come rendere a più percorsi l'archiviazione
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Completa tutti i comandi nel documento relativo al [montaggio dei volumi di Block Storage su Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) in modo che nell'output a più percorsi sia presente un'altra LUN.
+7. Completa tutti i comandi nel documento relativo alla [Connessione ai LUN iSCSI su Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) in modo che nell'output a più percorsi sia presente un'altra LUN.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 Puoi ora utilizzare il dispositivo a più percorsi come useresti qualsiasi dispositivo disco. Un percorso dispositivo viene visualizzato sotto `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Prendi il `/etc/multipath.conf` di esempio dal [ `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) di esempio e crealo sul tuo server. Tieni presente che eventuali caratteri speciali, ritorni a capo tipo DOS e voci di avanzamento riga che copi potrebbero causare una modalità di funzionamento imprevista. Assicurati di avere un file Unix ASCII dopo che hai copiato il contenuto.
+Prendi il `/etc/multipath.conf` di esempio dal [ `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) di esempio e crealo sul tuo server. Tieni presente che eventuali caratteri speciali, ritorni a capo tipo DOS e voci di avanzamento riga che copi potrebbero causare una modalità di funzionamento imprevista. Assicurati di avere un file Unix ASCII dopo che hai copiato il contenuto.
 
 Adatta il blocco a più percorsi da `/etc/multipath.conf` per creare un alias del percorso per accedere al dispositivo in `1/dev/mapper/mpath1`.
 
@@ -135,7 +136,7 @@ Adatta il blocco a più percorsi da `/etc/multipath.conf` per creare un alias de
       [root@sdb192 ~]# mkfs.ext4 /dev/mapper/mpath1
       [root@sdb192 ~]# mkdir  /backup
 
-9. Controlla i file system su entrambi i server. Il tuo output dovrebbe essere simile a quello di seguito riportato.
+9. Controlla i filesystem su entrambi i server. Il tuo output dovrebbe essere simile a quello di seguito riportato.
 
         [root@e2e1270 ~]# df -h
         Filesystem		    Size  Used Avail Use% Mounted on
@@ -161,4 +162,4 @@ Adatta il blocco a più percorsi da `/etc/multipath.conf` per creare un alias de
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-Se installi un'applicazione SAP basata su SAP NetWeaver su {{site.data.keyword.Db2_on_Cloud_long}}, devi creare delle sottodirectory in `/backup` che appartengono all'utente amministratore del database (`db2SID`) per i backup completi e i file di log archiviati. Per l'archiviazione automatica dei file di log, devi impostare `LOGMETH1` nel tuo database {{site.data.keyword.Db2_on_Cloud_short}}. Per i dettagli, fai riferimento alla [documentazione di {{site.data.keyword.Db2_on_Cloud_short}}](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html).
+Se installi un'applicazione SAP basata su SAP NetWeaver su {{site.data.keyword.Db2_on_Cloud_long}}, devi creare delle sottodirectory in `/backup` che appartengono all'utente amministratore del database (`db2SID`) per i backup completi e i file di log archiviati. Per l'archiviazione automatica dei file di log, devi impostare `LOGMETH1` nel tuo database {{site.data.keyword.Db2_on_Cloud_short}}. Per i dettagli, fai riferimento alla [documentazione di {{site.data.keyword.Db2_on_Cloud_short}} ![Icona link esterno](../icons/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window}.
