@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-13"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,10 +24,10 @@ Un entorno de tres capas es un escenario más complejo utilizando un servidor de
 
 | Paso | Tarea |
 | --- | --- |
-| 1 | [Realización del pedido de los servidores de 192 GB y 32 GB para una configuración de tres capas](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-three-tier.html) |
-| 2 | [Preparación del servidor para la instalación de SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html) |
-| 3 | [Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html) |
-| 4 | [Preparación de la red](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network) |
+| 1 | [Realización del pedido de los servidores de 192 GB y 32 GB para una configuración de tres capas](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+| 2 | [Preparación del servidor para la instalación de SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+| 3 | [Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+| 4 | [Preparación de la red](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="Tabla 1. Visión general del suministro" caption-side="top"}
 
 ## Siguientes pasos

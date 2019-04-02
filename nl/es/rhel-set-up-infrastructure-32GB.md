@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-14"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,10 +23,13 @@ lastupdated: "2018-08-14"
 ## Realización del pedido de servidor
 {: #order_32GB}
 
-1. Inicie sesión en el [portal de clientes de la infraestructura de {{site.data.keyword.cloud_notm}}](https://control.softlayer.com) con sus credenciales exclusivas.
+1. Inicie sesión en el [portal de clientes de la infraestructura de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com){: new_window} con sus credenciales exclusivas.
 2. Pulse **Cuenta** > **Realizar un pedido** en la página Resumen de la cuenta.
 3. Pulse **Mensual** en {{site.data.keyword.baremetal_short}} en la página Dispositivos. Aparecerá la Lista de servidores; los servidores certificados para SAP están en la parte superior de la lista.
 4. Pulse el hiperenlace en **Precio inicial al mes** para seleccionar el servidor **BI.S3.NW32 (Opciones de sistema operativo).**
+
+El servidor BI.S3.NW32 (Opciones de sistema operativo) también está disponible para la facturación **Por hora**.
+{: note}
 
 ## Configuración del servidor
 {: #configure_server}
@@ -46,13 +50,13 @@ lastupdated: "2018-08-14"
 
 1. Seleccione **500 GB** para el **Ancho de banda público.**
 2.	Seleccione **1 Gbps de enlaces ascendentes de red pública y privada redundantes** para **Velocidad de puerto de enlace ascendente.**
-3. Deje los valores predeterminados para todos los demás campos. Para obtener descripciones detalladas de las opciones, consulte [Creación de un servidor nativo personalizado](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options).
+3. Deje los valores predeterminados para todos los demás campos. Para obtener descripciones detalladas de las opciones, consulte [Creación de un servidor nativo personalizado](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options).
 4.	Pulse **Añadir a pedido** en la parte inferior de la página. Se le redirigirá a la página de pago una vez verificado su pedido.
 
 ## Ajuste de las configuraciones avanzadas del sistema
 {: #adv_config}
 
-Utilice los valores de la Tabla 1 para los campos de la Configuración avanzada del sistema. Encontrará más información disponible en las directrices de [Opciones avanzadas de configuración de servidor](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
+Utilice los valores de la Tabla 1 para los campos de la Configuración avanzada del sistema. Encontrará más información disponible en las directrices de [Opciones avanzadas de configuración de servidor](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config).
 
 1. Desplácese hacia abajo y especifique los valores en la Tabla 1 para la **Configuración avanzada del sistema.**
 
@@ -79,10 +83,10 @@ Una vez enviado el pedido, su servidor estará disponible, dependiendo de su ped
 ## Traiga su propia licencia
 {: #byol}
 
-Cuando tenga su propia licencia de sistema operativo, instálela en el {{site.data.keyword.baremetal_short}}, de acuerdo con las instrucciones del proveedor. Para obtener más información, consulte [La opción sin SO](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+Cuando tenga su propia licencia de sistema operativo, instálela en el {{site.data.keyword.baremetal_short}}, de acuerdo con las instrucciones del proveedor. Para obtener más información, consulte [La opción sin SO](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Siguientes pasos
 
-  [2. Preparación del servidor para la instalación de SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
+  [2. Preparación del servidor para la instalación de SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
 
-  [3. Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+  [3. Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)

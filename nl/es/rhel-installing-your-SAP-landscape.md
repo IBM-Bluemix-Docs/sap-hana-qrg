@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,7 +23,7 @@ lastupdated: "2018-08-14"
 ## Instalación de paquetes RPM (requisito previo)
 {: #RPM}
 
-Una instalación de SAP exige determinados requisitos previos para los paquetes que se instalan en el sistema operativo y los daemons del sistema operativo en ejecución. Consulte las últimas [guías de instalación](https://support.sap.com/software/installations.html) de SAP (requiere un [ID S-user de SAP](/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)) y las [notas de soporte](https://support.sap.com/notes) (requiere un ID S-user de SAP) para obtener una lista actualizada de los requisitos previos. Hay dos paquetes más que deben instalarse:
+Una instalación de SAP exige determinados requisitos previos para los paquetes que se instalan en el sistema operativo y los daemons del sistema operativo en ejecución. Consulte las últimas [guías de instalación ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://support.sap.com/software/installations.html){: new_window} (requiere un [ID S-user de SAP](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started) y las [notas de soporte ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://support.sap.com/notes){: new_window} (requiere un ID S-user de SAP) de SAP para obtener una lista actualizada de los requisitos previos. Hay dos paquetes más que deben instalarse:
 * compat-sap-c++: permite generalmente la compatibilidad del tiempo de ejecución C++ con los compiladores que utiliza SAP. Puesto que se ha seleccionado Red Hat Enterprise Linux for SAP Business Application 7.X como SO para el servidor de aplicaciones de 32 GB y el servidor de base de datos de 192 GB, se utilizará `compat-sap-c++-7`.
 * uuidd: mantiene el soporte de sistema operativo para la creación de los UUID.
 
@@ -38,7 +39,7 @@ Una instalación de SAP exige determinados requisitos previos para los paquetes 
 
 ### Instalación del paquete compat-sap-c++-7
 
-1. Siga la [Nota de SAP 2195019](https://launchpad.support.sap.com/#/notes/2195019) e instale el paquete compat-sap-c++-7 y cree un enlace dinámico específico, que necesitan los binarios de SAP. Consulte las Notas de SAP específicas del release del producto que va a instalar para determinar si la biblioteca es necesaria o no.
+1. Siga la [Nota de SAP 2195019 ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://launchpad.support.sap.com/#/notes/2195019){: new_window} e instale el paquete compat-sap-c++-7 y cree un enlace dinámico específico, que necesitan los binarios de SAP. Consulte las Notas de SAP específicas del release del producto que va a instalar para determinar si la biblioteca es necesaria o no.
 ```
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....
@@ -49,14 +50,14 @@ Una instalación de SAP exige determinados requisitos previos para los paquetes 
 ## Descarga del software de SAP
 {: download_software}
 
-Inicie sesión en el [Portal de soporte de SAP](https://support.sap.com/en/index.html), pulse **Descargar software** y descargue los DVD necesarios en una unidad compartida local. Transfiera los archivos a su servidor suministrado. Otra opción es descargar [SAP Software Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677), instalarlo en el servidor de destino y descargar directamente las imágenes de DVD en el servidor.
+Inicie sesión en el [Portal de soporte de SAP ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://support.sap.com/en/index.html){: new_window}, pulse **Descargar software** y descargue los DVD necesarios en una unidad compartida local. Transfiera los archivos a su servidor suministrado. Otra opción es descargar [SAP Software Download Manager ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: new_window}, instalarlo en el servidor de destino y descargar directamente las imágenes de DVD en el servidor.
 
 ## Preparación de la interfaz gráfica de usuario SWPM de SAP
 {: #prepare_for_GUI}
 
-En función de la latencia y el ancho de banda de red, es posible que desee ejecutar la interfaz gráfica de usuario (GUI) de SAP Software Provisioning Manager (SWPM) de forma remota en una sesión de sistema de red virtual (VNC). Otra opción es ejecutar la interfaz gráfica de usuario de forma local y conectarse a SWPM en la máquina de destino. Consulte la [documentación de SWPM](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0) si decide ejecutar la GUI de forma local.
+En función de la latencia y el ancho de banda de red, es posible que desee ejecutar la interfaz gráfica de usuario (GUI) de SAP Software Provisioning Manager (SWPM) de forma remota en una sesión de sistema de red virtual (VNC). Otra opción es ejecutar la interfaz gráfica de usuario de forma local y conectarse a SWPM en la máquina de destino. Consulte la [documentación de SWPM ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: new_window} si decide ejecutar la GUI de forma local.
 
-Los siguientes pasos describen la ejecución de la interfaz gráfica de usuario de SWPM de forma remota en una sesión de VNC. Esta opción instala un servidor VNC, que podría no estar en consonancia con el refuerzo de su sistema operativo, asegúrese de que cumple con sus medidas de seguridad. Consulte la [documentación de VNC](http://searchnetworking.techtarget.com/definition/virtual-network-computing) para obtener una visión general de sus funciones, si no está familiarizado con él.
+Los siguientes pasos describen la ejecución de la interfaz gráfica de usuario de SWPM de forma remota en una sesión de VNC. Esta opción instala un servidor VNC, que podría no estar en consonancia con el refuerzo de su sistema operativo, asegúrese de que cumple con sus medidas de seguridad. Consulte la [documentación de VNC ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: new_window} para obtener una visión general de sus funciones, si no está familiarizado con él.
 
 1. Utilice los mandatos siguientes para instalar un servidor VNC.
 ```

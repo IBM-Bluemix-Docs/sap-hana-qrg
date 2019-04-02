@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,10 +23,10 @@ lastupdated: "2018-08-13"
 ## Configuración de almacenamiento externo
 {: #set_up_storage}
 
-Puede añadir almacenamiento externo al servidor suministrado (o servidores) si desea utilizarlo como dispositivo de copia de seguridad o utilizar una instantánea para restaurar rápidamente la base de datos en un entorno de prueba. Para el ejemplo de tres capas, se utiliza almacenamiento en bloque para archivar los archivos de registro de la base de datos y copias de seguridad en línea y fuera de línea para la base de datos. Se ha seleccionado el almacenamiento en bloque más rápido (4 IOPS por GB) para garantizar el tiempo mínimo de copia de seguridad. Un almacenamiento en bloque más lento puede ser suficiente según sus necesidades. Para obtener más información sobre {{site.data.keyword.blockstoragefull}}, consulte [Iniciación a Almacenamiento en bloque](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+Puede añadir almacenamiento externo al servidor suministrado (o servidores) si desea utilizarlo como dispositivo de copia de seguridad o utilizar una instantánea para restaurar rápidamente la base de datos en un entorno de prueba. Para el ejemplo de tres capas, se utiliza almacenamiento en bloque para archivar los archivos de registro de la base de datos y copias de seguridad en línea y fuera de línea para la base de datos. Se ha seleccionado el almacenamiento en bloque más rápido (4 IOPS por GB) para garantizar el tiempo mínimo de copia de seguridad. Un almacenamiento en bloque más lento puede ser suficiente según sus necesidades. Para obtener más información sobre {{site.data.keyword.blockstoragefull}}, consulte [Iniciación a Almacenamiento en bloque](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
-1. Inicie sesión en el [portal de clientes de la infraestructura de {{site.data.keyword.cloud_notm}}](https://control.softlayer.com/) con sus credenciales exclusivas.
+1. Inicie sesión en el [portal de clientes de la infraestructura de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](https://control.softlayer.com/){: new_window} con sus credenciales exclusivas.
 2. Seleccione **Almacenamiento** > **Almacenamiento en bloque.**
 3. Pulse **Realizar pedido de almacenamiento en bloque** en la esquina superior derecha de la página de almacenamiento en bloque.
 4. Seleccione los detalles en función de sus necesidades de almacenamiento. La tabla 1 contiene los valores recomendados, incluyendo 4 IOPS/GB para una carga de trabajo de base de datos típica.
@@ -51,7 +52,7 @@ Puede añadir almacenamiento externo al servidor suministrado (o servidores) si 
 3. Pulse el botón **Enviar**.
 4. Compruebe el estado del almacenamiento suministrado en el separador **Dispositivos** > (seleccione el dispositivo) > **Almacenamiento**.
 5. Apunte la **Dirección de destino** y el Nombre calificado iSCSI (**IQN**) para su servidor (iniciador iSCSI) y el **nombre de usuario** y **contraseña** para la autorización con el servidor iSCSI. Necesitará esta información en los siguientes pasos.
-6. Siga los pasos descritos en [Conexión a los LUN iSCSI de MPIO en Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) para poder acceder al almacenamiento desde el servidor suministrado.
+6. Siga los pasos descritos en [Conexión a los LUN iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) para poder acceder al almacenamiento desde el servidor suministrado.
 
 ## Creación de multivía de acceso para el almacenamiento
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Complete todos los mandatos de [Montaje de volúmenes de almacenamiento en bloques en Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) para que aparezca otro LUN en la salida multivía.
+7. Complete todos los mandatos de [Conexión a los LUN iSCSI en Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) para que aparezca otro LUN en la salida multivía.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 Ahora ya puede utilizar el dispositivo con multivía de acceso como utilizaría cualquier dispositivo de disco. Aparece una vía de acceso del dispositivo en `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Tome la muestra `/etc/multipath.conf` del [ejemplo `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) y créela en su servidor. Tenga en cuenta que los caracteres especiales copiados, retornos de carro como DOS o entradas de salto de línea podrían provocar un comportamiento inesperado. Asegúrese de tener un archivo ASCII Unix después de copiar el contenido.
+Tome la muestra `/etc/multipath.conf` del [ejemplo `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) y créela en su servidor. Tenga en cuenta que los caracteres especiales copiados, retornos de carro como DOS o entradas de salto de línea podrían provocar un comportamiento inesperado. Asegúrese de tener un archivo ASCII Unix después de copiar el contenido.
 
 Adapte el bloque de multivía de acceso de `/etc/multipath.conf` para crear un alias de la vía de acceso para acceder al dispositivo en `1/dev/mapper/mpath1`.
 
@@ -161,4 +162,4 @@ Adapte el bloque de multivía de acceso de `/etc/multipath.conf` para crear un a
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-Si instala una aplicación SAP basada en SAP NetWeaver on {{site.data.keyword.Db2_on_Cloud_long}}, deberá crear subdirectorios en `/backup` propiedad del usuario de administrador de base de datos (`db2SID`) para copias de seguridad completa y archivos de registro archivados. Para el archivado automático de los archivos de registro, debe establecer `LOGMETH1` en la base de datos {{site.data.keyword.Db2_on_Cloud_short}}. Consulte la documentación de [{{site.data.keyword.Db2_on_Cloud_short}}](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html) para obtener detalles.
+Si instala una aplicación SAP basada en SAP NetWeaver on {{site.data.keyword.Db2_on_Cloud_long}}, deberá crear subdirectorios en `/backup` propiedad del usuario de administrador de base de datos (`db2SID`) para copias de seguridad completa y archivos de registro archivados. Para el archivado automático de los archivos de registro, debe establecer `LOGMETH1` en la base de datos {{site.data.keyword.Db2_on_Cloud_short}}. Consulte la [documentación de {{site.data.keyword.Db2_on_Cloud_short}} ![Icono de enlace externo](../icons/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} para obtener detalles.

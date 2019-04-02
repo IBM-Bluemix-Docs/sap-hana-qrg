@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 20187, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,4 +24,4 @@ Se utiliza una IP pública para el acceso remoto, lo que significa que puede con
 
 ## Siguientes pasos
 
- [3. Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+ [3. Particionamiento y sistemas de archivos](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
