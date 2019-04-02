@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -37,4 +38,4 @@ Os diretórios necessários para instalar o software SAP, `/sapmnt`, `/usr/sap` 
 
 ## Próximas etapas
 
-[4. Preparando sua rede](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+[4. Preparando sua rede](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

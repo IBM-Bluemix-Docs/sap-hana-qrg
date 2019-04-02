@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,12 +24,10 @@ ambiente {{site.data.keyword.cloud}}.
 
 | Etapa | Tarefa |
 | --- | --- |
-| 1 | [Pedindo o seu servidor de 32
-GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-| 2 | [Preparando o servidor para a sua
-instalação do SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
+| 1 | [Fazendo pedido de seu servidor de 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+| 2 | [Preparando seu servidor para a instalação do SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
 | 3 | [Particionamento e sistemas de
-arquivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+arquivos](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="Tabela 1. Visão geral de fornecimento" caption-side="top"}
 
 ## Próximas etapas

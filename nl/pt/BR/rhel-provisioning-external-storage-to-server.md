@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -29,10 +30,10 @@ backups on-line e off-line para o banco de dados. O armazenamento de bloco mais 
 garantir um tempo mínimo de backup. Armazenamento de bloco mais lento pode ser suficiente para as suas necessidades. Para obter mais
 informações sobre o {{site.data.keyword.blockstoragefull}}, consulte
 [Introdução
-ao Block Storage](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+ao Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
-1. Efetue login no [{{site.data.keyword.cloud_notm}} portal do cliente de infraestrutura](https://control.softlayer.com/) com suas credenciais exclusivas.
+1. Efetue login no portal do cliente da infraestrutura do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){: new_window} com suas credenciais exclusivas.
 2. Selecione **Armazenamento** > **Block Storage.**
 3. Clique em **Pedir armazenamento de bloco** no canto superior direito da página Block Storage.
 4. Selecione as especificidades para as suas necessidades de armazenamento. A Tabela 1 contém valores recomendados, incluindo
@@ -42,11 +43,11 @@ ao Block Storage](https://console.bluemix.net/docs/infrastructure/BlockStorage/i
 | -------------------------------- | ------------------------------------------------- |
 |Localização                          | TOR01                                             |
 |Método de faturamento                    | Mensal (padrão)                                 |
-|Novo tamanho de armazenamento     | 1000 GB                                           |
-|Opções de IOPS de armazenamento   | Endurance (IOPS em camada) (padrão)               |
-|IOPS em camada do Endurance       | 10 GB                                             |
-|Tamanho do espaço de captura instantânea| 0 GB                                              |
-|Tipo de S.O.                      |Padronizado para Linux                             |
+|Novo tamanho de armazenamento                  | 1000 GB                                           |
+|Opções de IOPS de armazenamento              | Endurance (IOPS em camada) (padrão)                 |
+|IOPS em camada do Endurance             | 10 GB                                             |
+|Tamanho do espaço de captura instantânea               | 0 GB                                              |
+|Tipo de S.O.                           | Padronizado para Linux                                 |
 {: caption="Tabela 1. Valores recomendados para armazenamento de bloco" caption-side="top"}
 
 5. Clique nas duas caixas de seleção e em **Fazer pedido**.
@@ -60,9 +61,7 @@ o armazenamento provisionado.
 3. Clique no botão **Enviar**.
 4. Verifique o status de seu armazenamento provisionado em **Dispositivos** > (selecione seu dispositivo) > guia **Armazenamento**.
 5. Observe o **Endereço de destino** e o Nome qualificado de iSCSI (**IQN**) para o servidor (inicializador iSCSI), além do **nome do usuário** e a **senha** para autorização com o servidor iSCSI. Você precisa dessas informações nas etapas a seguir.
-6. Siga as etapas em
-[Conectando
-aos LUNs iSCSI MPIO no Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) para tornar seu armazenamento acessível de seu servidor provisionado.
+6. Siga as etapas em [Conectando-se às LUNs do iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) para tornar seu armazenamento acessível de seu servidor provisionado.
 
 ## Fazendo caminhos múltiplos de armazenamento
 {: #multipath}
@@ -114,9 +113,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Conclua todos os comandos no
-[Montando
-os volumes do Block Storage no Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) para que outro LUN apareça na saída de caminhos múltiplos.
+7. Conclua todos os comandos em [Conectando-se às LUNS do iSCSI no Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) para que outra LUN apareça na saída de caminhos múltiplos.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -132,9 +129,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 Agora é possível usar o dispositivo de caminhos múltiplos como você usaria qualquer dispositivo de disco. Um caminho de
 dispositivo aparece em `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Pegue a amostra `/etc/multipath.conf` do
-[ `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) de
-exemplo e crie-a em seu servidor. Qualquer caractere especial copiado, retorno de linha semelhante a DOS e entrada de feed de linha pode levar a um comportamento inesperado. Certifique-se de que você tenha um arquivo Unix ASCII depois
+Pegue a amostra `/etc/multipath.conf` do [ `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) de exemplo e crie-o em seu servidor. Qualquer caractere especial copiado, retorno de linha semelhante a DOS e entrada de feed de linha pode levar a um comportamento inesperado. Certifique-se de que você tenha um arquivo Unix ASCII depois
 de copiar os conteúdos.
 
 Adapte o bloco de caminhos múltiplos de `/etc/multipath.conf` para criar um alias do caminho para acessar o
@@ -183,6 +178,4 @@ dispositivo de bloco.
 Se você instalar um aplicativo SAP baseado em SAP NetWeaver no {{site.data.keyword.Db2_on_Cloud_long}}, deve-se criar
 subdiretórios em `/backup` pertencentes ao usuário administrativo do banco de dados (`db2SID`)
 para backups completos e arquivos de log arquivados. Para arquivamento automático dos arquivos de log, é necessário configurar
-`LOGMETH1` em seu banco de dados {{site.data.keyword.Db2_on_Cloud_short}}. Consulte a
-[
-documentação do {{site.data.keyword.Db2_on_Cloud_short}}](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html) para detalhes.
+`LOGMETH1` em seu banco de dados {{site.data.keyword.Db2_on_Cloud_short}}. Consulte a [Documentação do {{site.data.keyword.Db2_on_Cloud_short}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} para obter detalhes.

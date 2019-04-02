@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+  years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -16,25 +17,28 @@ lastupdated: "2018-08-14"
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-# 1. Pedindo servidores de 192 GB e de 32 GB para uma configuração de três camadas
+# 1. Fazendo pedido de servidores de 192 GB e de 32 GB para uma configuração de três camadas
 {: #install_three_tier}
 
-## Pedindo seus servidores
+## Fazendo pedido de seus servidores
 {: #order_servers}
 
 Siga as etapas em
-[Pedindo seu
-servidor de 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB) para pedir o servidor de aplicativos SAP NetWeaver. As etapas a seguir o guiam pelo pedido do servidor
+[Fazendo pedido de seu
+servidor de 32 GB](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) para pedir o servidor de aplicativos SAP NetWeaver. As etapas a seguir o guiam pelo pedido do servidor
 de banco de dados.
 
-## Pedindo seu servidor de banco de dados
+## Fazendo pedido de seu servidor de banco de dados
 {: #order-db-server}
 
-1. Efetue login no [{{site.data.keyword.cloud_notm}} portal do cliente de infraestrutura](https://control.softlayer.com) com suas credenciais exclusivas.
+1. Efetue login no portal do cliente da infraestrutura do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com){: new_window} com suas credenciais exclusivas.
 2. Clique em **Conta** > **Fazer um pedido** na página Resumo da conta.
 3. Clique em **Mensal** em **{{site.data.keyword.baremetal_long}}** na página
 Dispositivos. A Lista de servidores aparece; os Servidores certificados por SAP estão na parte superior da lista.
 4. Clique no hiperlink em **INICIANDO PREÇO POR MÊS** para selecionar o servidor **BI.S3.NW192 (Opções do S.O.).**
+
+O servidor BI.S3.NW32 (Opções de S.O.) também está disponível para faturamento **Por hora**.
+{: note}
 
 ## Configurando seu servidor de banco de dados
 {: #options_192GB}
@@ -55,13 +59,13 @@ Dispositivos. A Lista de servidores aparece; os Servidores certificados por SAP 
 
 1. Selecione **500 GB** para **Largura da banda pública**.
 2. Selecione **Uplinks redundantes de rede pública e privada de 1 Gbps** para **Velocidade da porta de uplink**.
-3. Para este exemplo, deixe os valores padrão para todos os outros campos. É possível consultar [Construindo um servidor bare metal customizado](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options) para obter descrições detalhadas das opções.
+3. Para este exemplo, deixe os valores padrão para todos os outros campos. É possível consultar [Construindo um servidor bare metal customizado](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options) para obter descrições detalhadas das opções.
 4.	Clique em **Incluir no pedido** na parte inferior da página. Você é redirecionado à página de check-out após seu pedido ser verificado.
 
 ## Definindo as configurações do sistema avançado
 {: #adv_config}
 
-1. Use os valores na Tabela 1 para os campos em Configuração do sistema avançado. Mais informações estão disponíveis nas diretrizes de [Configuração do sistema avançado](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config).
+1. Use os valores na Tabela 1 para os campos em Configuração do sistema avançado. Mais informações estão disponíveis nas diretrizes de [Configuração do sistema avançado](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config).
 
 |              Campo               |      Valor                                                           |
 | -------------------------------- | -------------------------------------------------------------------- |
@@ -89,13 +93,12 @@ possível verificar a tela Detalhes do dispositivo na página principal do {{sit
 ## Traga sua própria licença
 {: #byol}
 
-Quando você tiver sua própria licença do sistema operacional, instale-a no {{site.data.keyword.baremetal_short}} com base nas instruções do fornecedor. Para obter mais informações, consulte [A opção Nenhum S.O.](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-).
+Quando você tiver sua própria licença do sistema operacional, instale-a no {{site.data.keyword.baremetal_short}} com base nas instruções do fornecedor. Para obter mais informações, consulte [A opção sem S.O.](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
 
 ## Próximas etapas
 
-  [2. Preparando o servidor para a
-sua instalação do SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
+  [2. Preparando o servidor para a instalação da SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. Particionamento e sistemas de arquivos](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
+  [3. Particionamento e sistemas de arquivos](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. Preparando sua rede](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+  [4. Preparando sua rede](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
