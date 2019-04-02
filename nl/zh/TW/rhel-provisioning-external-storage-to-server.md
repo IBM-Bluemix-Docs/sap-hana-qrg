@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,12 +23,12 @@ lastupdated: "2018-08-13"
 ## 設定外部儲存空間
 {: #set_up_storage}
 
-如果您想要使用外部儲存空間作為備份裝置，或想要在測試環境中使用 Snapshot 快速還原您的資料庫，您可以將外部儲存空間新增至您佈建的伺服器。以三層範例而言，區塊儲存空間可同時用來保存資料庫的日誌檔，以及資料庫的線上和離線備份。已選取最快速區塊儲存空間（每 GB 4 IOPS）來幫助確保最短備份時間。慢速區塊儲存空間可能足夠滿足您的需求。如需 {{site.data.keyword.blockstoragefull}} 的相關資訊，請參閱[開始使用 Block Storage](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage)。
+如果您想要使用外部儲存空間作為備份裝置，或想要在測試環境中使用 Snapshot 快速還原您的資料庫，您可以將外部儲存空間新增至您佈建的伺服器。以三層範例而言，區塊儲存空間可同時用來保存資料庫的日誌檔，以及資料庫的線上和離線備份。已選取最快速區塊儲存空間（每 GB 4 IOPS）來幫助確保最短備份時間。慢速區塊儲存空間可能足夠滿足您的需求。如需 {{site.data.keyword.blockstoragefull}} 的相關資訊，請參閱[開始使用區塊儲存空間](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage)。
 
 
-1. 使用您的唯一認證登入 [{{site.data.keyword.cloud_notm}} 基礎架構客戶入口網站](https://control.softlayer.com/)。
+1. 使用您的唯一認證登入 [{{site.data.keyword.cloud_notm}} 基礎架構客戶入口網站 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com/){: new_window}。
 2. 選取**儲存空間** > **Block Storage**。
-3. 按一下 Block Storage 頁面右上角的**訂購 Block Storage**。
+3. 按一下「區塊儲存空間」頁面右上角的**訂購區塊儲存空間**。
 4. 選取儲存空間需求的特性。「表格 1」包含建議值，包括用於一般資料庫工作負載的 4 IOPS/GB。
 
 |欄位                |值                                                              |
@@ -39,7 +40,7 @@ lastupdated: "2018-08-13"
 |耐久性分層 IOPS             | 10 GB                                             |
 |Snapshot 空間大小|0 GB                                              |
 |OS 類型                           |預設為 Linux|
-{: caption="表 1. 區塊儲存空間的建議值" caption-side="top"}
+{: caption="表格 1。區塊儲存空間的建議值" caption-side="top"}
 
 5. 按一下兩個勾選框，然後按一下**下訂單**。
 
@@ -51,7 +52,7 @@ lastupdated: "2018-08-13"
 3. 按一下**送出**按鈕。
 4. 在**裝置** >（選取裝置）> **儲存空間**標籤下，檢查已佈建儲存空間的狀態。
 5. 請記下**目標位址**及您伺服器（iSCSI 起始器）的 iSCSI 完整名稱 (**IQN**)，以及用於 iSCSI 伺服器之授權的**使用者名稱**和**密碼**。在下列步驟中您會需要此資訊。
-6. 請遵循[連接至 Linux 上的 MPIO iSCSI LUN](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) 中的步驟，讓您的儲存空間能夠從您佈建的伺服器進行存取。
+6. 請遵循[連接至 Linux 上的 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) 中的步驟，讓您的儲存空間能夠從您佈建的伺服器進行存取。
 
 ## 使儲存空間成為多路徑
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. 完成[在 Linux 上裝載區塊儲存空間磁區](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes)中的所有指令，使另一個 LUN 出現在多路徑輸出中。
+7. 完成[在 Linux 上連接至 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) 中的所有指令，使另一個 LUN 出現在多路徑輸出中。
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 您現在可以像使用任何磁碟裝置一樣來使用多路徑裝置。裝置路徑出現在 `/dev/mapper/3600a098038303452543f464142755a42` 之下。
 
-使用[範例 `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) 中的範例 `/etc/multipath.conf`，並在伺服器上建立它。注意，任何複製的特殊字元、DOS-like 換行、換行項目可能導致非預期的行為。在複製內容之後，請確定您有 ASCII Unix 檔案。
+使用[範例 `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) 中的範例 `/etc/multipath.conf`，並在伺服器上建立它。注意，任何複製的特殊字元、DOS-like 換行、換行項目可能導致非預期的行為。在複製內容之後，請確定您有 ASCII Unix 檔案。
 
 調整 `/etc/multipath.conf` 的多路徑區塊，以建立路徑的別名，來存取 `1/dev/mapper/mpath1` 之下的裝置。
 
@@ -161,4 +162,4 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-如果您在 {{site.data.keyword.Db2_on_Cloud_long}} 上安裝以 SAP NetWeaver 為基礎的 SAP 應用程式，您必須在具有管理權的資料庫使用者 (`db2SID`) 所擁有的 `/backup` 之下建立子目錄，以存放完整備份及保存日誌檔。如果要自動保存日誌檔，您應該在 {{site.data.keyword.Db2_on_Cloud_short}} 資料庫中設定 `LOGMETH1`。如需詳細資料，請參閱[{{site.data.keyword.Db2_on_Cloud_short}} 文件](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html)。
+如果您在 {{site.data.keyword.Db2_on_Cloud_long}} 上安裝以 SAP NetWeaver 為基礎的 SAP 應用程式，您必須在具有管理權的資料庫使用者 (`db2SID`) 所擁有的 `/backup` 之下建立子目錄，以存放完整備份及保存日誌檔。如果要自動保存日誌檔，您應該在 {{site.data.keyword.Db2_on_Cloud_short}} 資料庫中設定 `LOGMETH1`。如需詳細資料，請參閱 [{{site.data.keyword.Db2_on_Cloud_short}} 文件 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window}。

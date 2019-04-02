@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -24,10 +25,10 @@ lastupdated: "2018-08-13"
 
 使用下列鏈結來開始您的 SAP NetWeaver on {{site.data.keyword.cloud_notm}} 學習之旅。
 
-  * [安裝 32 GB 單一節點伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-32-GB-single-server-node.html#install_32GB)
-  * [在三層設定中安裝 192 GB 和 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-256-GB-32-GB-server-three-tier-setup.html#install_256GB)
-  * [新增外部儲存空間](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-provisioning-external-storage-to-server.html#storage)
-  * [安裝 SAP 應用程式及軟體](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-your-SAP-landscape.html#install_landscape)
+  * [佈建 32 GB 單一節點伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-provisioning-a-32-gb-single-node-server#install_32GB)
+  * [在三層設定中佈建 192 GB 及 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install-256GB#install-256GB)
+  * [新增外部儲存空間](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage#storage)
+  * [安裝 SAP 應用程式及軟體](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape#install_landscape)
 
 ## 後續步驟
 

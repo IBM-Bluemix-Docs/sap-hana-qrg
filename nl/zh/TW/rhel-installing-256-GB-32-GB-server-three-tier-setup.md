@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-13"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,10 +24,10 @@ lastupdated: "2018-08-13"
 
 |步驟 |作業 |
 | --- | --- |
-|1 |[訂購用於三層設定的 192 GB 及 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-three-tier.html) |
-|2 |[為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html) |
-|3 |[分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html) |
-|4 |[準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network) |
+|1 |[訂購用於三層設定的 192 GB 及 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+|2 |[為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+|3 |[分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+|4 |[準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="表格 1。佈建概觀" caption-side="top"}
 
 ## 後續步驟

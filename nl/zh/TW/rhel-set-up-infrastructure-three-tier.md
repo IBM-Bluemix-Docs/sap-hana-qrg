@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+  years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,15 +23,18 @@ lastupdated: "2018-08-14"
 ## 訂購伺服器
 {: #order_servers}
 
-遵循[訂購 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html#order_32GB)中的步驟來訂購 SAP NetWeaver 應用程式伺服器。下列步驟引導您完成資料庫伺服器的訂購。
+遵循[訂購 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB)中的步驟來訂購 SAP NetWeaver 應用程式伺服器。下列步驟引導您完成資料庫伺服器的訂購。
 
 ## 訂購資料庫伺服器
 {: #order-db-server}
 
-1. 使用您的唯一認證登入 [{{site.data.keyword.cloud_notm}} 基礎架構客戶入口網站](https://control.softlayer.com)。
+1. 使用您的唯一認證登入 [{{site.data.keyword.cloud_notm}} 基礎架構客戶入口網站 ![外部鏈結圖示](../icons/launch-glyph.svg "外部鏈結圖示")](https://control.softlayer.com){: new_window}。
 2. 按一下「帳戶摘要」頁面上的**帳戶** > **下訂單**。
 3. 按一下「裝置」頁面上 **{{site.data.keyword.baremetal_long}}** 下的**每月**。會出現伺服器清單；SAP 認證伺服器在清單的頂端。
 4. 按一下 **STARTING PRICE PER MONTH** 下的超鏈結，以選取伺服器 **BI.S3.NW192（OS 選項）。**
+
+BI.S3.NW32（OS 選項）伺服器也適用於**按小時**計費。
+{: note}
 
 ## 配置資料庫伺服器
 {: #options_192GB}
@@ -51,13 +55,13 @@ lastupdated: "2018-08-14"
 
 1. 對於**公用頻寬**選取 **500 GB**。
 2. 對於**上行鏈路埠速度**選取 **1 Gbps 備援公用及專用網路上行鏈路**。
-3. 以此範例而言，請保留所有其他欄位的預設值。您可以參考[建置自訂裸機伺服器](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options)，以取得選項的詳細說明。
+3. 以此範例而言，請保留所有其他欄位的預設值。您可以參考[建置自訂裸機伺服器](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options)，以取得選項的詳細說明。
 4.	按一下頁面底端的**新增至訂單**。當您的訂單通過驗證之後，會將您重新導向「結帳」頁面。
 
 ## 設定進階系統配置
 {: #adv_config}
 
-1. 對於「進階系統配置」下的欄位，請使用「表格 1」中的值。[進階系統配置](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config)準則有提供相關資訊。
+1. 對於「進階系統配置」下的欄位，請使用「表格 1」中的值。[進階系統配置](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config)準則有提供相關資訊。
 
 |欄位                |值                                                              |
 | -------------------------------- | -------------------------------------------------------------------- |
@@ -82,12 +86,12 @@ lastupdated: "2018-08-14"
 ## 自帶授權
 {: #byol}
 
-當您有自己的作業系統授權時，請根據供應商的指示將它安裝在 {{site.data.keyword.baremetal_short}} 上。如需相關資訊，請參閱[無 OS 選項](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-)。
+當您有自己的作業系統授權時，請根據供應商的指示將它安裝在 {{site.data.keyword.baremetal_short}} 上。如需相關資訊，請參閱[無 OS 選項](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)。
 
 ## 後續步驟
 
-  [2. 為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html)
+  [2. 為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. 分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html)
+  [3. 分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. 準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+  [4. 準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

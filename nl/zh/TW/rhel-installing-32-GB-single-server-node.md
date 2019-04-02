@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,9 +23,9 @@ lastupdated: "2018-08-13"
 
 |步驟 |作業 |
 | --- | --- |
-|1 |[訂購 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-|2 |[為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
-|3 |[分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+|1 |[訂購 32 GB 伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+|2 |[為 SAP 安裝準備伺服器](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
+|3 |[分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="表格 1。佈建概觀" caption-side="top"}
 
 ## 後續步驟

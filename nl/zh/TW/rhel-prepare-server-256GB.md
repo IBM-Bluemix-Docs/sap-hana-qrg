@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,6 +24,6 @@ lastupdated: "2018-08-13"
 
 ## 後續步驟
 
- [3. 分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html#partition-256GB)
+ [3. 分割及檔案系統](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems#partition-256GB)
 
- [4. 準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+ [4. 準備網路](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
