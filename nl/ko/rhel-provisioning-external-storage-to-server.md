@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,23 +23,23 @@ lastupdated: "2018-08-13"
 ## 외부 스토리지 설정
 {: #set_up_storage}
 
-외부 스토리지를 백업 디바이스로 사용하거나 스냅샷을 사용하여 테스트 환경에서 신속하게 데이터베이스를 복원하려는 경우 프로비저닝된 서버에 외부 스토리지를 추가할 수 있습니다. 3계층 예제에서 블록 스토리지는 데이터베이스의 로그 파일을 아카이브하고 데이터베이스의 온라인 및 오프라인 백업을 수행하는 데 사용됩니다. 최단 백업 시간을 보장하도록 가장 빠른 블록 스토리지(GB당 4IOPS)가 선택되었습니다. 느린 블록 스토리지가 사용자 요구에 맞을 수도 있습니다. {{site.data.keyword.blockstoragefull}}에 대한 자세한 정보는 [블록 스토리지 시작하기](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage)를 참조하십시오.
+외부 스토리지를 백업 디바이스로 사용하거나 스냅샷을 사용하여 테스트 환경에서 신속하게 데이터베이스를 복원하려는 경우 프로비저닝된 서버에 외부 스토리지를 추가할 수 있습니다. 3계층 예제에서 블록 스토리지는 데이터베이스의 로그 파일을 아카이브하고 데이터베이스의 온라인 및 오프라인 백업을 수행하는 데 사용됩니다. 최단 백업 시간을 보장하도록 가장 빠른 블록 스토리지(GB당 4IOPS)가 선택되었습니다. 느린 블록 스토리지가 사용자 요구에 맞을 수도 있습니다. {{site.data.keyword.blockstoragefull}}에 대한 자세한 정보는 [블록 스토리지 시작하기](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage)를 참조하십시오.
 
 
-1. 고유 신임 정보를 사용하여 [{{site.data.keyword.cloud_notm}} 인프라 고객 포털](https://control.softlayer.com/)에 로그인하십시오.
+1. 고유 인증 정보를 사용하여 [{{site.data.keyword.cloud_notm}} 인프라 고객 포털![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){: new_window}에 로그인하십시오.
 2. **스토리지** > **블록 스토리지**를 선택하십시오.
 3. 블록 스토리지 페이지의 오른쪽 상단 구석에 있는 **블록 스토리지 주문**을 클릭하십시오.
-4. 스토리지 요구에 맞는 사양을 선택하십시오. 표 1에는 일반 데이터베이스 워크로드에 대한 4IOPS/GB를 포함하여 권장되는 값이 나와 있습니다.
+4. 스토리지 요구사항에 맞는 세부 정보를 선택하십시오. 표 1에는 일반 데이터베이스 워크로드에 대한 4IOPS/GB를 포함하여 권장되는 값이 나와 있습니다.
 
-|              필드                |        값                                         |
+|              필드               |값                                        |
 | -------------------------------- | ------------------------------------------------- |
-|위치                              | TOR01                                             |
-|대금 청구 방법                    | 월별(기본값)                                      |
-|새 스토리지 크기                  | 1000GB                                            |
-|스토리지 IOPS 옵션                | 내구성(계층화된 IOPS)(기본값)                     |
-|내구성 계층화된 IOPS              | 10GB                                              |
-|스냅샷 공간 크기                  | 0GB                                               |
-|OS 유형                           | 기본적으로 Linux로 설정됨                         |
+|위치                          | TOR01                                             |
+|비용 청구 방법                    | 월별(기본값)                                 |
+|새 스토리지 크기                  | 1000GB                                           |
+|스토리지 IOPS 옵션              | 내구성(계층 IOPS)(기본값)                 |
+|내구성 계층 IOPS             | 10GB                                             |
+|스냅샷 공간 크기               |0GB                                              |
+|OS 유형                           | 기본적으로 Linux로 설정됨                                 |
 {: caption="표 1. 블록 스토리지의 권장 값" caption-side="top"}
 
 5. 두 개의 선택란을 클릭하고 **주문하기**를 클릭하십시오.
@@ -51,7 +52,7 @@ lastupdated: "2018-08-13"
 3. **제출** 단추를 클릭하십시오.
 4. **디바이스** > (디바이스 선택) > **스토리지** 탭에서 프로비저닝된 스토리지의 상태를 확인하십시오.
 5. 서버(iSCSI 개시자)의 **대상 주소** 및 iSCSI 규정된 이름(**IQN**)과 iSCSI 서버의 권한 부여를 위한 **사용자 이름** 및 **비밀번호**를 기록해 두십시오. 다음 단계에서 이 정보가 필요합니다.
-6. [Linux의 MPIO iSCSI LUN에 연결](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux)의 단계를 수행하여 스토리지가 프로비저닝된 서버에서 액세스 가능하도록 설정하십시오.
+6. [Linux의 iSCSI LUN에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux)의 단계를 수행하여 스토리지가 프로비저닝된 서버에서 액세스 가능하도록 설정하십시오.
 
 ## 스토리지를 다중 경로로 설정
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. 다른 LUN이 다중 경로 출력에 나타나도록 [Linux에 블록 스토리지 볼륨 마운트](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes)의 모든 명령을 완료하십시오.
+7. 다른 LUN이 다중 경로 출력에 나타나도록 [Linux의 iSCSI LUNS에 연결](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux)의 모든 명령을 완료하십시오.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 이제 디스크 디바이스를 사용할 때 다중 경로 디바이스를 사용할 수 있습니다. 디바이스 경로가 `/dev/mapper/3600a098038303452543f464142755a42` 아래에 표시됩니다.
 
-[`multipath.conf` 예제](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample)에서 `/etc/multipath.conf` 샘플을 가져와 서버에 작성하십시오. 복사된 특수 문자, DOS와 같은 캐리지 리턴, 줄 바꾸기 항목으로 인해 예상치 못한 동작이 나타날 수 있습니다. 컨텐츠를 복사한 후 ASCII Unix 파일이 있는지 확인하십시오.
+[`multipath.conf` 예제](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample)에서 `/etc/multipath.conf` 샘플을 가져와 서버에 작성하십시오. 복사된 특수 문자, DOS와 같은 캐리지 리턴, 줄 바꾸기 항목으로 인해 예상치 못한 동작이 나타날 수 있습니다. 컨텐츠를 복사한 후 ASCII Unix 파일이 있는지 확인하십시오.
 
 `/etc/multipath.conf`에서 다중 경로 블록을 조정하여 `1/dev/mapper/mpath1` 아래에서 디바이스에 액세스하는 경로의 별명을 작성하십시오.
 
@@ -161,4 +162,4 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-{{site.data.keyword.Db2_on_Cloud_long}}에 SAP NetWeaver 기반 SAP 애플리케이션을 설치하는 경우, 전체 백업과 아카이브된 로그 파일을 위해 데이터베이스 관리자(`db2SID`)가 소유한 `/backup` 아래에 서브디렉토리를 작성해야 합니다. 로그 파일 자동 아카이브를 위해서는 {{site.data.keyword.Db2_on_Cloud_short}} 데이터베이스에 `LOGMETH1`을 설정해야 합니다. 세부사항은 [{{site.data.keyword.Db2_on_Cloud_short}} 문서](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html)를 참조하십시오.
+{{site.data.keyword.Db2_on_Cloud_long}}에 SAP NetWeaver 기반 SAP 애플리케이션을 설치하는 경우, 전체 백업과 아카이브된 로그 파일을 위해 데이터베이스 관리자(`db2SID`)가 소유한 `/backup` 아래에 서브디렉토리를 작성해야 합니다. 로그 파일 자동 아카이브를 위해서는 {{site.data.keyword.Db2_on_Cloud_short}} 데이터베이스에 `LOGMETH1`을 설정해야 합니다. 세부사항은 [{{site.data.keyword.Db2_on_Cloud_short}} 문서![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window}를 참조하십시오.

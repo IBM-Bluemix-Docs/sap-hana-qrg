@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -31,5 +32,5 @@ lastupdated: "2018-08-13"
 
 ## 다음 단계
 
-  * [{{site.data.keyword.baremetal_short}}에 외부 스토리지 추가](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-provisioning-external-storage-to-server.html)
-  * [SAP 애플리케이션과 소프트웨어 설치](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-your-SAP-landscape.html)
+  * [{{site.data.keyword.baremetal_short}}에 외부 스토리지 추가](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
+  * [SAP 랜드스케이프 설치(애플리케이션 및 소프트웨어)](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)

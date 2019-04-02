@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,9 +23,9 @@ lastupdated: "2018-08-13"
 
 |단계 |태스크 |
 | --- | --- |
-|1 |[32GB 서버 주문](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-|2 |[SAP 설치를 위한 서버 준비](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
-|3 |[파티셔닝 및 파일 시스템](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+|1 |[32GB 서버 주문](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+|2 |[SAP 설치를 위한 서버 준비](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
+|3 |[파티셔닝 및 파일 시스템](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="표 1. 프로비저닝 개요" caption-side="top"}
 
 ## 다음 단계
