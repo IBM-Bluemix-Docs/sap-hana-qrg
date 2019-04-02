@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-13"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,10 +24,10 @@ Etudions maintenant un scénario plus complexe : celui d'un environnement à tro
 
 | Etape | Tâche |
 | --- | --- |
-| 1 | [Commande de vos serveurs 192 Go et 32 Go pour une configuration à trois niveaux](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-three-tier.html) |
-| 2 | [Préparation de votre serveur pour votre installation SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-256GB.html) |
-| 3 | [Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html) |
-| 4 | [Préparation de votre réseau](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network) |
+| 1 | [Commande de vos serveurs 192 Go et 32 Go pour une configuration à trois niveaux](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+| 2 | [Préparation de votre serveur pour votre installation SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+| 3 | [Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+| 4 | [Préparation de votre réseau](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="Tableau 1. Présentation de la mise à disposition" caption-side="top"}
 
 ## Etapes suivantes

@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -23,6 +24,6 @@ Une adresse IP publique est utilisée pour l'accès à distance, ce qui signifie
 
 ## Etapes suivantes
 
- [3. Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-256GB.html#partition-256GB)
+ [3. Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems#partition-256GB)
 
- [4. Préparation de votre réseau](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-network.html#network)
+ [4. Préparation de votre réseau](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

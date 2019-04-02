@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,23 +23,23 @@ lastupdated: "2018-08-13"
 ## Configuration de la mémoire externe
 {: #set_up_storage}
 
-Une mémoire externe peut être ajoutée aux serveurs mis à disposition si vous souhaitez l'utiliser comme unité de sauvegarde ou utiliser une image instantanée pour restaurer rapidement votre base de données dans un environnement de test. Dans l'exemple de configuration à trois niveaux, le stockage par blocs est utilisé à la fois pour archiver les fichiers journaux de la base de données et pour les sauvegardes en ligne et hors ligne de la base de données. Le stockage par blocs le plus rapide (4 IOPS par Go) a été sélectionné pour garantir un temps de sauvegarde minimal. Un stockage par blocs plus lent peut être suffisant pour vos besoins. Pour en savoir plus sur {{site.data.keyword.blockstoragefull}}, voir [Initiation au stockage par blocs](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage).
+Une mémoire externe peut être ajoutée aux serveurs mis à disposition si vous souhaitez l'utiliser comme unité de sauvegarde ou utiliser une image instantanée pour restaurer rapidement votre base de données dans un environnement de test. Dans l'exemple de configuration à trois niveaux, le stockage par blocs est utilisé à la fois pour archiver les fichiers journaux de la base de données et pour les sauvegardes en ligne et hors ligne de la base de données. Le stockage par blocs le plus rapide (4 IOPS par Go) a été sélectionné pour garantir un temps de sauvegarde minimal. Un stockage par blocs plus lent peut être suffisant pour vos besoins. Pour en savoir plus sur {{site.data.keyword.blockstoragefull}}, voir [Initiation au stockage par blocs](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
 
 
-1. Connectez-vous au portail [{{site.data.keyword.cloud_notm}} Infrastructure Customer Portal](https://control.softlayer.com/) avec vos données d'identification uniques.
+1. Connectez-vous au [portail client de l'infrastructure {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](https://control.softlayer.com/){: new_window} avec vos données d'identification uniques.
 2. Sélectionnez **Stockage** > **Stockage par blocs.**
 3. Cliquez sur **Commander du stockage par blocs** dans le coin supérieur droit de la page Stockage par blocs.
 4. Sélectionnez vos besoins de stockage spécifiques. Le tableau 1 contient les valeurs recommandées, notamment 4 IOPS/Go pour une charge de travail de base de données typique.
 
-|              Zone                |      Valeur                                       |
+|              Zone               |      Valeur                                        |
 | -------------------------------- | ------------------------------------------------- |
-|Emplacement                       | TOR01                                             |
-|Facturation                       | Au mois (valeur par défaut)                       |
-|Nouvelle taille de stockage       | 1000 Go                                           |
-|Options d'E-S/s de stockage       | Endurance (E-S/s échelonnées) (par défaut)        |
-|E-S/s échelonnées d'endurance     | 10 Go                                             |
-|Taille de l'espace d'instantané   | 0 Go                                              |
-|Type de système d'exploitation    | Linux par défaut                                  |
+|Emplacement                          | TOR01                                             |
+|Facturation                    | Au mois (valeur par défaut)                                 |
+|Nouvelle taille de stockage                  | 1000 Go                                           |
+|Options d'E-S/s de stockage              | Endurance (E-S/s échelonnées) (par défaut)                 |
+|E-S/s échelonnées d'endurance             | 10 Go                                             |
+|Taille de l'espace d'instantané               | 0 Go                                              |
+|Type de système d'exploitation                           | Linux par défaut                                 |
 {: caption="Tableau 1. Valeurs recommandées pour le stockage par blocs" caption-side="top"}
 
 5. Cochez les deux cases et cliquez sur **Valider la commande**.
@@ -51,7 +52,7 @@ Une mémoire externe peut être ajoutée aux serveurs mis à disposition si vous
 3. Cliquez sur le bouton **Soumettre**.
 4. Vérifiez l'état de la mémoire mise à disposition sous **Unités** > (sélectionnez votre unité) > onglet **Stockage**.
 5. Notez l'**adresse cible** et le nom qualifié iSCSI (**IQN**) de votre serveur (initiateur iSCSI) ainsi que le **nom d'utilisateur** et le **mot de passe** pour l'accès au serveur iSCSI. Vous aurez besoin de ces informations au cours des prochaines étapes.
-6. Suivez les instructions décrites dans la section [Connecting to MPIO iSCSI LUNs on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) pour que rendre votre mémoire accessible depuis votre serveur mis à disposition.
+6. Suivez les instructions décrites dans la section [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) pour rendre votre mémoire accessible depuis votre serveur mis à disposition.
 
 ## Accès multiple à la mémoire
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Exécutez toutes les commandes décrites dans [Mounting Block Storage volumes on Linux](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes) pour qu'un autre numéro d'unité logique apparaisse dans la sortie multi-accès.
+7. Suivez toutes les commandes de la section [Connexion à des numéros d'unité logique (LUN) iSCSI sous Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) pour qu'un autre numéro d'unité logique apparaisse dans la sortie multi-accès.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 Vous pouvez maintenant utiliser l'unité multi-accès comme vous utiliseriez n'importe quelle unité de disque. Un chemin d'accès d'unité apparaît sous `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Prenez l'exemple de chemin `/etc/multipath.conf` du fichier exemple [`multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) et créez-le sur votre serveur. Notez que les caractères spéciaux, retours chariot de type DOS et sauts de ligne copiés peuvent entraîner des comportements inattendus. Assurez-vous que vous avez un fichier Unix ASCII après avoir copié le contenu.
+Prenez l'exemple de chemin `/etc/multipath.conf` du fichier exemple [ `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) et créez-le sur votre serveur. Notez que les caractères spéciaux, retours chariot de type DOS et sauts de ligne copiés peuvent entraîner des comportements inattendus. Assurez-vous que vous avez un fichier Unix ASCII après avoir copié le contenu.
 
 Adaptez le bloc 'multipath' de `/etc/multipath.conf` pour créer un alias du chemin d'accès pour accéder à l'unité sous `1/dev/mapper/mpath1`.
 
@@ -161,4 +162,4 @@ Adaptez le bloc 'multipath' de `/etc/multipath.conf` pour créer un alias du che
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-Si vous installez une application SAP basée sur NetWeaver sur {{site.data.keyword.Db2_on_Cloud_long}}, vous devez créer des sous-répertoires sous `/backup` appartenant à l'administrateur de base de données (`db2SID`) pour les sauvegardes intégrales et les fichiers journaux archivés. Pour archiver les fichiers journaux de manière automatique, vous devez définir `LOGMETH1` dans votre base de données {{site.data.keyword.Db2_on_Cloud_short}}. Consultez la [documentation {{site.data.keyword.Db2_on_Cloud_short}}](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html) pour tout complément d'information.
+Si vous installez une application SAP basée sur NetWeaver sur {{site.data.keyword.Db2_on_Cloud_long}}, vous devez créer des sous-répertoires sous `/backup` appartenant à l'administrateur de base de données (`db2SID`) pour les sauvegardes intégrales et les fichiers journaux archivés. Pour archiver les fichiers journaux de manière automatique, vous devez définir `LOGMETH1` dans votre base de données {{site.data.keyword.Db2_on_Cloud_short}}. Veuillez vous référer à la documentation de [{{site.data.keyword.Db2_on_Cloud_short}} ![Icône de lien externe](../icons/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} pour obtenir des détails.

@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,9 +23,9 @@ Utilisez les étapes décrites dans le tableau 1 pour mettre à disposition votr
 
 | Etape | Tâche |
 | --- | --- |
-| 1 | [Commande de votre serveur 32 Go](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-| 2 | [Préparation de votre serveur pour votre installation SAP](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
-| 3 | [Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+| 1 | [Commande de votre serveur 32 Go](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+| 2 | [Préparation de votre serveur pour votre installation SAP](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
+| 3 | [Partitionnement et systèmes de fichiers](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="Tableau 1. Présentation de la mise à disposition" caption-side="top"}
 
 ## Etapes suivantes
