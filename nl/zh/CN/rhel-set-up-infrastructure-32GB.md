@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2018
-lastupdated: "2018-08-14"
+  years: 2018, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,10 +23,13 @@ lastupdated: "2018-08-14"
 ## 订购服务器
 {: #order_32GB}
 
-1. 使用您的唯一凭证登录到 [{{site.data.keyword.cloud_notm}} 基础架构客户门户网站](https://control.softlayer.com)。
-2. 单击“帐户汇总”页面上的**帐户** > **下订单**。
+1. 使用您的唯一凭证登录到 [{{site.data.keyword.cloud_notm}} 基础架构客户门户网站 ![外部链接图标](../../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com){: new_window}。
+2. 在“帐户摘要”页面上单击**帐户** > **下订单**。
 3. 在“设备”页面上的 {{site.data.keyword.baremetal_short}} 下单击**每月**。此时将显示“服务器列表”；SAP 认证的服务器位于列表顶部。
 4. 单击**起步价（按月）**下的超链接，以选择服务器 **BI.S3.NW32（操作系统选项）**。
+
+BI.S3.NW32（操作系统选项）服务器也可用于**按小时**计费。
+{: note}
 
 ## 配置服务器
 {: #configure_server}
@@ -46,24 +50,24 @@ lastupdated: "2018-08-14"
 
 1. 为**公用带宽**选择 **500 GB**。
 2.	为**上行端口速度**选择 **1 Gbps 冗余公用和专用网络上行链路**。
-3. 将其他所有字段保持缺省值。有关详细的选项描述，请参阅[构建定制裸机服务器](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#addl-server-options)。
+3. 将其他所有字段保持缺省值。有关详细的选项描述，请参阅[构建定制裸机服务器](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options)。
 4.	单击页面底部的**添加到订单**。在验证订单后，您将重定向到“结帐”页面。
 
 ## 设置高级系统配置
 {: #adv_config}
 
-将表 1 中的值用于“高级系统配置”下的字段。[高级服务器配置选项](https://console.bluemix.net/docs/bare-metal/baremetal-provision.html#adv-system-config)准则中提供了更多信息。
+将表 1 中的值用于“高级系统配置”下的字段。[高级服务器配置选项](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config)准则中提供了更多信息。
 
 1. 向下滚动并在**高级系统配置**下输入表 1 中的值。
 
-|字段                              |值                                                                    |
+|字段                |值                                                                    |
 | -------------------------------- | -------------------------------------------------------------------- |
 |后端 VLAN                         |从下拉列表中进行选择，例如，`tor01.bcr01a.1241`      |
 |子网                              |从下拉列表中进行选择，例如，`10.114.63.64/26`        |
 |前端 VLAN                         |从下拉列表中进行选择，例如，`tor01.fcr01a.851`       |
 |子网                              |从下拉列表中进行选择，例如，`158.85.65.224/28`       |
 |供应脚本                          |保持为空                                                              |
-|SSH 密钥                          |缺省为`添加`，这表示无 SSH 密钥                      |
+|SSH 密钥                          |缺省为 `Add`，这意味着没有 SSH 密钥                  |
 |主机名                            |例如，`e2e1270`                                      |
 |域                                |例如，`saptest.com`                                  |
 {: caption="表 1. 32 GB 高级配置值" caption-side="top"}  
@@ -79,10 +83,10 @@ lastupdated: "2018-08-14"
 ## 自带许可证
 {: #byol}
 
-如果您有自己的操作系统许可证，那么可按照供应商的指示信息将其安装到 {{site.data.keyword.baremetal_short}}。有关更多信息，请参阅[无操作系统选项](https://console.bluemix.net/docs/bare-metal/introduction-no-os.html#how-to-install-an-operating-system-on-a-no-os-server-)。
+如果有自己的操作系统许可证，请按照供应商的指示信息将其安装在 {{site.data.keyword.baremetal_short}} 上。有关更多信息，请参阅[无操作系统选项](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)。
 
 ## 后续步骤
 
-  [2. 准备服务器以用于 SAP 安装](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
+  [2. 准备服务器以用于 SAP 安装](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
 
-  [3. 分区和文件系统](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+  [3. 分区和文件系统](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)

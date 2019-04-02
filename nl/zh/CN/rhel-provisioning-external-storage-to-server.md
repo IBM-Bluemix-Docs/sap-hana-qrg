@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, database server, deployment
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,10 +23,10 @@ lastupdated: "2018-08-13"
 ## 设置外部存储器
 {: #set_up_storage}
 
-如果您希望将外部存储器用作备份设备或使用快照在测试环境中快速复原数据库，那么可以向供应的一个或多个服务器添加外部存储器。对于三层示例，块存储器用于归档数据库的日志文件以及联机和脱机备份数据库。选择了最快的块存储器 (4 IOPS/GB)，以帮助确保最短备份时间。较慢的块存储器可能已足够满足您的需求。有关 {{site.data.keyword.blockstoragefull}} 的更多信息，请参阅 [Block Storage 入门](https://console.bluemix.net/docs/infrastructure/BlockStorage/index.html#getting-started-with-block-storage)。
+如果您希望将外部存储器用作备份设备或使用快照在测试环境中快速复原数据库，那么可以向供应的一个或多个服务器添加外部存储器。对于三层示例，块存储器用于归档数据库的日志文件以及联机和脱机备份数据库。选择了最快的块存储器 (4 IOPS/GB)，以帮助确保最短备份时间。较慢的块存储器可能已足够满足您的需求。有关 {{site.data.keyword.blockstoragefull}} 的更多信息，请参阅 [Block Storage 入门](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage)。
 
 
-1. 使用您的唯一凭证登录到 [{{site.data.keyword.cloud_notm}} 基础架构客户门户网站](https://control.softlayer.com/)。
+1. 使用您的唯一凭证登录到 [{{site.data.keyword.cloud_notm}} 基础架构客户门户网站 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://control.softlayer.com/){: new_window}。
 2. 选择**存储器** > **Block Storage**。
 3. 单击 Block Storage 页面右上角的**订购 Block Storage**。
 4. 选择适合您的存储需求的具体规格。表 1 包含建议值，包括适合典型数据库工作负载的 4 IOPS/GB。
@@ -51,7 +52,7 @@ lastupdated: "2018-08-13"
 3. 单击**提交**按钮。
 4. 在**设备** >（选择您的设备）> **存储器**选项卡下检查供应的存储器的状态。
 5. 记下您的服务器（iSCSI 启动器）的**目标地址**和 iSCSI 限定名 (**IQN**)，以及**用户名**和**密码**，以用于授权 iSCSI 服务器。在以下步骤中需要该信息。
-6. 执行[连接到 Linux 上的 MPIO iSCSI LUN](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#connecting-to-mpio-iscsi-luns-on-linux) 中的步骤以使您的存储器可从供应的服务器访问。
+6. 执行[连接到 Linux 上的 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) 中的步骤以使您的存储器可从供应的服务器访问。
 
 ## 将存储器设置为多路径
 {: #multipath}
@@ -103,7 +104,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. 完成[安装 Linux 上的 Block Storage 卷](https://console.bluemix.net/docs/infrastructure/BlockStorage/accessing_block_storage_linux.html#mounting-block-storage-volumes)中的所有命令，以便多路径输出中显示另一个 LUN。
+7. 完成[连接到 Linux 上的 iSCSI LUN](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) 中的所有命令，以便多路径输出中显示另一个 LUN。
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -118,7 +119,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 您现在可以像使用任何磁盘设备一样使用多路径设备。设备路径将显示在 `/dev/mapper/3600a098038303452543f464142755a42` 下。
 
-采用[示例 `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-sample.html#sample) 中的样本 `/etc/multipath.conf`，然后在您的服务器上创建此文件。请注意，任何复制的特殊字符、类 DOS 的回车符和换行输入都可能导致意外行为。请确保您在复制内容之后产生的是 ASCII Unix 文件。
+采用[示例 `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) 中的样本 `/etc/multipath.conf`，然后在您的服务器上创建此文件。请注意，任何复制的特殊字符、类 DOS 的回车符和换行输入都可能导致意外行为。请确保您在复制内容之后产生的是 ASCII Unix 文件。
 
 调整 `/etc/multipath.conf` 中的多路径块以创建路径别名来访问 `1/dev/mapper/mpath1` 下的设备。
 
@@ -161,4 +162,4 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-如果在 {{site.data.keyword.Db2_on_Cloud_long}} 上安装基于 SAP NetWeaver 的 SAP 应用程序，那么在数据库管理员用户 (`db2SID`) 拥有的 `/backup` 下为完全备份和归档的日志文件创建子目录。对于日志文件的自动归档，您应该在 {{site.data.keyword.Db2_on_Cloud_short}} 数据库中设置 `LOGMETH1`。请参阅 [{{site.data.keyword.Db2_on_Cloud_short}} 文档](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html)以获取详细信息。
+如果在 {{site.data.keyword.Db2_on_Cloud_long}} 上安装基于 SAP NetWeaver 的 SAP 应用程序，那么在数据库管理员用户 (`db2SID`) 拥有的 `/backup` 下为完全备份和归档的日志文件创建子目录。对于日志文件的自动归档，您应该在 {{site.data.keyword.Db2_on_Cloud_short}} 数据库中设置 `LOGMETH1`。请参阅 [{{site.data.keyword.Db2_on_Cloud_short}} 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} 以获取详细信息。

@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-14"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,7 +23,7 @@ lastupdated: "2018-08-14"
 ## 安装 RPM 软件包（先决条件）
 {: #RPM}
 
-针对操作系统上安装的软件包和运行的操作系统守护程序，SAP 安装需要特定的先决条件。请参阅 SAP 的最新[安装指南](https://support.sap.com/software/installations.html)（需要 [SAP S 用户标识](/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)）和[支持说明](https://support.sap.com/notes)（需要 SAP S 用户标识），以获取这些先决条件的最新列表。另外还需要安装两个软件包：
+针对操作系统上安装的软件包和运行的操作系统守护程序，SAP 安装需要特定的先决条件。请参阅 SAP 的最新[安装指南 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://support.sap.com/software/installations.html)}: new_window （需要新的 [SAP S 用户标识](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started) 和[支持说明 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://support.sap.com/notes){: new_window} （需要新的 SAP S 用户标识），以获取这些先决条件的最新列表。另外还需要安装两个软件包：
 * compat-sap-c++：通常实现 C++ 运行时与 SAP 所使用的编译器的兼容性。因为选择了 Red Hat Enterprise Linux for SAP Business Application 7.X 作为 32 GB 应用程序服务器和 192 GB 数据库服务器的操作系统，因此将使用 `compat-sap-c++-7`。
 * uuidd：维护操作系统对创建 UUID 的支持。
 
@@ -38,7 +39,7 @@ lastupdated: "2018-08-14"
 
 ### 安装软件包 compat-sap-c++-7
 
-1. 遵循 [SAP Note 2195019](https://launchpad.support.sap.com/#/notes/2195019)，安装软件包 compat-sap-c++-7 并创建 SAP 二进制文件所需的特定软链接。针对要安装的产品，检查特定于发行版的 SAP Note，从而确定是否需要库。
+1. 遵循 [SAP Note 2195019 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://launchpad.support.sap.com/#/notes/2195019){: new_window}，安装软件包 compat-sap-c++-7 并创建 SAP 二进制文件所需的特定软链接。针对要安装的产品，检查特定于发行版的 SAP Note，从而确定是否需要库。
 ```
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....
@@ -49,14 +50,14 @@ lastupdated: "2018-08-14"
 ## 下载 SAP 软件
 {: download_software}
 
-登录到 [SAP Support Portal](https://support.sap.com/en/index.html)，单击 **Download Software**，然后将必需的 DVD映像下载到本地共享驱动器。将文件传输到为您供应的服务器。另一个选项是下载 [SAP Software Download Manager](https://support.sap.com/en/my-support/software-downloads.html#section_995042677)，将其安装在目标服务器上，然后直接将 DVD 映像下载到该服务器。
+登录到 [SAP Support Portal ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://support.sap.com/en/index.html){: new_window}，单击 **Download Software**，然后将必需的 DVD 下载到本地共享驱动器。将文件传输到为您供应的服务器。另一个选项是下载 [SAP Software Download Manager ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: new_window}，将其安装在目标服务器上，然后直接将 DVD 映像下载到该服务器。
 
 ## 准备 SAP 的 SWPM GUI
 {: #prepare_for_GUI}
 
-根据您的网络带宽和等待时间，您可能希望在虚拟网络计算 (VNC) 会话中远程运行 SAP Software Provisioning Manager (SWPM) 图形用户界面 (GUI)。另一个选项是让 GUI 在本地运行并连接到目标计算机上的 SWPM。如果您决定在本地运行 GUI，请参阅 [SWPM 文档](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0)。
+根据您的网络带宽和等待时间，您可能希望在虚拟网络计算 (VNC) 会话中远程运行 SAP Software Provisioning Manager (SWPM) 图形用户界面 (GUI)。另一个选项是让 GUI 在本地运行并连接到目标计算机上的 SWPM。如果您决定在本地运行 GUI，请参阅 [SWPM 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: new_window}。
 
-以下步骤概述了如何在 VNC 会话中远程运行 SWPM GUI。此选项会安装 VNC 服务器，该服务器可能不符合对操作系统进行固化的要求；请确保您符合安全措施。如果不熟悉 VNC 的功能，请参阅 [VNC 文档](http://searchnetworking.techtarget.com/definition/virtual-network-computing)以了解其功能的概述。
+以下步骤概述了如何在 VNC 会话中远程运行 SWPM GUI。此选项会安装 VNC 服务器，该服务器可能不符合对操作系统进行固化的要求；请确保您符合安全措施。如果不熟悉 VNC 的功能，请参阅 [VNC 文档 ![外部链接图标](../icons/launch-glyph.svg "外部链接图标")](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: new_window} 以了解其功能的概述。
 
 1. 使用以下命令来安装 VNC 服务器。
 ```

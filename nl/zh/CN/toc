@@ -1,12 +1,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" arm="2437231" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-getting-started-tutorial" path="infrastructure/sap-netweaver-rhel-qrg"}
 SAP NetWeaver on IBM Cloud - Red Hat Enterprise Linux 快速参考指南
 
     {: .navgroup id="learn"}
     rhel-index.md
-    [SAP NetWeaver on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)
+    [SAP NetWeaver on IBM Cloud](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -33,10 +33,10 @@ SAP NetWeaver on IBM Cloud - Red Hat Enterprise Linux 快速参考指南
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    [支持](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-support.html)
+    [获取帮助和支持](/bare-metal/bare-metal-gettinghelp#gettinghelp)
 
     {: .topicgroup}
     常见问题
-        [常见问题：SAP on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-faqs.html#faqs)
-        
+        [常见问题：SAP on IBM Cloud](/infrastructure/sap-netweaver/sap-netweaver-faqs#faqs)
+
 {: .navgroup-end}
