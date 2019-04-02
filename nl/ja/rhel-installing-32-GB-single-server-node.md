@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -22,9 +23,9 @@ lastupdated: "2018-08-13"
 
 | ステップ | タスク |
 | --- | --- |
-| 1 | [32 GB サーバーの注文](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-set-up-infrastructure-32GB.html)
-| 2 | [SAP インストール用のサーバーの準備](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-prepare-server-32GB.html)
-| 3 | [パーティショニングとファイル・システム](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-partition-32GB.html)
+| 1 | [32 GB サーバーの注文](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB)
+| 2 | [SAP インストール用のサーバーの準備](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_32GB)
+| 3 | [パーティショニングとファイル・システム](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
 {: caption="表 1. プロビジョニングの概要" caption-side="top"}
 
 ## 次のステップ

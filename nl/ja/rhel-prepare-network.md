@@ -1,11 +1,12 @@
 ---
 
-
-
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-08-13"
+years: 2017, 2019
+lastupdated: "2019-03-01"
 
+keywords: SAP NetWeaver, ABAP, ASCS instance, ABAP SAP Central Services, application server, database server, three-tier
+
+subcollection: sap-netweaver-rhel-qrg
 
 ---
 
@@ -19,7 +20,7 @@ lastupdated: "2018-08-13"
 # 4. 3 層セットアップ用のネットワークの準備
 {: #network}
 
-3 層セットアップのインストールを計画している場合は、ネットワークを正しくセットアップする必要があります。 サンプルでは、`sdb192` という名前の 192 GB データベース・サーバーと、`e2e1270` という名前の 32 GB アプリケーション・サーバーがデプロイされています。データベース・サーバーは、(A)SCS インスタンスもホストしています。 プライベート・ネットワークの IP アドレスを `/etc/hosts` に追加すると、以後のステップに役立ち、SAP 内部のネットワーク・トラフィックが正しいネットワークを経由することが保証されます。
+3 層セットアップのインストールを計画している場合は、ネットワークを正しくセットアップする必要があります。 サンプルでは、`sdb192` という名前の 192 GB データベース・サーバーと、`e2e1270` という名前の 32 GB アプリケーション・サーバーがデプロイされています。 データベース・サーバーは、(A)SCS インスタンスもホストしています。 プライベート・ネットワークの IP アドレスを `/etc/hosts` に追加すると、以後のステップに役立ち、SAP 内部のネットワーク・トラフィックが正しいネットワークを経由することが保証されます。
 
 ![図 1. 3 層セットアップのサンプル](/images/network-01.png "3 層セットアップのサンプル")
 
@@ -101,5 +102,5 @@ lastupdated: "2018-08-13"
 
 ## 次のステップ
 
-  * [{{site.data.keyword.baremetal_short}} への外部ストレージの追加](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-provisioning-external-storage-to-server.html)
-  * [SAP アプリケーションおよびソフトウェアのインストール](/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-installing-your-SAP-landscape.html)
+  * [{{site.data.keyword.baremetal_short}}への外部ストレージの追加](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
+  * [SAP ランドスケープのインストール (アプリケーションとソフトウェア)](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)

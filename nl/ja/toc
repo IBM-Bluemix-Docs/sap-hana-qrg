@@ -1,12 +1,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" arm="2437231" href="/docs/infrastructure/sap-netweaver-rhel-qrg/rhel-index.html"}
+{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-getting-started-tutorial" path="infrastructure/sap-netweaver-rhel-qrg"}
 SAP NetWeaver on IBM Cloud - Red Hat Enterprise Linux 用クイック・リファレンス・ガイド
 
     {: .navgroup id="learn"}
     rhel-index.md
-    [SAP NetWeaver on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-index.html#getting-started)
+    [IBM Cloud 上の SAP NetWeaver](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -33,10 +33,10 @@ SAP NetWeaver on IBM Cloud - Red Hat Enterprise Linux 用クイック・リフ�
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    [サポート](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-support.html)
+    [ヘルプおよびサポートの利用](/bare-metal/bare-metal-gettinghelp#gettinghelp)
 
     {: .topicgroup}
     FAQ
-        [FAQ: SAP on IBM Cloud](https://console.bluemix.net/docs/infrastructure/sap-netweaver/sap-faqs.html#faqs)
-        
+        [FAQ: IBM Cloud 上の SAP](/infrastructure/sap-netweaver/sap-netweaver-faqs#faqs)
+
 {: .navgroup-end}
