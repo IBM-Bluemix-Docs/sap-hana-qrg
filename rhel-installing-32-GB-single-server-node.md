@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Provisioning a 32 GB single-node server
+{: #provisioning-a-32-gb-single-node-server}
 
 Use the steps in Table 1 to provision your 32 GB single-node server for SAP NetWeaver in an {{site.data.keyword.cloud}} environment.
 
