@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Mise à disposition d'un serveur à noeud unique de 32 Go
+{: #provisioning-a-32-gb-single-server-node}
 
 Utilisez les étapes décrites dans le tableau 1 pour mettre à disposition votre serveur à noeud unique de 32 Go pour SAP NetWeaver dans un environnement {{site.data.keyword.cloud}}.
 
