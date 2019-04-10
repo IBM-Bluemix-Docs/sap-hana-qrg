@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Suministro de un servidor de un solo nodo de 32 GB
+{: #provision-a-32-gb-single-node-server}
 
 Utilice los pasos de la Tabla 1 para suministrar el servidor de un solo nodo de 32 GB para SAP NetWeaver en un entorno {{site.data.keyword.cloud}}.
 
