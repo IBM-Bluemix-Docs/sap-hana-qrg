@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-01"
 
 keywords: SAP NetWeaver, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Guía de aprendizaje de iniciación
+{: #getting-started-tutorial}
 
 La siguiente guía ofrece una introducción para clientes que son nuevos en el entorno de {{site.data.keyword.cloud}} y prefieren un inicio rápido en lugar de una documentación más detallada. Dos configuraciones de ejemplo, un servidor de un solo nodo de 32 GB, y tres capas con servidores de 192 GB y 32 GB le ayudarán desde el proceso de pedido hasta el inicio de la instalación de SAP.
 
