@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Tutoriel d'initiation
+{: #getting-started-tutorial}
 
 Les conseils suivants offrent une présentation adressée aux clients qui utilisent un environnement {{site.data.keyword.cloud}} pour la première fois et préfèrent un format de démarrage rapide à une documentation plus détaillée. Deux exemples de configuration (celui d'un serveur à noeud unique 32 Go et d'une configuration à trois niveaux avec un serveur 192 Go et un serveur 32 Go) vous guident tout au long du processus de commande jusqu'au démarrage de l'installation SAP.
 
