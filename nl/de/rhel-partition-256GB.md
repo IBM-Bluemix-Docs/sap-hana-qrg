@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-01"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 3. Partitionierung und Dateisysteme
+{: #3-partitioning-and-file-systems}
 
 Für das Beispiel mit drei Ebenen wurde ein 192 GB-Server (Datenbankserver) mit einer logischen Platte (auf einem RAID 10) und ein 32 GB-Server (Anwendungsserver) mit einer logischen Platte (auf einem RAID 1) bestellt. Beide Server verfügen über ein großes Stammdateisystem, das der Gesamtplattengröße (mit etwas Speicherplatz, der für `/boot` verwendet wird) entspricht.
 
