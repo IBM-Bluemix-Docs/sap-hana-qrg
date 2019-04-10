@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 32 GB-Server mit einem Knoten bereitstellen
+{: #provisioning-a-32-gb-single-node-server}
 
 Verwenden Sie die Schritte in Tabelle 1 für die Bereitstellung des 32 GB-Servers mit einem Knoten für SAP NetWeaver in einer {{site.data.keyword.cloud}}-Umgebung.
 
