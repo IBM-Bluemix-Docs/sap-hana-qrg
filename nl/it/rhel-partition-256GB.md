@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 3. Partizionamento e file system
+{: #3-partitioning-and-file-sytems}
 
 Per l'esempio a tre livelli, sono stati ordinati un server da 192 GB (server di database) con un disco logico (su RAID10) e un server da 32 GB (server delle applicazioni) con un disco logico (su RAID 1). Entrambi i server sono dotati di un file system root di grandi dimensioni che è uguale alla dimensione totale del disco (con dello spazio che viene utilizzato per `/boot`).
 
