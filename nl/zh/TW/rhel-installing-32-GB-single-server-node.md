@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 佈建 32 GB 單一節點伺服器
+{: #provisioning-a-32-gb-single-node-server}
 
 使用「表格 1」的步驟，在 {{site.data.keyword.cloud}} 環境中為 SAP NetWeaver 佈建 32 GB 單一節點伺服器。
 
