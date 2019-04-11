@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 32GB 단일 노드 서버 프로비저닝
+{: #provisioning-a-32-gb-single-node-server}
 
 표 1의 단계를 사용하여 {{site.data.keyword.cloud}} 환경에서 SAP NetWeaver에 맞게 32GB 단일 노드 서버를 프로비저닝하십시오.
 
