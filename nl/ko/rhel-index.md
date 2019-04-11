@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 시작하기 튜토리얼
+{: #getting-started-tutorial}
 
 다음 지침에서는 {{site.data.keyword.cloud}} 환경을 처음 사용하는 고객을 위한 소개를 제공하며 자세한 문서가 아닌 빠른 시작 형식을 사용합니다. 두 개의 샘플 구성(32GB 단일 노드 서버와 192GB 및 32GB 서버가 있는 3계층)을 통해 주문 프로세스부터 SAP 설치 시작까지를 파악할 수 있습니다.
 
