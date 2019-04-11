@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 3. パーティショニングとファイル・システム
+{: #3-partitioning-and-file-systems}
 
 3 層のサンプルでは、RAID10 の論理ディスクを 1 つ搭載した 192 GB サーバー (データベース・サーバー) と、RAID 1 の論理ディスクを 1 つ搭載した 32 GB サーバー (アプリケーション・サーバー) を注文しました。 どちらのサーバーにも、合計ディスク・サイズ (および `/boot` に使用されるいくらかのスペース) に相当する 1 つの大きなルート・ファイル・システムが付属しています。
 
