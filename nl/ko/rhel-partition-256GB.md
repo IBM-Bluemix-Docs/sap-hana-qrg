@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-04-10"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -18,6 +18,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 3. 파티셔닝 및 파일 시스템
+{: #3-partitioning-and-file-systems}
 
 3계층 예제의 경우 하나의 논리 디스크(RAID10)가 있는 192GB 서버(데이터베이스 서버) 및 하나의 논리 디스크(RAID 1)가 있는 32GB 서버(애플리케이션 서버)가 주문되었습니다. 두 서버에는 총 디스크 크기(일부 공간은 `/boot`를 위해 사용됨)와 같은 하나의 대형 루트 파일 시스템이 있습니다.
 
