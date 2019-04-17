@@ -33,7 +33,7 @@ SAP NetWeaver on IBM Cloud - Quick Reference Guide for Red Hat Enterprise Linux
     {: .navgroup-end}
 
     {: .navgroup id="help"}
-    [Getting help and support](/bare-metal/bare-metal-gettinghelp#gettinghelp)
+    [Getting help and support](/vsi/virtual-servers-gettinghelp#gettinghelp)
 
     {: .topicgroup}
     FAQs
