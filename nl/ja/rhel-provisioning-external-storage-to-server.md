@@ -23,7 +23,7 @@ subcollection: sap-netweaver-rhel-qrg
 ## 外部ストレージのセットアップ
 {: #set_up_storage}
 
-外部ストレージをバックアップ・デバイスとして使用する場合、またはテスト環境でスナップショットを使用してデータベースを素早くリストアする場合は、プロビジョン済みサーバー (複数可) に外部ストレージを追加することができます。 3 層の例の場合は、データベースのログ・ファイルの保存と、データベースのオンライン・バックアップおよびオフライン・バックアップの両方にブロック・ストレージが使用されます。 最小のバックアップ時間を保証するために役立つよう、最高速のブロック・ストレージ (GB 当たり 4 IOPS) が選択されました。 それより低速のブロック・ストレージでもお客様のニーズに十分な場合があります。 {{site.data.keyword.blockstoragefull}} について詳しくは、[ブロック・ストレージの概要](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage)に関する資料を参照してください。
+外部ストレージをバックアップ・デバイスとして使用する場合、またはテスト環境でスナップショットを使用してデータベースを素早くリストアする場合は、プロビジョン済みサーバー (複数可) に外部ストレージを追加することができます。 3 層の例の場合は、データベースのログ・ファイルの保存と、データベースのオンライン・バックアップおよびオフライン・バックアップの両方にブロック・ストレージが使用されます。 最小のバックアップ時間を保証するために役立つよう、最高速のブロック・ストレージ (GB 当たり 4 IOPS) が選択されました。 それより低速のブロック・ストレージでもお客様のニーズに十分な場合があります。 {{site.data.keyword.blockstoragefull}} について詳しくは、[ブロック・ストレージの概要](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started)に関する資料を参照してください。
 
 
 1. ユーザー固有の資格情報を使用して、[{{site.data.keyword.cloud_notm}} インフラストラクチャーのカスタマー・ポータル ![外部リンクのアイコン](../icons/launch-glyph.svg "外部リンクのアイコン")](https://control.softlayer.com/){: new_window} にログインします。

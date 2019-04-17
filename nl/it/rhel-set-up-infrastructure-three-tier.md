@@ -86,7 +86,7 @@ Una volta inoltrato l'ordine, il server, a seconda del tuo ordine, è disponibil
 ## BYOL (Bring your own license)
 {: #byol}
 
-Quando hai la tua licenza del sistema operativo, installala sul tuo {{site.data.keyword.baremetal_short}} in base alle istruzioni del fornitore. Per ulteriori informazioni, vedi [L'opzione no SO](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
+Quando hai la tua licenza del sistema operativo, installala sul tuo {{site.data.keyword.baremetal_short}} in base alle istruzioni del fornitore. Per ulteriori informazioni, vedi [L'opzione no SO](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 
 ## Passi successivi
 

@@ -86,7 +86,7 @@ BI.S3.NW32（操作系统选项）服务器也可用于**按小时**计费。
 ## 自带许可证
 {: #byol}
 
-如果有自己的操作系统许可证，请按照供应商的指示信息将其安装在 {{site.data.keyword.baremetal_short}} 上。有关更多信息，请参阅[无操作系统选项](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)。
+如果有自己的操作系统许可证，请按照供应商的指示信息将其安装在 {{site.data.keyword.baremetal_short}} 上。有关更多信息，请参阅[无操作系统选项](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)。
 
 ## 后续步骤
 

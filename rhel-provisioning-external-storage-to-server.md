@@ -23,7 +23,7 @@ subcollection: sap-netweaver-rhel-qrg
 ## Setting up external storage
 {: #set_up_storage}
 
-External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
+External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started).
 
 
 1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){: new_window} with your unique credentials.

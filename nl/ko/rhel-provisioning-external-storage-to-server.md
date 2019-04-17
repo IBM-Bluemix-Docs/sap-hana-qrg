@@ -23,7 +23,7 @@ subcollection: sap-netweaver-rhel-qrg
 ## 외부 스토리지 설정
 {: #set_up_storage}
 
-외부 스토리지를 백업 디바이스로 사용하거나 스냅샷을 사용하여 테스트 환경에서 신속하게 데이터베이스를 복원하려는 경우 프로비저닝된 서버에 외부 스토리지를 추가할 수 있습니다. 3계층 예제에서 블록 스토리지는 데이터베이스의 로그 파일을 아카이브하고 데이터베이스의 온라인 및 오프라인 백업을 수행하는 데 사용됩니다. 최단 백업 시간을 보장하도록 가장 빠른 블록 스토리지(GB당 4IOPS)가 선택되었습니다. 느린 블록 스토리지가 사용자 요구에 맞을 수도 있습니다. {{site.data.keyword.blockstoragefull}}에 대한 자세한 정보는 [블록 스토리지 시작하기](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage)를 참조하십시오.
+외부 스토리지를 백업 디바이스로 사용하거나 스냅샷을 사용하여 테스트 환경에서 신속하게 데이터베이스를 복원하려는 경우 프로비저닝된 서버에 외부 스토리지를 추가할 수 있습니다. 3계층 예제에서 블록 스토리지는 데이터베이스의 로그 파일을 아카이브하고 데이터베이스의 온라인 및 오프라인 백업을 수행하는 데 사용됩니다. 최단 백업 시간을 보장하도록 가장 빠른 블록 스토리지(GB당 4IOPS)가 선택되었습니다. 느린 블록 스토리지가 사용자 요구에 맞을 수도 있습니다. {{site.data.keyword.blockstoragefull}}에 대한 자세한 정보는 [블록 스토리지 시작하기](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started)를 참조하십시오.
 
 
 1. 고유 인증 정보를 사용하여 [{{site.data.keyword.cloud_notm}} 인프라 고객 포털![외부 링크 아이콘](../icons/launch-glyph.svg "외부 링크 아이콘")](https://control.softlayer.com/){: new_window}에 로그인하십시오.

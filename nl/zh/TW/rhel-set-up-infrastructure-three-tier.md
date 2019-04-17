@@ -86,7 +86,7 @@ BI.S3.NW32（OS 選項）伺服器也適用於**按小時**計費。
 ## 自帶授權
 {: #byol}
 
-當您有自己的作業系統授權時，請根據供應商的指示將它安裝在 {{site.data.keyword.baremetal_short}} 上。如需相關資訊，請參閱[無 OS 選項](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)。
+當您有自己的作業系統授權時，請根據供應商的指示將它安裝在 {{site.data.keyword.baremetal_short}} 上。如需相關資訊，請參閱[無 OS 選項](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)。
 
 ## 後續步驟
 

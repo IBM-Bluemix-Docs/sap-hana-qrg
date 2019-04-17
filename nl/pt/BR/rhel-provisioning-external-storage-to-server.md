@@ -30,7 +30,7 @@ backups on-line e off-line para o banco de dados. O armazenamento de bloco mais 
 garantir um tempo mínimo de backup. Armazenamento de bloco mais lento pode ser suficiente para as suas necessidades. Para obter mais
 informações sobre o {{site.data.keyword.blockstoragefull}}, consulte
 [Introdução
-ao Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-GettingStarted#getting-started-with-block-storage).
+ao Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started).
 
 
 1. Efetue login no portal do cliente da infraestrutura do [{{site.data.keyword.cloud_notm}} ![Ícone de link externo](../icons/launch-glyph.svg "Ícone de link externo")](https://control.softlayer.com/){: new_window} com suas credenciais exclusivas.

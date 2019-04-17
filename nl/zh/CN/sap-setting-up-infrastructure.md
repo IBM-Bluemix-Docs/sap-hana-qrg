@@ -92,7 +92,7 @@ SAP 主机名必须由最多 13 个字母数字字符组成。请参阅 [SAP Not
 ## 自带许可证
 {: #byol}
 
-如果有自己的操作系统许可证，请根据供应商指示信息将其安装在 {site.data.keyword.baremetal_short} 上。有关更多信息，请参阅[无操作系统选项](/docs/bare-metal?topic=bare-metal-how-to-install-an-operating-system-on-a-no-os-server-#how-to-install-an-operating-system-on-a-no-os-server-)。
+如果有自己的操作系统许可证，请根据供应商指示信息将其安装在 {site.data.keyword.baremetal_short} 上。有关更多信息，请参阅[无操作系统选项](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)。
 
 ## 后续步骤
 

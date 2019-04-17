@@ -85,7 +85,7 @@ Depois do envio do pedido, seu servidor estará disponível para uso dentro de u
 ## Traga sua própria licença
 {: #byol}
 
-Quando você tiver sua própria licença do sistema operacional, instale-a no {{site.data.keyword.baremetal_short}} com base nas instruções do fornecedor. Para obter mais informações, consulte [A opção sem S.O.](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-).
+Quando você tiver sua própria licença do sistema operacional, instale-a no {{site.data.keyword.baremetal_short}} com base nas instruções do fornecedor. Para obter mais informações, consulte [A opção sem S.O.](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 
 ## Próximas etapas
 

@@ -83,7 +83,7 @@ BI.S3.NW32(OS 옵션) 서버 또한 **시간별** 청구용으로 사용 가능�
 ## BYOL(Bring Your Own License)
 {: #byol}
 
-자체 운영 체제 라이센스가 있는 경우 벤더의 지시사항에 따라 {{site.data.keyword.baremetal_short}}에 이를 설치합니다. 자세한 정보는 [OS 없음 옵션](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)을 참조하십시오.
+자체 운영 체제 라이센스가 있는 경우 벤더의 지시사항에 따라 {{site.data.keyword.baremetal_short}}에 이를 설치합니다. 자세한 정보는 [OS 없음 옵션](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)을 참조하십시오.
 
 ## 다음 단계
 

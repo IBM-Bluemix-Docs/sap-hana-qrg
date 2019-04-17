@@ -92,7 +92,7 @@ Un courrier électronique intitulé _Votre commande {{site.data.keyword.cloud_no
 ## Apport de votre propre licence
 {: #byol}
 
-Si vous possédez votre propre licence de système d'exploitation, installez celui-ci sur votre serveur {site.data.keyword.baremetal_short} en suivant les instructions du fournisseur. Pour plus d'informations, voir [Option Sans système d'exploitation](/docs/bare-metal?topic=bare-metal-how-to-install-an-operating-system-on-a-no-os-server-#how-to-install-an-operating-system-on-a-no-os-server-).
+Si vous possédez votre propre licence de système d'exploitation, installez celui-ci sur votre serveur {site.data.keyword.baremetal_short} en suivant les instructions du fournisseur. Pour plus d'informations, voir [Option Sans système d'exploitation](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 
 ## Etapes suivantes
 

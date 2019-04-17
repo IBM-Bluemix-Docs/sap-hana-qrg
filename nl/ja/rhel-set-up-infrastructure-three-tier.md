@@ -86,7 +86,7 @@ BI.S3.NW32 (OS オプション) サーバーは**「毎時」**の請求でも�
 ## 所有ライセンスの導入
 {: #byol}
 
-オペレーティング・システムのライセンスを自分で所有しているときは、ベンダーの指示に基づいて、{{site.data.keyword.baremetal_short}} にそのライセンスをインストールします。 詳しくは、[『OS なしオプション』](/docs/bare-metal?topic=bare-metal-the-no-os-option#how-to-install-an-operating-system-on-a-no-os-server-)を参照してください。
+オペレーティング・システムのライセンスを自分で所有しているときは、ベンダーの指示に基づいて、{{site.data.keyword.baremetal_short}} にそのライセンスをインストールします。 詳しくは、[『OS なしオプション』](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os)を参照してください。
 
 ## 次のステップ
 
