@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-03-01"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -18,7 +18,6 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # 3. Particionamento e sistemas de arquivos
-{: #3-partitioning-and-file-systems}
 
 Para o exemplo de três camadas, um servidor de 192 GB (servidor de banco de dados) com um disco lógico (no RAID10) foi pedido e um servidor de 32 GB (servidor de aplicativos) com um disco lógico (no RAID 1). Ambos os servidores vêm com um grande
 sistema de arquivos raiz que é igual ao tamanho total de disco (com algum espaço que é usado para `/boot`).

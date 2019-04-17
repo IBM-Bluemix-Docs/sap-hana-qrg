@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-03-01"
 
 keywords: SAP NetWeaver
 
@@ -18,7 +18,6 @@ subcollection: sap-netweaver-rhel-qrg
 {:table: .aria-labeledby="caption"}
 
 # Provisionando um servidor de nó único de 32 GB
-{: #provisioning-a-32-gb-single-node-server}
 
 Use as etapas na Tabela 1 para provisionar seu servidor de nó único de 32 GB para SAP NetWeaver em um
 ambiente {{site.data.keyword.cloud}}.
