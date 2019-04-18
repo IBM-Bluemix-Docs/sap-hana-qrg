@@ -6,8 +6,7 @@ SAP NetWeaver no IBM Cloud - Guia de consulta rápida para o Red Hat Enterprise 
 
     {: .navgroup id="learn"}
     rhel-index.md
-    [SAP NetWeaver no IBM
-Cloud](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
+    [SAP NetWeaver no IBM Cloud](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
