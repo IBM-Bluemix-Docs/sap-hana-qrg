@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-08-07"
 
-keywords: SAP NetWeaver, bring your own license, BYOL, VLAN
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, 32 GB infrastructure
 
 subcollection: sap-netweaver-rhel-qrg
 
@@ -13,9 +13,10 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:note: .note}
 
 # 1. Ordering your 32 GB server
 {: #install_32GB}
@@ -23,62 +24,60 @@ subcollection: sap-netweaver-rhel-qrg
 ## Ordering your server
 {: #order_32GB}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com){: new_window} with your unique credentials.
-2. Click **Account** > **Place an Order** on the Account Summary page.
-3. Click **Monthly** under {{site.data.keyword.baremetal_short}} on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
-4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S3.NW32 (OS Options).**
-
-The BI.S3.NW32 (OS Options) server is also available for **Hourly** billing.
-{: note}
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://control.softlayer.com){: external} with your unique credentials.
+2. Click **Create** > **Compute** > **Infrastructure** > **Bare Metal Server**.
+3. Click **Continue**. If you can't click **Continue**, you don't have the correct permissions to create a server. Check with your system administrator about your permissions.
+4. Leave **1** in the **Quantity** field.
+5. Enter `e2e1270` in the **Hostname** field. Hostname is a permanent or temporary name for your servers. Click **Information** for formatting specifics.
+6. Enter `mycloud.com` in the **Domain** field. Domain is the identification string that defines administrative control within the internet. Click **Information** for formatting specifics.
+7. **Billing** defaults to **Monthly**. At this time 1-year contract and 3-year contract are not available for SAP-certified servers.
+8. The data centers displayed under **Location** depend on product availability within a particular data center. Select **NA East TOR01-Toronto**.
+9. Click **All servers** > **SAP certified**.
 
 ## Configuring your server
 {: #configure_server}
 
-1. Leave **1** in the **Quantity** field.
-2. Select **TOR01** for **Data Center.** The list of data centers depends on product availability within a particular data center.
-3. **Server** defaults to a predefined value based on your server selection and cannot be change changed.
-4. Click **32 GB RAM** even though the **RAM** selection defaults to a predefined value based on your sever selection and cannot be changed.
-5. Click **Redhat** and select **Red Hat Enterprise Linux for SAP Business Application 7.X (64 bit)** as your **Operating System**. **Note**: If you are bringing your own license (BYOL) for your operating system, select **Other** > **No Operating System**. For more information, see [Bring your own license](#byol).
-6. Add a second 2 TB SATA drive by clicking the **Disk Controller 1** drop-down menu, and selecting **2 TB SATA**. Click **Add Disk**.
-7. Click **Select All Disks** and click **Create RAID storage group**.
-8. Click **Type** and select **RAID 1**. Enter a **Size** that covers the total amount of storage you need.
-9. Leave **LVM** unchecked and accept the default **Partition Template**, **Linux Basic**.
-10. Click **Done**.
+1. Select **CPU Model BI.S3.NW32 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#using-console).
+2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
+3. Enter an optional public key for your **SSH key**, which you can use to log in to your server after it's provisioned. The default is **None**.
+4. Select **RedHat** as your **Image** (OS). The default is **7.x (64 bit)**.
 
-## Selecting your additional server options
-{: #options_32GB}
+   If you're bringing your own license (BYOL) for your OS, select **No OS**. For more information, see [Bring your own license](#byol).
+   {: note}
 
-1. Select **500 GB** for **Public Bandwidth.**
-2.	Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. Leave the default values for all other fields. For detailed option descriptions, see [Building a custom bare metal server](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options).
-4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
+## Adding storage disks
+{: #adding-storage-disks}
 
-## Setting up Advanced System Configurations
-{: #adv_config}
+1. Under **Type**, select **RAID 10**.
+2. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk size** that covers the total amount of storage you need.
+3. Click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** and leave **Controller** unchecked. Click **OK**.
 
-Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in [Advanced server configuration options](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config) guidelines.
+## Network interface
+{: #network-interface}
 
-1. Scroll down and enter the values in Table 1 under **Advanced System Configuration.**
+1. Select **1 Gbps Redundant Public and Private Network Uplinks** for **Uplink Port Speed**.
+2. Select the values in Table 1 for the following fields:
 
-|              Field               |      Value                                                           |
-| -------------------------------- | -------------------------------------------------------------------- |
-|Backend VLAN                      | Select from the drop-down list, for example, `tor01.bcr01a.1241`     |
-|Subnet                            | Select from the drop-down list, for example, `10.114.63.64/26`       |
-|Frontend VLAN                     | Select from the drop-down list, for example, `tor01.fcr01a.851`      |
-|Subnet                            | Select from the drop-down list, for example, `158.85.65.224/28`      |
-|Provision Scripts                 | Leave blank                                                          |
-|SSH Keys                          | Defaults to `Add`, which means no SSH key                            |
-|Hostname                          | For example, `e2e1270`                                               |
-|Domain                            | For example, `saptest.com`                                           |
-{: caption="Table 1. 32 GB advanced configuration values" caption-side="top"}  
+|              Field               |      Value              |
+| -------------------------------- | ------------------------|
+| Private VLAN                     | `tor01.bcr01a.1241`     |
+| Public VLAN                      | `tor01.fcr01a.851`      |
+| Private Subnet                   | `10.114.63.64/26`       |
+| Public Subnet                    | `158.85.65.224/28`      |
+{: caption="Table 1. 32 GB network interface values" caption-side="top"}  
 
-## Confirming your selections
-{: #confirm_selections}
+3. Leave the default values for all other fields.
+4. Review your Order Summary.
+5. Click **I read and agree to the following Third-Party Service Agreements**.
 
-1. Confirm your selections on the Checkout page, and click **Cloud Service terms** and **3rd Party Software Agreement** on the right-hand side of the page.
-2. Click **Submit Order** on the right-hand side of the form. You are redirected to a page with your order number; you can print the page because it's also your order receipt. In addition, you receive a confirmation email with the subject *Your IBM Cloud Order ## has been approved* with ## being your order number.
+   You can create your server, save the order as a quote to provision at a later time, or add the order to an estimate, which may include multiple services.
+   {: note}
 
-After the order is submitted, your server is, depending on your order, available for use within one to four hours. You can check the Device Details screen on the main infrastructure customer portal page (**Devices > Device List**) for a status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+6. Click **Create** to be redirected to the Checkout page after your order has been verified.
+
+You are redirected to a page with your order number. You can print the page because it's your order receipt. In addition, you receive a confirmation email with the subject *Your IBM Cloud Order ## has been approved* with ## being your order number.
+
+After the order is submitted, your server is, depending on your order, available for use within one to four hours. You can check the Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon_hamburger.svg) > Resource List > Devices) for a status of the provisioning steps. Click the **Device Name** that matches your device's Hostname and Domain to see its status.
 
 ## Bring your own license
 {: #byol}

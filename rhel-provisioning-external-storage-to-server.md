@@ -2,9 +2,9 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-08-06"
 
-keywords: SAP NetWeaver, database server, deployment
+keywords: SAP NetWeaver, database server, deployment, storage,
 
 subcollection: sap-netweaver-rhel-qrg
 
@@ -13,46 +13,56 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:tip: .tip}
 
 # Adding external storage to your server
 {: #storage}
 
+External storage can be added to your provisioned server, or servers, if you want to use it as a backup device, or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database and online and offline backups for the database. The fastest block storage (10 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started).
+{: shortdesc}
+
+{{site.data.keyword.cloud_notm}} storage LUNS can be provisioned with two options - Endurance and Performance. Endurance tiers feature pre-defined performance levels and other features, such as [snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) and replication. A custom Performance environment is built with allocated input/output operations per second (IOPS) between 100 and 1,000.
+
 ## Setting up external storage
 {: #set_up_storage}
 
-External storage can be added to your provisioned server or servers if you want to use it as a backup device or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database, and online and offline backups for the database. The fastest block storage (4 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started).
-
-
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com/){: new_window} with your unique credentials.
-2. Select **Storage** > **Block Storage.**
-3. Click **Order Block Storage** in the upper right corner of the Block Storage page.
-4. Select the specifics for your storage needs. Table 1 contains recommended values, including 4 IOPS/GB for a typical database workload.
+1. Log in to the [{{site.data.keyword.cloud_notm}} console](https://cloud.ibm.com/){: external} with your unique credentials.
+2. Expand the Menu icon ![Menu icon](../../icons/icon.hamburger.svg) and select *Classic Infrastructure*.
+3. Select *Storage* > *Block Storage* > *Order Block Storage*.
+4. Select the specifics for your storage needs. Table 1 contains recommended values, including 10 IOPS/GB for a demanding database workload.
 
 |              Field               |      Value                                        |
 | -------------------------------- | ------------------------------------------------- |
-|Location                          | TOR01                                             |
+|Location                          | US South, DAL10                                   |
 |Billing Method                    | Monthly (default)                                 |
-|New Storage Size                  | 1000 GB                                           |
-|Storage IOPS Options              | Endurance (Tiered IOPS) (default)                 |
-|Endurance Tiered IOPS             | 10 GB                                             |
-|Snapshot Space Size               | 0 GB                                              |
-|OS Type                           | Defaults to Linux                                 |
+|Size                              | 1000 GB                                           |
+|Endurance (IOPS tiers)            | 10 IOPS/GB                                        |
+|Snapshot space                    | 0 GB                                              |
+|OS Type                           | Linux (default)                                   |
 {: caption="Table 1. Recommended values for block storage" caption-side="top"}
 
-5. Click the two checkboxes, and click **Place Order**.
+5. Review the Order Summary.
+6. Select **I have read and agree to the terms and conditions listed below**.
+7. Click **Create**.
 
-## Authorizing hosts
-{: authorize-host}
+### Authorizing host
+{: #authorizing-hosts-console}
 
-1. Click **Actions** to the right of your LUN, and select **Authorize Host** to access the provisioned storage.
-2. Select **Devices**; the **Device Type** defaults to Bare Metal Server. Click **Hardware**  and select the host names of your devices.
-3. Click the **Submit** button.
-4. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
-5. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
-6. Follow the steps in [Connecting to iSCSI LUNs on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux#connecting-to-mpio-iscsi-luns-on-linux) to make your storage accessible from your provisioned server.
+1. Select **Storage** > **Block Storage**.
+2. Highlight your LUN and expand the Action menu ![Action menu](../../icons/action-menu-icon.svg) and select **Authorize Host**.
+3. Select a **Device Type** of **Bare Metal Server**.
+4. Click **Hardware** to load available devices and select the hostname of your database server.
+5. Click **Save**.
+6. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
+7. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
+
+  Additional provisioning information can be found under [Ordering Block Storage through the Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole).
+  {: tip}  
+
+Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to make your storage accessible from your provisioned server.
 
 ## Making storage multipath
 {: #multipath}
@@ -162,4 +172,4 @@ Adapt the multipath block from `/etc/multipath.conf` to create an alias of the p
         /dev/mapper/datavg-sapmntlv
                       165G   60M  157G   1% /sapmnt
 
-If you install an SAP NetWeaver-based SAP application on {{site.data.keyword.Db2_on_Cloud_long}}, you must create subdirectories under `/backup` owned by the database admin user (`db2SID`) for full backups and archived log files. For automatic archiving of the log files, you should set `LOGMETH1` in your {{site.data.keyword.Db2_on_Cloud_short}} database. Refer to the [{{site.data.keyword.Db2_on_Cloud_short}} documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: new_window} for details.
+If you install an SAP NetWeaver-based SAP application on {{site.data.keyword.Db2_on_Cloud_long}}, you must create subdirectories under `/backup` owned by the database admin user (`db2SID`) for full backups and archived log files. For automatic archiving of the log files, you should set `LOGMETH1` in your {{site.data.keyword.Db2_on_Cloud_short}} database. Refer to the [{{site.data.keyword.Db2_on_Cloud_short}} documentation)](http://www.ibm.com/support/knowledgecenter/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0051344.html){: external} for details.

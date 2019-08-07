@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-07-18"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -13,7 +13,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
@@ -31,5 +31,6 @@ A three-tier environment is a more complex scenario using a 192 GB server as the
 {: caption="Table 1. Provisioning overview" caption-side="top"}
 
 ## Next Steps
+{: #next-steps-install-256GB}
 
 Click appropriate step in Table 1 to begin configuring your {{site.data.keyword.cloud_notm}} SAP-certified infrastructure for a three-tier environment.

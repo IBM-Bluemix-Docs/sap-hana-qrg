@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-08-07"
 
-keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three-tier, SAP certified servers
+keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three tier, SAP certified servers
 
 subcollection: sap-netweaver-rhel-qrg
 
@@ -13,9 +13,10 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
+{:note: .note}
 
 # 1. Ordering 192 GB and 32 GB servers for a three-tier setup
 {: #install_three_tier}
@@ -28,60 +29,71 @@ Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netwea
 ## Ordering your database server
 {: #order-db-server}
 
-1. Log in to the [{{site.data.keyword.cloud_notm}} infrastructure customer portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://control.softlayer.com){: new_window} with your unique credentials.
-2. Click  **Account** > **Place an Order** on the Account Summary page.
-3. Click **Monthly** under **{{site.data.keyword.baremetal_long}}** on the Devices page. The Server List appears; the SAP-Certified Servers are at the top of the list.
-4. Click the hyperlink under **STARTING PRICE PER MONTH** to select server **BI.S3.NW192 (OS Options).**
+Use the following steps to order an SAP-certified server as your database server.
 
-The BI.S3.NW32 (OS Options) server is also available for **Hourly** billing.
-{: note}
+1. Log in to the [{{site.data.keyword.cloud}} console)](https://cloud.ibm.com){: external} with your unique credentials.
+2. Click **Create resource** > **Compute** > **{{site.data.keyword.baremetal_short_sing}}**.
+3. Click **Continue.** If you can't click **Continue**, you don't have the correct permissions to create a server. Check with your system administrator about your permissions.
+4. Leave **1** in the **Quantity** field.
+5. Enter `sdb192` in the **Hostname** field. Hostname is a permanent or temporary name for your servers. Click **Information** for formatting specifics.
+6. Enter 'mycloud.com' in the **Domain** field. Domain is the identification string that defines administrative control within the internet. Click **Information** for formatting specifics.
+7. **Billing** defaults to **Monthly**. At this time, 1-year contract and 3-year contract are not available for SAP-certified servers.
+8. The data centers displayed under **Location** depend on product availability within a particular data center. Select **NA East, TOR01-Toronto**.
+9. Click **All servers** > **SAP certified**.
 
 ## Configuring your database server
 {: #options_192GB}
 
-1. Leave **1** in the **Quantity** field.
-2. Select **TOR01** for **Data Center.**
-3. **Server** defaults to a predefined value based on your server selection and cannot be change changed.
-4. Click **192 GB RAM** even though the **RAM** selection defaults to a predefined value based on your sever selection and cannot be changed.
-5. Click **Redhat** and select **Red Hat Enterprise Linux for SAP Business Application 7.X (64 bit)** as your **Operating System**. **Note**: If you are bringing your own license (BYOL) for your operating system, select **Other** > **No Operating System**. For more information, see [Bring your own license](#byol).
-6. Add a second 2 TB SATA drive by clicking the **Disk Controller 1** drop-down menu, and selecting **2 TB SATA**. Click **Add Disk**.
-7. Click **Select All Disks** and click **Create RAID storage group**.
-8. Click **Type** and select **RAID 1**. Enter a **Size** that covers the total amount of storage you need.
-9. Leave **LVM** unchecked and accept the default **Partition Template.**, **Linux Basic**.
-10. Click **Done**.
+Use the following steps to configure your database server and OS.
 
-## Selecting your additional database server options
-{: #addl-server-options}
+1. Select **CPU Model BI.S3.NW192 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.barmetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#using-console).
+2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
+3. Enter an optional public key for **SSH key**, which you can use to log in to your server after it's provisioned. The default is **None**.
+4. Select **RedHat** as your **Image** (OS). The default is **7.x (64 bit)**.
 
-1. Select **500 GB** for **Public Bandwidth.**
-2. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed.**
-3. For this example, leave the default values for all other fields. You can consult [Building a custom bare metal server](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#addl-server-options) for detailed descriptions of the options.
-4.	Click **Add to Order** at the bottom of the page. You are redirected to the Checkout page after your order is verified.
+  If you're bringing your own license (BYOL) for your OS, select **No OS** as your image. For more information, see [Bring your own license](#byol).
+  {: note}
 
-## Setting up Advanced System Configurations
-{: #adv_config}
+## Adding storage disks
+{: #adding-storage-disks}
 
-1. Use the values in Table 1 for the fields under Advanced System Configuration. More information is available in the [Advanced System Configuration](/docs/bare-metal?topic=bare-metal-ordering-baremetal-server#adv-system-config) guidelines.
+Use the following steps to add a second 2 TB SATA drive to your database server.
 
-|              Field               |      Value                                                           |
-| -------------------------------- | -------------------------------------------------------------------- |
-|Backend VLAN                      | Select from the drop-down list, for example, `tor01.bcr01a.1241`     |
-|Subnet                            | Select from the drop-down list, for example, `10.114.63.64/26`       |
-|Frontend VLAN                     | Select from the drop-down list, for example, `tor01.fcr01a.851`      |
-|Subnet                            | Select from the drop-down list, for example, `158.85.65.224/28`      |
-|Provision Scripts                 | Leave blank                                                          |
-|SSH Keys                          | Defaults to `Add`, which means no SSH key                            |
-|Hostname                          | For example, `sdb192`                                                |
-|Domain                            | For example, `saptest.com`                                           |
-{: caption="Table 1. 192 GB Advanced configuration values" caption-side="top"}  
+1. For **Disk 1**, click the Menu icon ![Menu icon](../../icons/action-menu-icon.svg) > **Advanced configuration** > and verify that  **Primary disk partition** is set to the default of **Windows Basic**. Click **OK**.
+2. Click **Add new**.
+3. **Disks**, **Hot Spare**, and **Disk Media** have default values. Select a **Disk Size** that covers the total amount of storage you need.
 
-## Confirming your selections
-{: #confirm_selections}
+## Setting up the network interface
+{: #network-options}
 
-1. Confirm your selections on the Checkout page, and click **Cloud Service terms** and **3rd Party Software Agreement** on the right-hand side of the page.
-2. Click **Submit Order**. You are redirected to a screen with your order number. You can print the screen, because it is also your order receipt.
+Use the following steps to set up the network interface for your database server.
 
-After the order is submitted, the server is, depending on your order, available for use within one to four hours. You can check the Device Details screen on the main {{site.data.keyword.slportal}} page (**Devices > Device List**) for a status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
+1. Select **1 Gbps Redundant Public & Private Network Uplinks** for **Uplink Port Speed**.
+2. Select the values in Table 1 for the following fields:
+
+  Make sure the network interface values for your database server match those of your application server.
+  {: note}
+
+|              Field               |      Value              |
+| -------------------------------- | ------------------------|
+| Private VLAN                     | `tor01.bcr01a.1241`     |
+| Public VLAN                      | `tor01.fcr01a.851`      |
+| Private Subnet                   | `10.114.63.64/26`       |
+| Public Subnet                    | `158.85.65.224/28`      |
+{: caption="Table 1. 192 GB network interface values" caption-side="top"}
+
+3. Leave the default values for all other fields.
+4. Review your Order Summary.
+5. Select **I read and agree to the following Third-Party Service Agreements**.
+
+  You can create your server, save the order as a quote to provision at a later time, or add the order to an estimate, which may include multiple services.
+  {: note}
+
+6. Click **Create** to be redirected to the Checkout page after your order is verified.
+
+You are redirected to a page with your order number. you can print the page, because it's your receipt. In addition, you receive a confirmation email with the subject _Your {{site.data.keyword.cloud_notm}} Order ## has been approved_ with ## being your order number.
+
+After the order is submitted, the server, depending on your order, is available for use within one to four hours. You can check Device Details from the {{site.data.keyword.cloud_notm}} console (Menu icon ![Menu icon](../../icons/icon-hamburger.svg) > Resource List > Devices) for a status of the provisioning steps. Click the **Device Name** that matches your given Hostname and Domain to see its status.
 
 ## Bring your own license
 {: #byol}

@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-07-18"
 
 keywords: SAP NetWeaver, three-tier
 
@@ -13,12 +13,12 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
-# Getting started tutorial
-{: #getting-started-tutorial}
+# Getting started with SAP NetWeaver Quick Reference Guide for Red Hat Enterprise Linux
+{: #getting-started}
 
 The following guidance provides an introduction for customers who are new to the {{site.data.keyword.cloud}} environment and would prefer a quick start format versus more detailed documentation. Two sample configurations-32 GB single-node server, and three-tier with 192 GB and 32 GB servers-help you through the ordering process to the start of the SAP installation.
 
@@ -32,5 +32,6 @@ Use the following links to begin your SAP NetWeaver on {{site.data.keyword.cloud
   * [Installing SAP applications and software](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape#install_landscape)
 
 ## Next Steps
+{: #next-steps-getting-started}
 
 Use the links to learn how to provision and configure your {{site.data.keyword.cloud_notm}} SAP-certified infrastructure.

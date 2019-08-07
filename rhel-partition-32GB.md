@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-07-18"
 
 keywords: SAP NetWeaver
 
@@ -13,7 +13,7 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
@@ -31,6 +31,7 @@ For the single-node example, you ordered a server with one logical disk (on RAID
 Your {{site.data.keyword.baremetal_long}} is now ready for external storage and the installation of your SAP applications and software.
 
 ## Next Steps
+{: #next-steps-partition-32GB}
 
   * [Adding external storage to your {{site.data.keyword.baremetal_short}}](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
   * [Installing your SAP landscape (applications and software)](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)

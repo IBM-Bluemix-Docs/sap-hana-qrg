@@ -2,7 +2,7 @@
 
 copyright:
 years: 2017, 2019
-lastupdated: "2019-03-01"
+lastupdated: "2019-07-18"
 
 keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
 
@@ -13,18 +13,20 @@ subcollection: sap-netweaver-rhel-qrg
 {:shortdesc: .shortdesc}
 {:codeblock: .codeblock}
 {:screen: .screen}
-{:new_window: target="_blank"}
+{:external: target="_blank" .external}
 {:pre: .pre}
 {:table: .aria-labeledby="caption"}
 
 # Installing your SAP landscape
 {: #install_landscape}
 
-## Installing RPM packages (prerequisite)
+## Prerequisite: Installing RPM packages
 {: #RPM}
 
-An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/software/installations.html)}: new_window (requires an [SAP S-user ID](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started) and [support notes ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/notes){: new_window} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites. There are two more packages that need to be installed:
-* compat-sap-c++: Generally achieves compatibility of the C++ runtime with the compilers that are used by SAP. Because Red Hat Enterprise Linux for SAP Business Application 7.X was seelected as the OS for both the  32 GB application server and the 192 GB database server, you will use `compat-sap-c++-7`.
+An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides)](https://support.sap.com/en/my-support/software-downloads.html){: external}. Click **Access downloads** under **Installations & Upgrades** (requires an [SAP S-user ID](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started). Also refer to the latest [support notes)](https://support.sap.com/en/my-support/knowledge-base.html){: external} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites.
+
+There are two more packages that need to be installed:
+* compat-sap-c++: Generally achieves compatibility of the C++ runtime with the compilers that are used by SAP. Because Red Hat Enterprise Linux for SAP Business Application 7.X was selected as the OS for both the  32 GB application server and the 192 GB database server, you will use `compat-sap-c++-7`.
 * uuidd: Maintains OS support for the creation of UUIDs.
 
 ### Checking if uuidd is installed
@@ -39,7 +41,7 @@ An SAP installation requires certain prerequisites for the packages that are ins
 
 ### Installing package compat-sap-c++-7
 
-1. Follow [SAP Note 2195019 ![External link icon](../icons/launch-glyph.svg "External link icon")](https://launchpad.support.sap.com/#/notes/2195019){: new_window} and install package compat-sap-c++-7 and create a specific soft-link, which is required by the SAP binaries. Check the release-specific SAP Notes for the product you are installing to determine if the library is required or not.
+1. Follow [SAP Note 2195019)](https://launchpad.support.sap.com/#/notes/2195019){: external} and install package `compat-sap-c++-7` and create a specific `soft-link`, which is required by the SAP binaries. Check the release-specific SAP Notes for the product you are installing to determine if the library is required or not.
 ```
 [root@sdb192 ~]# yum install compat-sap-c++-7-7.2.1-2.e17_4.x86_64.rpm
 ....
@@ -50,14 +52,14 @@ An SAP installation requires certain prerequisites for the packages that are ins
 ## Downloading your SAP software
 {: download_software}
 
-Log in to the [SAP Support Portal ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/en/index.html){: new_window}, click **Download Software**, and download the required DVDs to a local share drive. Transfer the files to your provisioned server. Another option is to download the [SAP Software Download Manager ![External link icon](../icons/launch-glyph.svg "External link icon")](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: new_window}, install it on your target server and directly download the DVD images to the server.
+Log in to the [SAP Support Portal)](https://support.sap.com/en/index.html){: external}, click **Download Software**, and download the required DVDs to a local share drive. Transfer the files to your provisioned server. Another option is to download the [SAP Software Download Manager)](https://support.sap.com/en/my-support/software-downloads.html#section_995042677){: external}, install it on your target server and directly download the DVD images to the server.
 
 ## Preparing for SAP's SWPM GUI
 {: #prepare_for_GUI}
 
-Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Consult the [SWPM documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: new_window} if you decide to run the GUI locally.
+Depending on your network bandwidth and latency, you might want to run the SAP Software Provisioning Manager (SWPM) graphical user interface (GUI) remotely in a virtual network computing (VNC) session. Another option is to have the GUI running locally and connect to SWPM on the target machine. Consult the [SWPM documentation)](https://wiki.scn.sap.com/wiki/display/SL/Software+Provisioning+Manager+1.0+and+2.0){: external} if you decide to run the GUI locally.
 
-The following steps outline running the SWPM GUI remotely in a VNC session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation ![External link icon](../icons/launch-glyph.svg "External link icon")](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: new_window} to get an overview on its functions, if you are not familiar with it.
+The following steps outline running the SWPM GUI remotely in a virtual network computing (VNC) session. This option installs a VNC server, which might not be inline with hardening your operating system; ensure that you are meeting your security measures. Refer to [VNC documentation](http://searchnetworking.techtarget.com/definition/virtual-network-computing){: external} for an overview on its functions if you are not familiar with it.
 
 1. Use the following commands to install a VNC server.
 ```
