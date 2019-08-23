@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-23"
 
 keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three tier, SAP certified servers
 
@@ -46,7 +46,7 @@ Use the following steps to order an SAP-certified server as your database server
 
 Use the following steps to configure your database server and OS.
 
-1. Select **CPU Model BI.S3.NW192 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.barmetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#using-console).
+1. Select **CPU Model BI.S3.NW192 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#order-server).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for **SSH key**, which you can use to log in to your server after it's provisioned. The default is **None**.
 4. Select **RedHat** as your **Image** (OS). The default is **7.x (64 bit)**.
@@ -101,6 +101,7 @@ After the order is submitted, the server, depending on your order, is available 
 When you have your own operating system license, you install it on your {{site.data.keyword.baremetal_short}} based on the vendor's instructions. For more information, see [The no OS option](/docs/bare-metal?topic=bare-metal-bm-no-os#bm-no-os).
 
 ## Next Steps
+{: #next-steps-192GB}
 
   [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
