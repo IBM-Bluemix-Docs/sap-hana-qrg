@@ -1,12 +1,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="sap-netweaver-rhel-qrg" audience="compute" href="/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-getting-started-tutorial" path="infrastructure/sap-netweaver-rhel-qrg"}
+{: .toc subcollection="sap-netweaver-rhel-qrg" category="compute" audience="compute" href="/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-getting-started" product-page="https://www.ibm.com/cloud/sap" path="sap-netweaver-rhel-qrg"}
 SAP NetWeaver on IBM Cloud - Quick Reference Guide for Red Hat Enterprise Linux
 
     {: .navgroup id="learn"}
     rhel-index.md
-    [SAP NetWeaver on IBM Cloud](https://cloud.ibm.com/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started)
+    [SAP NetWeaver on IBM Cloud](https://cloud.ibm.com/docs/sap-netweaver?topic=sap-netweaver-getting-started)
     {: .navgroup-end}
 
     {: .navgroup id="howto"}
@@ -37,6 +37,6 @@ SAP NetWeaver on IBM Cloud - Quick Reference Guide for Red Hat Enterprise Linux
 
     {: .topicgroup}
     FAQs
-        [FAQs: SAP on IBM Cloud](/infrastructure/sap-netweaver/sap-netweaver-faqs#faqs)
+        [FAQs: SAP on IBM Cloud](/sap-netweaver/sap-netweaver-faqs)
 
 {: .navgroup-end}

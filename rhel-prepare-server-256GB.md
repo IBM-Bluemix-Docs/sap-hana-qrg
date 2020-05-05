@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-18"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, application server, database server
 
@@ -25,6 +25,6 @@ A public IP is used for remote access, which means that you can connect to your 
 ## Next Steps
 {: #next-steps-prepare-256GB}
 
- [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems#partition-256GB)
+ [3. Partitioning and filesystems](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems#partition-256GB)
 
- [4. Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
+ [4. Preparing your network](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

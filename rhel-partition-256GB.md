@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-18"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -36,4 +36,4 @@ The required directories for installing the SAP software, `/sapmnt`, `/usr/sap`,
 ## Next Steps
 {: #next-steps-partitioning-and-file-systems}
 
-[4. Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
+[4. Preparing your network](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)

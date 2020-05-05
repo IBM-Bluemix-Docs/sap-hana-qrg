@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-08-06"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, database server, deployment, storage,
 
@@ -21,10 +21,10 @@ subcollection: sap-netweaver-rhel-qrg
 # Adding external storage to your server
 {: #storage}
 
-External storage can be added to your provisioned server, or servers, if you want to use it as a backup device, or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database and online and offline backups for the database. The fastest block storage (10 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/infrastructure/BlockStorage?topic=BlockStorage-getting-started#getting-started).
+External storage can be added to your provisioned server, or servers, if you want to use it as a backup device, or use a snapshot to quickly restore your database in a test environment. For the three-tier example, block storage is used for both archiving log files of the database and online and offline backups for the database. The fastest block storage (10 IOPS per GB) was selected to help assure a minimum backup time. Slower block storage might be sufficient for your needs. For more information about {{site.data.keyword.blockstoragefull}}, see [Getting started with Block Storage](/docs/BlockStorage?topic=BlockStorage-getting-started#getting-started).
 {: shortdesc}
 
-{{site.data.keyword.cloud_notm}} storage LUNS can be provisioned with two options - Endurance and Performance. Endurance tiers feature pre-defined performance levels and other features, such as [snapshot](/docs/infrastructure/BlockStorage?topic=BlockStorage-snapshots) and replication. A custom Performance environment is built with allocated input/output operations per second (IOPS) between 100 and 1,000.
+{{site.data.keyword.cloud_notm}} storage LUNS can be provisioned with two options - Endurance and Performance. Endurance tiers feature pre-defined performance levels and other features, such as [snapshot](/docs/BlockStorage?topic=BlockStorage-snapshots) and replication. A custom Performance environment is built with allocated input/output operations per second (IOPS) between 100 and 1,000.
 
 ## Setting up external storage
 {: #set_up_storage}
@@ -59,10 +59,10 @@ External storage can be added to your provisioned server, or servers, if you wan
 6. Check the status of your provisioned storage under **Devices** > (select your device) > **Storage** tab.
 7. Note the **Target Address** and iSCSI Qualified Name (**IQN**) for your server (iSCSI initiator), and the **username** and **password** for authorization with the iSCSI server. You need that information in the following steps.
 
-  Additional provisioning information can be found under [Ordering Block Storage through the Console](/docs/infrastructure/BlockStorage?topic=BlockStorage-orderingthroughConsole).
+  Additional provisioning information can be found under [Ordering Block Storage through the Console](/docs/BlockStorage?topic=BlockStorage-orderingthroughConsole).
   {: tip}  
 
-Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to make your storage accessible from your provisioned server.
+Follow the steps in [Connecting to MPIO iSCSCI LUNS on Microsoft Windows](/docs/BlockStorage?topic=BlockStorage-mountingWindows#mountingWindows) to make your storage accessible from your provisioned server.
 
 ## Making storage multipath
 {: #multipath}
@@ -114,7 +114,7 @@ discovery.sendtargets.auth.password = EtJ79F4RA33dXm2q
 [root@sdb192 ~]# service multipathd start
 ```
 
-7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/infrastructure/BlockStorage?topic=BlockStorage-mountingLinux) so another LUN appears in the multipath output.
+7. Complete all the commands in [Connecting to iSCSI LUNS on Linux](/docs/BlockStorage?topic=BlockStorage-mountingLinux) so another LUN appears in the multipath output.
 ```
 [root@sdb192 ~]# multipath -ll
 …
@@ -129,7 +129,7 @@ size=500G features='3 queue_if_no_path pg_init_retries 50' hwhandler='1 alua' wp
 
 You can now use the multipath device as you would use any disk device. A device path appears under `/dev/mapper/3600a098038303452543f464142755a42`.
 
-Take the sample `/etc/multipath.conf` from the [example `multipath.conf`](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) and create it on your server. Be aware that any copied special characters, DOS-like carriage returns, line-feed entries might lead to unexpected behavior. Make sure that you have an ASCII Unix file after you copy the contents.
+Take the sample `/etc/multipath.conf` from the [example `multipath.conf`](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-sample) and create it on your server. Be aware that any copied special characters, DOS-like carriage returns, line-feed entries might lead to unexpected behavior. Make sure that you have an ASCII Unix file after you copy the contents.
 
 Adapt the multipath block from `/etc/multipath.conf` to create an alias of the path to access the device under `1/dev/mapper/mpath1`.
 

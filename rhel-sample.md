@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-07-18"
+  years: 2018, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, multipath.conf, multipath sample
 

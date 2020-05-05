@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-18"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver
 
@@ -33,5 +33,5 @@ Your {{site.data.keyword.baremetal_long}} is now ready for external storage and 
 ## Next Steps
 {: #next-steps-partition-32GB}
 
-  * [Adding external storage to your {{site.data.keyword.baremetal_short}}](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
-  * [Installing your SAP landscape (applications and software)](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)
+  * [Adding external storage to your {{site.data.keyword.baremetal_short}}](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
+  * [Installing your SAP landscape (applications and software)](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-18"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver
 
@@ -25,4 +25,4 @@ A public IP is used for remote access, which means you can connect to your serve
 ## Next Steps
 {: #next-steps-prepare-32GB}
 
- [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)
+ [3. Partitioning and filesystems](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-partition_32GB)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-07-18"
+  years: 2018, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, application server, database server, three-tier
 
@@ -24,10 +24,10 @@ A three-tier environment is a more complex scenario using a 192 GB server as the
 
 | Step | Task |
 | --- | --- |
-| 1 | [Ordering your 192 GB and 32 GB servers for a three-tier setup](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
-| 2 | [Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
-| 3 | [Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
-| 4 | [Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
+| 1 | [Ordering your 192 GB and 32 GB servers for a three-tier setup](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_three_tier) |
+| 2 | [Preparing your server for your SAP installation](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB) |
+| 3 | [Partitioning and filesystems](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems) |
+| 4 | [Preparing your network](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network) |
 {: caption="Table 1. Provisioning overview" caption-side="top"}
 
 ## Next Steps

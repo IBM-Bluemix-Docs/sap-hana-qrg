@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-29"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, ABAP, ASCS instance, ABAP SAP Central Services, application server, database server, three-tier
 
@@ -22,7 +22,7 @@ subcollection: sap-netweaver-rhel-qrg
 
 If you are planning to install a three-tier setup, the network needs to be set up correctly. In the example, a 192 GB database server (named `sdb192`) and a 32 GB application server (named `e2e1270`) have been deployed. The database server also hosts the (A)SCS instance. Adding the IP addresses on the private network to your `/etc/hosts` helps with the upcoming steps and ensures that SAP internal network traffic goes through the right network.
 
-![Figure 1. Sample of three-tier setup](/images/network_07232019.png "Sample of three-tier setup")
+![Figure 1. Sample of three-tier setup](/images/network_07232020.png "Sample of three-tier setup")
 
 Use the following steps to establish your network.
 
@@ -103,5 +103,5 @@ Your servers are now prepared to host the components of a distributed SAP instal
 ## Next Steps
 {: #next-steps-network}
 
-  * [Adding external storage to your {{site.data.keyword.baremetal_short}}](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
-  * [Installing your SAP landscape (applications and software)](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)
+  * [Adding external storage to your {{site.data.keyword.baremetal_short}}](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-storage)
+  * [Installing your SAP landscape (applications and software)](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_landscape)

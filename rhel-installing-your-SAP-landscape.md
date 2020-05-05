@@ -1,8 +1,8 @@
 ---
 
 copyright:
-years: 2017, 2019
-lastupdated: "2019-07-18"
+years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, ABAP, ASCS Instance, Database Instance, ABAP SAP Central Services, SWPM, application server, database server
 
@@ -23,7 +23,7 @@ subcollection: sap-netweaver-rhel-qrg
 ## Prerequisite: Installing RPM packages
 {: #RPM}
 
-An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides)](https://support.sap.com/en/my-support/software-downloads.html){: external}. Click **Access downloads** under **Installations & Upgrades** (requires an [SAP S-user ID](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-getting-started#getting-started). Also refer to the latest [support notes)](https://support.sap.com/en/my-support/knowledge-base.html){: external} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites.
+An SAP installation requires certain prerequisites for the packages that are installed on the OS and the OS daemons running. Refer to the latest [installation guides)](https://support.sap.com/en/my-support/software-downloads.html){: external}. Click **Access downloads** under **Installations & Upgrades** (requires an [SAP S-user ID](/docs/sap-netweaver?topic=sap-netweaver-getting-started#getting-started). Also refer to the latest [support notes)](https://support.sap.com/en/my-support/knowledge-base.html){: external} (requires an SAP S-user ID) from SAP for an up-to-date list of these prerequisites.
 
 There are two more packages that need to be installed:
 * compat-sap-c++: Generally achieves compatibility of the C++ runtime with the compilers that are used by SAP. Because Red Hat Enterprise Linux for SAP Business Application 7.X was selected as the OS for both the  32 GB application server and the 192 GB database server, you will use `compat-sap-c++-7`.

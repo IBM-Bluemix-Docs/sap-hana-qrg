@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-23"
+  years: 2017, 2020
+lastupdated: "2020-05-05"
 
 keywords: SAP NetWeaver, bring your own license, BYOL, VLAN, application server, database server, three tier, SAP certified servers
 
@@ -24,7 +24,7 @@ subcollection: sap-netweaver-rhel-qrg
 ## Ordering your servers
 {: #order_servers}
 
-Follow the steps in [Ordering your 32 GB server](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) to order the SAP NetWeaver application server. The following steps guide you through ordering the database server.
+Follow the steps in [Ordering your 32 GB server](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-install_32GB#order_32GB) to order the SAP NetWeaver application server. The following steps guide you through ordering the database server.
 
 ## Ordering your database server
 {: #order-db-server}
@@ -46,7 +46,7 @@ Use the following steps to order an SAP-certified server as your database server
 
 Use the following steps to configure your database server and OS.
 
-1. Select **CPU Model BI.S3.NW192 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/infrastructure/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#order-server).
+1. Select **CPU Model BI.S3.NW192 (OS Options)**. For information on how to decipher the server names, see [Provisioning your {{site.data.keyword.baremetal_short}} using the {{site.data.keyword.cloud_notm}} console](/docs/sap-netweaver?topic=sap-netweaver-set_up_infrastructure#order-server).
 2. **RAM** defaults to a predefined value based on your server selection and cannot be changed.
 3. Enter an optional public key for **SSH key**, which you can use to log in to your server after it's provisioned. The default is **None**.
 4. Select **RedHat** as your **Image** (OS). The default is **7.x (64 bit)**.
@@ -103,8 +103,8 @@ When you have your own operating system license, you install it on your {{site.d
 ## Next Steps
 {: #next-steps-192GB}
 
-  [2. Preparing your server for your SAP installation](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
+  [2. Preparing your server for your SAP installation](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-prepare_256GB)
 
-  [3. Partitioning and filesystems](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
+  [3. Partitioning and filesystems](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-3-partitioning-and-file-systems)
 
-  [4. Preparing your network](/docs/infrastructure/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
+  [4. Preparing your network](/docs/sap-netweaver-rhel-qrg?topic=sap-netweaver-rhel-qrg-network#network)
